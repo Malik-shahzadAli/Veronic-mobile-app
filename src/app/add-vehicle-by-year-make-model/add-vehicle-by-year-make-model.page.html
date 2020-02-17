@@ -1,0 +1,36 @@
+<ion-content class="color" >
+  <ion-card class="card">
+    <ion-card-header >
+      <ion-card-title class="textColor">{{ 'Year.title' | translate }}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content >
+      <ion-grid >
+        <ion-row >
+          <ion-col size-md='4' offset-md='4'>
+            <ion-input class="roundedInput input-lg" placeholder="{{ 'Year.year' | translate }}"></ion-input>
+            <ion-input class="roundedInput input-lg" placeholder="{{ 'Year.make' | translate }}"></ion-input>
+            <ion-input class="roundedInput input-lg" placeholder="{{ 'Year.model' | translate }}"></ion-input>
+         
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <div class="ion-text-start" style="float: left;">
+                    <ion-back-button defaultHref="add-vehicle"></ion-back-button>
+                  </div>
+                  <div class="ion-text-end">
+                    <ion-chip class="background" routerLink='/miles-per-day'>
+                      <ion-label class="text">{{ 'Accident.next' | translate }}</ion-label>
+                    </ion-chip>
+                  </div>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+  
+ 
+</ion-content>

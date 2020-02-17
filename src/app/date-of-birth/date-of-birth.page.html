@@ -1,0 +1,31 @@
+<ion-content class="color">
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-card class="card">
+          <ion-card-header>
+            <ion-card-title class="textColor">{{ 'Date-of-birth.title' | translate }}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-datetime placeholder="{{ 'Date-of-birth.DateOfBirth' | translate }}" class="roundedInput"></ion-datetime>
+            <!--  -->
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <div class="ion-text-start" style="float: left;">
+                    <ion-back-button defaultHref="primary-name"></ion-back-button>
+                  </div>
+                  <div class="ion-text-end">
+                    <ion-chip class="background" routerLink='/address'>
+                      <ion-label class="text">{{ 'Date-of-birth.next' | translate }}</ion-label>
+                    </ion-chip>
+                  </div>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

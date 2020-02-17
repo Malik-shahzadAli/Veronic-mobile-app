@@ -1,0 +1,53 @@
+<ion-content class="color">
+  <ion-card class="card" style="margin-top: 15vh;">
+    <ion-card-header>
+      <ion-card-title class="textColor">{{ 'MerriageStatus.title' | translate }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row >
+          <ion-col size-md='4' offset-md='4'>
+            <div class="toggle">
+              <div>
+                <input type="radio" name="marriageStatus" value="single" id='single' />
+                <label for="single">{{ 'MerriageStatus.single' | translate }}</label>
+              </div>
+              <div style="margin-top: 10px;">
+                <input type="radio" name="marriageStatus" value="married" id="married" />
+                <label for="married">{{ 'MerriageStatus.married' | translate }}</label>
+              </div>
+              <div style="margin-top: 10px;">
+                <input type="radio" name="marriageStatus" value="divorced" id="divorced" />
+                <label for="divorced">{{ 'MerriageStatus.divorced' | translate }}</label>
+              </div>
+              <div style="margin-top: 10px;">
+                <input type="radio" name="marriageStatus" value="widowed" id="widowed" />
+                <label for="widowed">{{ 'MerriageStatus.widowed' | translate }}</label>
+              </div>
+              <div style="margin-top: 10px;">
+                <input type="radio" name="marriageStatus" value="other" id="other" />
+                <label for="other">{{ 'MerriageStatus.other' | translate }}</label>
+              </div>
+            </div>
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <div class="ion-text-start" style="float: left;">
+                    <ion-back-button defaultHref="driver-splash"></ion-back-button>
+                  </div>
+                  <div class="ion-text-end">
+                    <ion-chip class="background" routerLink='/driver-education'>
+                      <ion-label class="text">{{ 'MerriageStatus.next' | translate }}</ion-label>
+                    </ion-chip>
+                  </div>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+  
+ 
+</ion-content>

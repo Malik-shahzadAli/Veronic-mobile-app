@@ -1,0 +1,63 @@
+<ion-content class="color">
+  <ion-card class="card">
+    <ion-card-header>
+      <ion-card-title class="textColor">{{ 'DriverSplash.title' | translate }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col size-md='4' offset-md='4'>
+            <div  class="ion-text-start">
+              <p class="textColor">
+                <span>1</span>
+                {{ 'DriverSplash.customer' | translate }}
+              </p>
+            </div>
+            <div class="ion-text-start">
+              <p class="textColor">
+                <span>2</span>
+                {{ 'DriverSplash.drivers' | translate }}
+              </p>
+            </div>
+            <div class="ion-text-start">
+              <p class="textColor">
+                <span>3</span>
+                {{ 'DriverSplash.vehicles' | translate }}
+              </p>
+            </div>
+            <div class="ion-text-start">
+              <p class="textColor">
+                <span>4</span>
+                {{ 'DriverSplash.quote' | translate }}
+              </p>
+            </div>
+            <div class="ion-text-start">
+              <p class="textColor">
+                <span>5</span>
+                {{ 'DriverSplash.purchase' | translate }}
+              </p>
+            </div>
+    
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <div class="ion-text-start" style="float: left;">
+                    <ion-back-button defaultHref="add-another-driver"></ion-back-button>
+                  </div>
+                  <div class="ion-text-end">
+                    <ion-chip class="background" routerLink='/add-vehicle'>
+                      <ion-label class="text">{{ 'DriverSplash.next' | translate }}</ion-label>
+                    </ion-chip>
+                  </div>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+  
+    </ion-card-content>
+  </ion-card>
+  
+ 
+</ion-content>

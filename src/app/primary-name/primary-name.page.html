@@ -1,0 +1,34 @@
+<ion-content class="color">
+  <ion-card class="card">
+    <ion-card-header>
+      <ion-card-title class="textColor">{{ 'PRIMARY-NAME.title' | translate }}</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <ion-grid>
+        <ion-row >
+          <ion-col size-md='4' offset-md='4'>
+            <ion-input class="roundedInput input-lg" placeholder="{{ 'PRIMARY-NAME.firstName' | translate }}"></ion-input>
+            <ion-input class="roundedInput" placeholder="{{ 'PRIMARY-NAME.lastName' | translate }}"></ion-input>
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <div class="ion-text-start" style="float: left;">
+                    <ion-back-button defaultHref="home"></ion-back-button>
+                  </div>
+                  <div class="ion-text-end">
+                    <ion-chip class="background" routerLink='/date-of-birth'>
+                      <ion-label class="text">{{ 'PRIMARY-NAME.next' | translate }}</ion-label>
+                    </ion-chip>
+                  </div>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+  
+ 
+</ion-content>

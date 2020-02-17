@@ -1,0 +1,50 @@
+<ion-content class="color">
+  <ion-card class="card" style="margin-top: 15vh;">
+    <ion-card-header>
+      <ion-card-title class="textColor">{{ 'Education.title' | translate }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row >
+          <ion-col size-md='4' offset-md='4'>
+            <div class="toggle">
+              <div>
+                <input type="radio" name="Education" value="highSchool" id='highSchool' />
+                <label for="highSchool">{{ 'Education.highSchool' | translate }}</label>
+              </div>
+              <div style="margin-top: 10px;">
+                <input type="radio" name="Education" value="associateDegree" id="associateDegree" />
+                <label for="associateDegree">{{ 'Education.associateDegree' | translate }}</label>
+              </div>
+              <div style="margin-top: 10px;">
+                <input type="radio" name="Education" value="bechelor" id="bechelor" />
+                <label for="bechelor">{{ 'Education.bechelor' | translate }}</label>
+              </div>
+              <div style="margin-top: 10px;">
+                <input type="radio" name="Education" value="graduate" id="graduate" />
+                <label for="graduate">{{ 'Education.graduate' | translate }}</label>
+              </div>
+            </div>
+           
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <div class="ion-text-start" style="float: left;">
+                    <ion-back-button defaultHref="marriage-status"></ion-back-button>
+                  </div>
+                  <div class="ion-text-end">
+                    <ion-chip class="background" routerLink='/home-owner'>
+                      <ion-label class="text">{{ 'Education.next' | translate }}</ion-label>
+                    </ion-chip>
+                  </div>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+  
+ 
+</ion-content>

@@ -1,0 +1,150 @@
+{
+    "HOME": {
+        "title": "Cubrirse en minutos",
+        "subTitle":"Ahorre en grande en una excelente cobertura en cinco sencillos pasos",
+        "customerInfo": "Información al cliente",
+        "Drivers": "Conductores",
+        "Vehical": "Vehículos",
+        "Quote": "Citar",
+        "Purchase": "Compra",
+        "getStarted": "Empezar"
+    },
+    "PRIMARY-NAME": {
+        "title": "Para empezar, ¿cómo te llamas?",
+        "next": "siguiente",
+        "firstName": "Nombre de pila",
+        "lastName": "apellido"
+    },
+    "Date-of-birth":{
+        "title": "¿Cuándo naciste?",
+        "next": "siguiente",
+        "DateOfBirth": "Fecha de nacimiento"
+    },
+    "Address": {
+        "title": "¿Su dirección?",
+        "streetAddress": "Dirección",
+        "zipCode": "código postal",
+        "next": "siguiente"
+    },
+    "ContactInfo":{
+        "title":"Detalles de contacto",
+        "email":"Dirección de correo electrónico",
+        "phoneNo":"número de teléfono",
+        "next": "siguiente"
+    },
+    "DriverSplash": {
+        "title": "¡Cúbrete en minutos!",
+        "subTitle":"Ahorre en grande en una gran cobertura en cinco sencillos pasos.",
+        "customer":"Información al cliente",
+        "drivers": "Conductores",
+        "vehicles": "Vehículos",
+        "quote": "Citar",
+        "purchase": "Compra",
+        "next": "siguiente"
+    },
+    "MerriageStatus":{
+        "title":"Cuál es tu estado civil ?",
+        "single": "Soltero",
+        "married": "Casado",
+        "divorced": "Divorciado",
+        "widowed": "Viudo",
+        "other": "Otro",
+        "next": "siguiente"
+    },
+    "Education": {
+        "title": "¿Cuál es el nivel de educación más alto que has completado?",
+        "highSchool":"Preparatoria o GED",
+        "associateDegree":"Grado asociado | Certificación | Diploma",
+        "bechelor":"licenciatura",
+        "graduate":"Licenciatura o titulación profesional",
+        "next": "siguiente"
+    },
+    "HomeOwner": {
+        "title": "¿Eres un propietario?",
+        "yes":"si",
+        "no": "No",
+        "next": "siguiente"
+    },
+    "Accident":{
+        "title":"¿Has tenido algún accidente por culpa en los últimos 5 años?",
+        "yes":"Si",
+        "no": "No",
+        "next": "siguiente"
+    },
+    "AddAnOtherDriver":{
+        "title": "Revisar la información del conductor",
+        "subtitle":"Si hay otros conductores en el hogar, agréguelos a continuación.",
+        "Button":"AÑADIR OTRO CONDUCTOR",
+        "next": "siguiente"
+    },
+    "AddVehical": {
+        "title": "Cuéntanos sobre tu vehículo.",
+        "vin": "Agregar por VIN",
+        "year":"Año | Hacer| Modelo",
+        "next": "siguiente"
+    },
+    "VIN": {
+        "title": "Por favor, introduzca su número de VIN",
+        "next": "siguiente"
+    },
+    "Year":{
+        "title":"Cuéntanos sobre tu vehículo",
+        "year": "Año",
+        "make": "Hacer",
+        "model": "Modelo",
+        "next": "siguiente"
+    },
+    "MilesPerDay":{
+        "title": "¿Cuántas millas recorridas en un día?",
+        "miles": "Millas por día",
+        "next": "siguiente"
+    },
+    "Finance": {
+        "title": "¿Cuál es el estado de propiedad de su vehículo?",
+        "makingPayment": "Actualmente estoy haciendo pagos",
+        "paidOff": "Está pagado",
+        "next": "siguiente"
+    },
+    "AddAnotherVehical": {
+        "title":"Revisar la información del vehículo",
+        "subtitle": "Si hay otros vehículos en el hogar, agréguelos a continuación.",
+        "addAnotherVehicle": "AGREGAR OTRO VEHÍCULO",
+        "getQuote": "OBTENER COTIZACIÓN"
+    },
+    "popup": {
+        "title": "Espera, mientras obtengo los precios más bajos para ti."
+    },
+    "SecoundaryDriverInformation":{
+        "title": "¿Decir el nombre del conductor?",
+        "name": "Nombre"
+    },
+    "SecoundaryDriverDOB":{
+        "title":"Cuando fue",
+        "title2": "¿nacido?"
+    },
+    "relationship":{
+        "title": "Como es",
+        "title2": "¿relacionado contigo?",
+        "child": "Niño",
+        "spouse": "Esposo"
+    },
+    "SecoundaryDriverEducation": {
+        "title":"¿Cuál es el nivel educativo más alto",
+        "title2": "Han completado?",
+        "school": "Preparatoria o GED",
+        "diploma": "Grado asociado | Certificación | Diploma",
+        "degree":"licenciatura",
+        "graduation": "Licenciatura o titulación profesional"
+    },
+    "isEmployed": {
+        "title": "Está empleado",
+        "employ": "Empleado",
+        "other": "Otro"
+    },
+    "accident": {
+        "title": "Tener",
+        "title2": "Ha tenido algún accidente por culpa en los últimos 5 años?",
+        "yes": "si",
+        "no": "No"
+    }
+}

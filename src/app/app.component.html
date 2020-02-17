@@ -1,3 +1,41 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+
+  <ion-header [translucent]="true" style="background: white; opacity:1;">
+    <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-menu-button menu="custom"></ion-menu-button>
+        </ion-buttons>
+        <ion-title>
+          Veronica
+        </ion-title>
+        <ion-list slot="end">
+          <ion-item>
+            <p></p>
+            <ion-select placeholder="Select One" [(ngModel)]="selectedLanguage" (ionChange)="languageChanged()">
+              <ion-select-option value="en">English</ion-select-option>
+              <ion-select-option value="sp">Spanish</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-list>
+      </ion-toolbar>
+    </ion-header>
+  </ion-header>
+
+  <ion-menu side="start" menuId="custom" contentId="main" class="my-custom-menu">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>
+          <ion-img src='https://veronicasinsurance.com/wp-content/uploads/2019/04/VeronicasLogo_Full-color-e1558847884493.png' style="width: 130px; height: 80px;"></ion-img>
+        </ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-item>Chat with Customer Service</ion-item>
+        <ion-item>Get a Quote</ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  <ion-router-outlet id="main"></ion-router-outlet>
 </ion-app>
