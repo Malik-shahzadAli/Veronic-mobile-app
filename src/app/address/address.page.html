@@ -8,8 +8,12 @@
       <ion-grid>
         <ion-row >
           <ion-col size-md='4' offset-md='4'>
-            <ion-input class="roundedInput input-lg" placeholder="{{ 'Address.streetAddress' | translate }}"></ion-input>
-            <ion-input class="roundedInput" placeholder="{{ 'Address.zipCode' | translate }}"></ion-input>
+            <form [formGroup]='driverAddress'>
+              <ion-input class="roundedInput" (input)="validateZipCode($event)" placeholder="{{ 'Address.zipCode' | translate }}" formControlName='zipCode'></ion-input>
+              <div *ngIf="zipCodeError"><p class="text-color-red">* Invalid ZIP </p></div>
+              <ion-input class="roundedInput input-lg" (input)="validateAddress($event)" formControlName='street' placeholder="{{ 'Address.streetAddress' | translate }}"></ion-input>
+              <div *ngIf="addressError"><p class="text-color-red">* Invalid Address</p></div>
+            </form>
             <!--  -->
             <ion-grid>
               <ion-row>
@@ -18,7 +22,7 @@
                     <ion-back-button defaultHref="date-of-birth"></ion-back-button>
                   </div>
                   <div class="ion-text-end">
-                    <ion-chip class="background" routerLink='/contact-info'>
+                    <ion-chip class="background" (click)="getUserAddressNextClick()" routerLink='/contact-info'>
                       <ion-label class="text">{{ 'Address.next' | translate }}</ion-label>
                     </ion-chip>
                   </div>

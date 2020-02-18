@@ -112,7 +112,8 @@
         "getQuote": "OBTENER COTIZACIÓN"
     },
     "popup": {
-        "title": "Espera, mientras obtengo los precios más bajos para ti."
+        "title": "Espera, mientras obtengo los precios más bajos para ti.",
+        "title2": "por favor, espere un momento..."
     },
     "SecoundaryDriverInformation":{
         "title": "¿Decir el nombre del conductor?",

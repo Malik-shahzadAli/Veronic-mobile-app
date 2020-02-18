@@ -8,16 +8,18 @@
       <ion-grid>
         <ion-row >
           <ion-col size-md='4' offset-md='4'>
-            <div class="toggle">
-              <div>
-                <input type="radio" name="Accident" value="accidentYes" id='accidentYes' />
-                <label for="accidentYes">{{ 'relationship.child' | translate }}</label>
-              </div>
-              <div style="margin-top: 10px;">
-                <input type="radio" name="Accident" value="accidentNo" id="accidentNo" />
-                <label for="accidentNo">{{ 'relationship.spouse' | translate }}</label>
-              </div>
-            </div> 
+            <form [formGroup]='relationshipStatus'>
+              <div class="toggle" (change)="changeStatus($event)">
+                <div>
+                  <input type="radio" formControlName="relationship" value="C" id='children' />
+                  <label for="children">{{ 'relationship.child' | translate }}</label>
+                </div>
+                <div style="margin-top: 10px;">
+                  <input type="radio"formControlName="relationship" value='S' id='wife' />
+                  <label for="wife">{{ 'relationship.spouse' | translate }}</label>
+                </div>
+              </div> 
+            </form>
             <ion-grid>
               <ion-row>
                 <ion-col>
@@ -25,7 +27,7 @@
                     <ion-back-button defaultHref="add-another-driver/dob"></ion-back-button>
                   </div>
                   <div class="ion-text-end">
-                    <ion-chip class="background" routerLink='/add-another-driver/education'>
+                    <ion-chip class="background" routerLink='/add-another-driver/education' (click)="getDriverRelationshipNextClick()">
                       <ion-label class="text">{{ 'PRIMARY-NAME.next' | translate }}</ion-label>
                     </ion-chip>
                   </div>

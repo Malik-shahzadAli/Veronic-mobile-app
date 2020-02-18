@@ -7,47 +7,47 @@
       <ion-grid>
         <ion-row >
           <ion-col size-md='4' offset-md='4'>
-            <div class="toggle">
-              <div>
-                <input type="radio" name="marriageStatus" value="single" id='single' />
-                <label for="single">{{ 'MerriageStatus.single' | translate }}</label>
+            <form [formGroup]='genderAndMartialStatus'>
+              <div class="toggle" (change)="changeStatus($event)">
+                <div>
+                  <input type="radio" formControlName="martialStatus" value="S" id='single' />
+                  <label for="single">{{ 'MerriageStatus.single' | translate }}</label>
+                </div>
+                <div style="margin-top: 10px;">
+                  <input type="radio" formControlName="martialStatus" value='M' id='married' />
+                  <label for="married">{{ 'MerriageStatus.married' | translate }}</label>
+                </div>
+                <div style="margin-top: 10px;">
+                  <input type="radio" formControlName="martialStatus" value='D' id='divorced' />
+                  <label for="divorced">{{ 'MerriageStatus.divorced' | translate }}</label>
+                </div>
+                <div style="margin-top: 10px;">
+                  <input type="radio" formControlName="martialStatus" value='W' id='widowed' />
+                  <label for="widowed">{{ 'MerriageStatus.widowed' | translate }}</label>
+                </div>
+                <div style="margin-top: 10px;">
+                  <input type="radio" formControlName="martialStatus" value='E' id='other' />
+                  <label for="other">{{ 'MerriageStatus.other' | translate }}</label>
+                </div>
               </div>
-              <div style="margin-top: 10px;">
-                <input type="radio" name="marriageStatus" value="married" id="married" />
-                <label for="married">{{ 'MerriageStatus.married' | translate }}</label>
-              </div>
-              <div style="margin-top: 10px;">
-                <input type="radio" name="marriageStatus" value="divorced" id="divorced" />
-                <label for="divorced">{{ 'MerriageStatus.divorced' | translate }}</label>
-              </div>
-              <div style="margin-top: 10px;">
-                <input type="radio" name="marriageStatus" value="widowed" id="widowed" />
-                <label for="widowed">{{ 'MerriageStatus.widowed' | translate }}</label>
-              </div>
-              <div style="margin-top: 10px;">
-                <input type="radio" name="marriageStatus" value="other" id="other" />
-                <label for="other">{{ 'MerriageStatus.other' | translate }}</label>
-              </div>
-            </div>
-            <ion-grid>
-              <ion-row>
-                <ion-col>
-                  <div class="ion-text-start" style="float: left;">
-                    <ion-back-button defaultHref="driver-splash"></ion-back-button>
-                  </div>
-                  <div class="ion-text-end">
-                    <ion-chip class="background" routerLink='/driver-education'>
-                      <ion-label class="text">{{ 'MerriageStatus.next' | translate }}</ion-label>
-                    </ion-chip>
-                  </div>
-                </ion-col>
-              </ion-row>
-            </ion-grid>
+              <ion-grid>
+                <ion-row>
+                  <ion-col>
+                    <div class="ion-text-start" style="float: left;">
+                      <ion-back-button defaultHref="driver-splash"></ion-back-button>
+                    </div>
+                    <div class="ion-text-end">
+                      <ion-chip class="background" routerLink='/driver-education' (click)="getUserMaritalStatusNextClick()">
+                        <ion-label class="text">{{ 'MerriageStatus.next' | translate }}</ion-label>
+                      </ion-chip>
+                    </div>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </form>
           </ion-col>
         </ion-row>
       </ion-grid>
     </ion-card-content>
   </ion-card>
-  
- 
 </ion-content>

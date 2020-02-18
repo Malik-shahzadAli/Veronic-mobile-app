@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { JsonCommanObjectService } from 'src/services/json-comman-object.service.service';
 
 @Component({
   selector: 'app-accident-info',
@@ -7,9 +9,47 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AccidentInfoPage implements OnInit {
 
-  constructor() { }
+  public finalObj;
+  public selectedValue;
+  public dropDownSelected = true;
 
+  accidentStatusArray = [
+    {status : 'YES', value : 'Y'},
+    {status: 'NO', value : 'N'}
+  ];
+  accidentAsk = new FormGroup({
+    accidentStatus : new FormControl('')
+  });
+  get accidentStatus() {
+    return this.accidentAsk.get('accidentStatus');
+  }
+  constructor(private obj: JsonCommanObjectService) {
+    this.finalObj = this.obj.customerDetails();
+    console.log('Inside Accident-Info Component : ', this.finalObj);
+  }
+
+   changeStatus(e) {
+    this.selectedValue = e.target.value;
+    console.log(this.selectedValue);
+    this.dropDownSelected = false;
+
+  }
+
+  getUserAccidentInfoStatusNextClick() {
+    const accidentStatus = this.accidentStatus.value;
+    console.log('Accident Info selected value : ', accidentStatus);
+    this.finalObj.customer.customerIncidents.push({isCGuilty: accidentStatus});
+    console.log('getUserAccidentInfoStatusNextClick Function called');
+    console.log(this.finalObj);
+  }
   ngOnInit() {
+    if (this.finalObj.customer.customerIncidents.length > 0) {
+      this.accidentAsk.patchValue({
+        accidentStatus : this.finalObj.customer.customerIncidents[0].isCGuilty,
+      });
+      this.dropDownSelected = false;
+
+    }
   }
 
 }

@@ -8,22 +8,28 @@
       <ion-grid >
         <ion-row >
           <ion-col size-md='4' offset-md='4'>
-            <ion-input class="roundedInput input-lg" placeholder="VIN"></ion-input>
-   
-            <ion-grid>
-              <ion-row>
-                <ion-col>
-                  <div class="ion-text-start" style="float: left;">
-                    <ion-back-button defaultHref="add-vehicle"></ion-back-button>
-                  </div>
-                  <div class="ion-text-end">
-                    <ion-chip class="background" routerLink='/miles-per-day'>
-                      <ion-label class="text">{{ 'Accident.next' | translate }}</ion-label>
-                    </ion-chip>
-                  </div>
-                </ion-col>
-              </ion-row>
-            </ion-grid>
+            <form [formGroup]='vehicleInfo'>
+              <ion-input class="roundedInput input-lg" placeholder="VIN" formControlName='vinNumber' (input)="validateVIN($event)"></ion-input>
+              <div *ngIf="gettingDetailsByVIN"> 
+                <ion-input readonly class="roundedInput input-lg" formControlName='year' ></ion-input>
+                <ion-input readonly class="roundedInput input-lg" formControlName='make' ></ion-input>
+                <ion-input readonly class="roundedInput input-lg" formControlName='model' ></ion-input>
+            </div>
+              <ion-grid>
+                <ion-row>
+                  <ion-col>
+                    <div class="ion-text-start" style="float: left;">
+                      <ion-back-button defaultHref="add-vehicle"></ion-back-button>
+                    </div>
+                    <div class="ion-text-end">
+                      <ion-chip class="background" routerLink='/miles-per-day' (click)="vehicleBasicInfoNextClick()" >
+                        <ion-label class="text">{{ 'Accident.next' | translate }}</ion-label>
+                      </ion-chip>
+                    </div>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </form>
           </ion-col>
         </ion-row>
       </ion-grid>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup,FormControl, Validators } from '@angular/forms';
+import { JsonCommanObjectService } from 'src/services/json-comman-object.service.service';
 
 @Component({
   selector: 'app-is-employed',
@@ -7,8 +9,63 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IsEmployedComponent implements OnInit {
 
-  constructor() { }
+  public singleDriverObj;
+  public dropDownSelected = true;
+  public gettingDriverEmployedStatusFromSingleDriverObj;
+  public driverName;
 
-  ngOnInit() {}
+  public selectedValue;
+  public currentIndex;
+  employmentStatusArray = [{status: 'Employed', value : 'E'},{status : 'Other', value : 'U'}];
+
+  
+  driverIsEmployed = new FormGroup({
+    employmentStatus : new FormControl('',[
+      Validators.required
+    ])
+  })
+
+  get employmentStatus (){ 
+    return this.driverIsEmployed.get('employmentStatus');
+  }
+
+  constructor(private obj : JsonCommanObjectService) {
+    this.singleDriverObj = this.obj.driverObjTemplate;
+    this.gettingDriverEmployedStatusFromSingleDriverObj = this.singleDriverObj.driverData.isDEmployed;
+    this.driverName = this.singleDriverObj.driverData.dName;
+
+    console.log("Inside New driver Employment Component : ",this.singleDriverObj);
+   }
+
+   changeStatus(e) {
+    
+    this.selectedValue = e.target.value;
+    console.log(this.selectedValue);
+    this.dropDownSelected = false;
+
+  }
+    getDriverIsEmployedNextClick(){
+      const driver_employment = this.employmentStatus.value; 
+
+      console.log("New Driver Employment selected value : ", driver_employment);
+      
+      
+
+      this.singleDriverObj.driverData.isDEmployed = driver_employment;
+    
+      console.log("getUserEducationNextClick Function called");
+      console.log(this.singleDriverObj);
+    }
+  ngOnInit() {
+    if(this.singleDriverObj.driverData.isDEmployed){
+
+      this.driverIsEmployed.patchValue({
+        employmentStatus : this.singleDriverObj.driverData.isDEmployed
+      })
+      this.dropDownSelected = false;
+
+    }
+  }
+
 
 }

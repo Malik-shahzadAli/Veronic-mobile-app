@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { JsonCommanObjectService } from 'src/services/json-comman-object.service.service';
 
 @Component({
   selector: 'app-driver-relationship',
@@ -7,8 +9,60 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DriverRelationshipComponent implements OnInit {
 
-  constructor() { }
+  public singleDriverObj;
+  public dropDownSelected = true;
+  public gettingDriverNameFromSingleDriverObj;
 
-  ngOnInit() {}
+
+  public selectedValue;
+
+  relationShipStatusArray = [{status: 'Child', value : 'C'},{status : 'Spouse', value : 'S'}];
+
+
+  relationshipStatus = new FormGroup({
+    relationship : new FormControl('',[
+      Validators.required
+    ])
+  })
+
+  get relationStatus (){ 
+    return this.relationshipStatus.get('relationship');
+  }
+
+  constructor(private obj : JsonCommanObjectService) {
+    this.singleDriverObj = this.obj.driverObjTemplate;
+    this.gettingDriverNameFromSingleDriverObj = this.singleDriverObj.driverData.dName;
+
+    console.log("Inside Driver-relationship Component : ",this.singleDriverObj);
+   }
+
+   
+  changeStatus(e) {
+    
+    this.selectedValue = e.target.value;
+    console.log(this.selectedValue);
+    this.dropDownSelected = false;
+
+  }
+
+  
+  getDriverRelationshipNextClick(){
+    const _relationship = this.relationStatus.value; 
+    this.singleDriverObj.driverData.dRelation = _relationship;
+    
+    console.log("Add another driver Relationship, NEXT on button click");
+    console.log(this.singleDriverObj);
+  }
+
+  ngOnInit() {
+    if(this.singleDriverObj.driverData.dRelation){
+
+      this.relationshipStatus.patchValue({
+        relationship : this.singleDriverObj.driverData.dRelation
+      })
+      this.dropDownSelected = false;
+
+    }
+  }
 
 }

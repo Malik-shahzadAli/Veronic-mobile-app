@@ -7,7 +7,9 @@
             <ion-card-title class="textColor">{{ 'Date-of-birth.title' | translate }}</ion-card-title>
           </ion-card-header>
           <ion-card-content>
-            <ion-datetime placeholder="{{ 'Date-of-birth.DateOfBirth' | translate }}" class="roundedInput"></ion-datetime>
+            <form [formGroup]='dateOfBirth'>
+            <ion-datetime formControlName='dob' placeholder="{{ 'Date-of-birth.DateOfBirth' | translate }}" class="roundedInput"></ion-datetime>
+            </form>
             <!--  -->
             <ion-grid>
               <ion-row>
@@ -16,7 +18,7 @@
                     <ion-back-button defaultHref="primary-name"></ion-back-button>
                   </div>
                   <div class="ion-text-end">
-                    <ion-chip class="background" routerLink='/address'>
+                    <ion-chip class="background" (click)='getUserDobNextClick()' routerLink='/address'>
                       <ion-label class="text">{{ 'Date-of-birth.next' | translate }}</ion-label>
                     </ion-chip>
                   </div>

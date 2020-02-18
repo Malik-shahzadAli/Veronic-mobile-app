@@ -8,10 +8,20 @@
       <ion-grid >
         <ion-row >
           <ion-col size-md='4' offset-md='4'>
-            <ion-input class="roundedInput input-lg" placeholder="{{ 'Year.year' | translate }}"></ion-input>
-            <ion-input class="roundedInput input-lg" placeholder="{{ 'Year.make' | translate }}"></ion-input>
-            <ion-input class="roundedInput input-lg" placeholder="{{ 'Year.model' | translate }}"></ion-input>
-         
+            <form [formGroup]='vehicleInfo'>
+              <ion-select placeholder="Year" class="roundedInput input-lg" (ionChange)="gettingMake($event)" formControlName='year'>
+                <ion-select-option value="" disabled>Year</ion-select-option>
+                <ion-select-option *ngFor="let y of listOfModelyears" [value]="y">{{y}}</ion-select-option>
+              </ion-select>
+              <ion-select placeholder="Year" class="roundedInput input-lg" (ionChange)="gettingModel($event)" formControlName='make'>
+                <ion-select-option value="" disabled>Make</ion-select-option>
+                <ion-select-option *ngFor="let c of listOfVehicleCompanies" [value]="c">{{c}}</ion-select-option>
+              </ion-select>
+              <ion-select placeholder="Year" class="roundedInput input-lg" (ionChange)="chooseVehicle($event)" formControlName='model'>
+                <ion-select-option value="" disabled>Model</ion-select-option>
+                <ion-select-option *ngFor="let m of listOfVehicleModels" [value]="m">{{m}}</ion-select-option>
+              </ion-select>
+            </form>
             <ion-grid>
               <ion-row>
                 <ion-col>

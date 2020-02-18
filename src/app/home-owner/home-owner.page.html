@@ -8,31 +8,33 @@
       <ion-grid>
         <ion-row >
           <ion-col size-md='4' offset-md='4'>
-            <div class="toggle">
-              <div>
-                <input type="radio" name="HomeOwner" value="homeOwnerYes" id='homeOwnerYes' />
-                <label for="homeOwnerYes">{{ 'HomeOwner.yes' | translate }}</label>
+            <form [formGroup]='houseOwner'>
+              <div class="toggle" (change)="changeStatus($event)">
+                <div>
+                  <input type="radio" formControlName="owner" value="O" id='yes-owner' />
+                  <label for="yes-owner">{{ 'HomeOwner.yes' | translate }}</label>
+                </div>
+                <div style="margin-top: 10px;">
+                  <input type="radio" formControlName="owner" value='R' id='rent' />
+                  <label for="rent">{{ 'HomeOwner.no' | translate }}</label>
+                </div>
               </div>
-              <div style="margin-top: 10px;">
-                <input type="radio" name="HomeOwner" value="homeOwnerNo" id="homeOwnerNo" />
-                <label for="homeOwnerNo">{{ 'HomeOwner.no' | translate }}</label>
-              </div>
-            </div>
-          
-            <ion-grid>
-              <ion-row>
-                <ion-col>
-                  <div class="ion-text-start" style="float: left;">
-                    <ion-back-button defaultHref="driver-education"></ion-back-button>
-                  </div>
-                  <div class="ion-text-end">
-                    <ion-chip class="background" routerLink='/accident-info'>
-                      <ion-label class="text">{{ 'HomeOwner.next' | translate }}</ion-label>
-                    </ion-chip>
-                  </div>
-                </ion-col>
-              </ion-row>
-            </ion-grid>
+            
+              <ion-grid>
+                <ion-row>
+                  <ion-col>
+                    <div class="ion-text-start" style="float: left;">
+                      <ion-back-button defaultHref="driver-education"></ion-back-button>
+                    </div>
+                    <div class="ion-text-end">
+                      <ion-chip class="background" routerLink='/accident-info' (click)="getUserHomeOwnerStatusNextClick()">
+                        <ion-label class="text">{{ 'HomeOwner.next' | translate }}</ion-label>
+                      </ion-chip>
+                    </div>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </form>
           </ion-col>
         </ion-row>
       </ion-grid>

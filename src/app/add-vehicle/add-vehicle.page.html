@@ -8,31 +8,33 @@
       <ion-grid >
         <ion-row >
           <ion-col size-md='4' offset-md='4'>
-            <div class="toggle">
-              <div>
-                <input type="radio" name="Accident" value="accidentYes" (click)="link='/add-vehicle-by-vin'" id='accidentYes' [checked]='true' />
-                <label for="accidentYes">{{ 'AddVehical.vin' | translate }}</label>
+            <form [formGroup]='vehicleInfo'>
+              <div class="toggle" (change)="changeStatus($event)">
+                <div>
+                  <input type="radio" formControlName="entryVehicle" value="vin" id='add-by-VIN'  />
+                  <label for="add-by-VIN">{{ 'AddVehical.vin' | translate }}</label>
+                </div>
+                <div style="margin-top: 10px;">
+                  <input type="radio" formControlName="entryVehicle" value='year_make_model' id='add-by-model' />
+                  <label for="add-by-model">{{ 'AddVehical.year' | translate }}</label>
+                </div>
               </div>
-              <div style="margin-top: 10px;">
-                <input type="radio" name="Accident" value="accidentNo" (click)="link='/add-vehicle-by-year-make-model'" id="accidentNo" />
-                <label for="accidentNo">{{ 'AddVehical.year' | translate }}</label>
-              </div>
-            </div>
-             <!--   -->
-            <ion-grid>
-              <ion-row>
-                <ion-col>
-                  <div class="ion-text-start" style="float: left;">
-                    <ion-back-button defaultHref="vehicle-splash"></ion-back-button>
-                  </div>
-                  <div class="ion-text-end">
-                    <ion-chip class="background" [routerLink]="[link]">
-                      <ion-label class="text">{{ 'Accident.next' | translate }}</ion-label>
-                    </ion-chip>
-                  </div>
-                </ion-col>
-              </ion-row>
-            </ion-grid>
+              <!--   -->
+              <ion-grid>
+                <ion-row>
+                  <ion-col>
+                    <div class="ion-text-start" style="float: left;">
+                      <ion-back-button defaultHref="vehicle-splash"></ion-back-button>
+                    </div>
+                    <div class="ion-text-end">
+                      <ion-chip class="background" (click)="vehicleBasicInfoNextClick()" >
+                        <ion-label class="text">{{ 'Accident.next' | translate }}</ion-label>
+                      </ion-chip>
+                    </div>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </form>
           </ion-col>
         </ion-row>
       </ion-grid>

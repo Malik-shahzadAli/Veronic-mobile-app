@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-
+// import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { PrimaryNamePageRoutingModule } from './primary-name-routing.module';
@@ -14,6 +14,7 @@ import { TranslateModule} from '@ngx-translate/core';
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     IonicModule,
     TranslateModule,
     PrimaryNamePageRoutingModule

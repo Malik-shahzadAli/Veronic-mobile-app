@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
+// import { NgxMaskModule } from 'ngx-mask';
 
 import { ContactInfoPageRoutingModule } from './contact-info-routing.module';
 
@@ -14,6 +15,8 @@ import { TranslateModule} from '@ngx-translate/core';
     FormsModule,
     IonicModule,
     TranslateModule,
+    ReactiveFormsModule,
+
     ContactInfoPageRoutingModule
   ],
   declarations: [ContactInfoPage]

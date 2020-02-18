@@ -8,31 +8,33 @@
       <ion-grid >
         <ion-row >
           <ion-col size-md='4' offset-md='4'>
-            <div class="toggle">
-              <div>
-                <input type="radio" name="Accident" value="accidentYes" id='accidentYes' />
-                <label for="accidentYes">{{ 'Accident.yes' | translate }}</label>
+            <form [formGroup]='accidentAsk'>
+              <div class="toggle" (change)="changeStatus($event)">
+                <div>
+                  <input type="radio" formControlName="accidentStatus" value="Y" id='yes-accident' />
+                  <label for="yes-accident">{{ 'Accident.yes' | translate }}</label>
+                </div>
+                <div style="margin-top: 10px;">
+                  <input type="radio" formControlName="accidentStatus" value='N' id='no-accident' />
+                  <label for="no-accident">{{ 'Accident.no' | translate }}</label>
+                </div>
               </div>
-              <div style="margin-top: 10px;">
-                <input type="radio" name="Accident" value="accidentNo" id="accidentNo" />
-                <label for="accidentNo">{{ 'Accident.no' | translate }}</label>
-              </div>
-            </div>
-          
-            <ion-grid>
-              <ion-row>
-                <ion-col>
-                  <div class="ion-text-start" style="float: left;">
-                    <ion-back-button defaultHref="home-owner"></ion-back-button>
-                  </div>
-                  <div class="ion-text-end">
-                    <ion-chip class="background" routerLink='/add-another-driver'>
-                      <ion-label class="text">{{ 'Accident.next' | translate }}</ion-label>
-                    </ion-chip>
-                  </div>
-                </ion-col>
-              </ion-row>
-            </ion-grid>
+            
+              <ion-grid>
+                <ion-row>
+                  <ion-col>
+                    <div class="ion-text-start" style="float: left;">
+                      <ion-back-button defaultHref="home-owner"></ion-back-button>
+                    </div>
+                    <div class="ion-text-end">
+                      <ion-chip class="background" routerLink='/add-another-driver' (click)="getUserAccidentInfoStatusNextClick()">
+                        <ion-label class="text">{{ 'Accident.next' | translate }}</ion-label>
+                      </ion-chip>
+                    </div>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </form>
           </ion-col>
         </ion-row>
       </ion-grid>

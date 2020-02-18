@@ -7,25 +7,26 @@
       <ion-grid>
         <ion-row >
           <ion-col size-md='4' offset-md='4'>
-            <div class="toggle">
-              <div>
-                <input type="radio" name="Education" value="highSchool" id='highSchool' />
-                <label for="highSchool">{{ 'Education.highSchool' | translate }}</label>
+            <form [formGroup]='driverEducation'>
+              <div class="toggle" (change)="changeStatus($event)">
+                <div>
+                  <input type="radio" formControlName="education" value="H" id='school' />
+                  <label for="school">{{ 'Education.highSchool' | translate }}</label>
+                </div>
+                <div style="margin-top: 10px;">
+                  <input type="radio" formControlName="education" value='A' id='diploma' />
+                  <label for="diploma">{{ 'Education.associateDegree' | translate }}</label>
+                </div>
+                <div style="margin-top: 10px;">
+                  <input type="radio" formControlName="education" value='B' id='degree' />
+                  <label for="degree">{{ 'Education.bechelor' | translate }}</label>
+                </div>
+                <div style="margin-top: 10px;">
+                  <input type="radio" formControlName="education" value='S' id='professional' />
+                  <label for="professional">{{ 'Education.graduate' | translate }}</label>
+                </div>
               </div>
-              <div style="margin-top: 10px;">
-                <input type="radio" name="Education" value="associateDegree" id="associateDegree" />
-                <label for="associateDegree">{{ 'Education.associateDegree' | translate }}</label>
-              </div>
-              <div style="margin-top: 10px;">
-                <input type="radio" name="Education" value="bechelor" id="bechelor" />
-                <label for="bechelor">{{ 'Education.bechelor' | translate }}</label>
-              </div>
-              <div style="margin-top: 10px;">
-                <input type="radio" name="Education" value="graduate" id="graduate" />
-                <label for="graduate">{{ 'Education.graduate' | translate }}</label>
-              </div>
-            </div>
-           
+          </form>
             <ion-grid>
               <ion-row>
                 <ion-col>
@@ -33,7 +34,7 @@
                     <ion-back-button defaultHref="marriage-status"></ion-back-button>
                   </div>
                   <div class="ion-text-end">
-                    <ion-chip class="background" routerLink='/home-owner'>
+                    <ion-chip class="background" routerLink='/home-owner'(click)="getUserEducationNextClick()">
                       <ion-label class="text">{{ 'Education.next' | translate }}</ion-label>
                     </ion-chip>
                   </div>

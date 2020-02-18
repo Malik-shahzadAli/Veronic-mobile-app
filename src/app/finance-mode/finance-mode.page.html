@@ -8,16 +8,18 @@
       <ion-grid >
         <ion-row >
           <ion-col size-md='4' offset-md='4'>
-            <div class="toggle">
-              <div>
-                <input type="radio" name="Accident" value="accidentYes" id='accidentYes' />
-                <label for="accidentYes">{{ 'Finance.makingPayment' | translate }}</label>
-              </div>
-              <div style="margin-top: 10px;">
-                <input type="radio" name="Accident" value="accidentNo" id="accidentNo" />
-                <label for="accidentNo">{{ 'Finance.paidOff' | translate }}</label>
-              </div>
-            </div> 
+            <form [formGroup]='financeMode'>
+              <div class="toggle">
+                <div>
+                  <input type="radio" formControlName="finance" value="Y" id='accidentYes' />
+                  <label for="accidentYes">{{ 'Finance.makingPayment' | translate }}</label>
+                </div>
+                <div style="margin-top: 10px;">
+                  <input type="radio" formControlName="finance" value='N' id="accidentNo" />
+                  <label for="accidentNo">{{ 'Finance.paidOff' | translate }}</label>
+                </div>
+              </div> 
+            </form>
             <ion-grid>
               <ion-row>
                 <ion-col>
@@ -25,7 +27,7 @@
                     <ion-back-button defaultHref="miles-per-day"></ion-back-button>
                   </div>
                   <div class="ion-text-end">
-                    <ion-chip class="background" routerLink='/add-another-vehicle'>
+                    <ion-chip class="background" routerLink='/add-another-vehicle' (click)="financeModeNextClick()">
                       <ion-label class="text">{{ 'Accident.next' | translate }}</ion-label>
                     </ion-chip>
                   </div>

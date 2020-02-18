@@ -114,7 +114,8 @@
         "getQuote": "GET QUOTE"
     },
     "popup": {
-        "title": "Please hold, while i get lowest prices for you."
+        "title": "Please hold, while i get lowest prices for you.",
+        "title2": "Please wait a moment..."
     },
     "SecoundaryDriverInformation":{
         "title": "Tell name of the driver ?",
