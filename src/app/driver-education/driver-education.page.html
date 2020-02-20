@@ -33,7 +33,12 @@
                   <div class="ion-text-start" style="float: left;">
                     <ion-back-button defaultHref="marriage-status"></ion-back-button>
                   </div>
-                  <div class="ion-text-end">
+                  <div class="ion-text-end" *ngIf='!select'>
+                    <ion-chip class="background" (click)="getErrorTost()">
+                      <ion-label class="text">{{ 'Education.next' | translate }}</ion-label>
+                    </ion-chip>
+                  </div>
+                  <div class="ion-text-end" *ngIf='select'> 
                     <ion-chip class="background" routerLink='/home-owner'(click)="getUserEducationNextClick()">
                       <ion-label class="text">{{ 'Education.next' | translate }}</ion-label>
                     </ion-chip>

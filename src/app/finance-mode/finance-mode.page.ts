@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { JsonCommanObjectService } from 'src/services/json-comman-object.service.service';
-
+import { TranslateService } from '@ngx-translate/core';
+import { ToastController } from '@ionic/angular';
 @Component({
   selector: 'app-finance-mode',
   templateUrl: './finance-mode.page.html',
@@ -11,7 +12,8 @@ export class FinanceModePage implements OnInit {
   public singleCarObj;
   public selectedValue;
   public customerObject;
-
+  public select = false;
+  modelText = '';
   public dropDownSelected = true;
 
   financeStatusArray = [
@@ -33,10 +35,11 @@ export class FinanceModePage implements OnInit {
     this.selectedValue = e.target.value;
     console.log(this.selectedValue);
     this.dropDownSelected = false;
+    this.select = true;
 
   }
 
-  constructor(private obj: JsonCommanObjectService ) {
+  constructor(private obj: JsonCommanObjectService, private translate: TranslateService, private toastController: ToastController ) {
     this.singleCarObj = obj.carObjTemplate;
     this.customerObject = obj.customerDetails();
     console.log('Hold Data : ', this.singleCarObj);
@@ -71,6 +74,17 @@ export class FinanceModePage implements OnInit {
 
   ngOnInit() {
     this.dropDownSelected = true;
+  }
+  async getErrorTost() {
+    this.translate.get('select.dropdown').
+    subscribe((text: string) => {
+      this.modelText = text;
+    });
+    const toast = await this.toastController.create({
+      message: this.modelText,
+      duration: 2000
+    });
+    toast.present();
   }
 
 }

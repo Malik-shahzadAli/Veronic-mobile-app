@@ -8,7 +8,8 @@
           </ion-card-header>
           <ion-card-content>
             <form [formGroup]='dateOfBirth'>
-            <ion-datetime formControlName='dob' placeholder="{{ 'Date-of-birth.DateOfBirth' | translate }}" class="roundedInput"></ion-datetime>
+            <ion-datetime formControlName='dob' (ionChange)="validateDOB($event)" placeholder="{{ 'Date-of-birth.DateOfBirth' | translate }}" class="roundedInput"></ion-datetime>
+            <div *ngIf="dateError"><p class="text-color-red">* {{ 'Date-of-birth.dateError' | translate }}</p></div>
             </form>
             <!--  -->
             <ion-grid>
@@ -17,7 +18,12 @@
                   <div class="ion-text-start" style="float: left;">
                     <ion-back-button defaultHref="primary-name"></ion-back-button>
                   </div>
-                  <div class="ion-text-end">
+                  <div class="ion-text-end" *ngIf="dateError">
+                    <ion-chip class="background" (click)="getErrorTost()">
+                      <ion-label class="text">{{ 'PRIMARY-NAME.next' | translate }}</ion-label>
+                    </ion-chip>
+                  </div>
+                  <div class="ion-text-end" *ngIf="!dateError">
                     <ion-chip class="background" (click)='getUserDobNextClick()' routerLink='/address'>
                       <ion-label class="text">{{ 'Date-of-birth.next' | translate }}</ion-label>
                     </ion-chip>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { JsonCommanObjectService } from 'src/services/json-comman-object.service.service';
+import { ToastController } from '@ionic/angular';
 @Component({
   selector: 'app-primary-name',
   templateUrl: './primary-name.page.html',
@@ -15,7 +16,9 @@ export class PrimaryNamePage implements OnInit {
   public lastNameError = true;
 
   public nextBtnEnableDisable = true;
-  constructor( public translate: TranslateService, private obj: JsonCommanObjectService ) {
+  constructor( public translate: TranslateService,
+               private obj: JsonCommanObjectService,
+               public toastController: ToastController ) {
     this.finalObj = this.obj.customerDetails();
     console.log('Service inside primary  constructor : ', this.finalObj);
    }
@@ -77,5 +80,12 @@ export class PrimaryNamePage implements OnInit {
 
     console.log('Click getUserNameNextClick Function');
     console.log(this.finalObj);
+  }
+  async getErrorTost() {
+    const toast = await this.toastController.create({
+      message: 'Please enter first name and last name !',
+      duration: 2000
+    });
+    toast.present();
   }
 }

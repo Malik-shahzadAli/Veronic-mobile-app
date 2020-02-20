@@ -2,15 +2,17 @@ import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { JsonCommanObjectService } from 'src/services/json-comman-object.service.service';
-
+import { ToastController } from '@ionic/angular';
 @Component({
   selector: 'app-date-of-birth',
   templateUrl: './date-of-birth.page.html',
   styleUrls: ['./date-of-birth.page.scss'],
 })
 export class DateOfBirthPage implements OnInit {
-
-  constructor(public translate: TranslateService, private obj: JsonCommanObjectService) {
+  dateError = true;
+  constructor(public translate: TranslateService,
+              private obj: JsonCommanObjectService,
+              public toastController: ToastController) {
     this.finalObj = this.obj.customerDetails();
     console.log('Inside Data-Of-Birth Constructor : ', this.finalObj);
 
@@ -43,6 +45,20 @@ export class DateOfBirthPage implements OnInit {
     // this.finalObj.customer.customerData.dob = this.userEnterDate; 
     // console.log("Click getUserDOBNextClick Function");
     console.log(this.finalObj);
+  }
+  validateDOB(event) {
+    const userEnteredDOB = event.target.value;
+    if (userEnteredDOB.length > 0) {
+      this.dateError = false;
+    }
+
+  }
+  async getErrorTost() {
+    const toast = await this.toastController.create({
+      message: 'Please enter Date of birth !',
+      duration: 2000
+    });
+    toast.present();
   }
 
 }

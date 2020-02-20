@@ -15,24 +15,30 @@
         "title": "To start, what’s your name?",
         "next": "next",
         "firstName": "First name",
-        "lastName": "Last name"
+        "lastName": "Last name",
+        "error":"Minimum 3 characters are required"
     },
     "Date-of-birth":{
         "title": "When were you born?",
         "next": "next",
-        "DateOfBirth": "Date of birth"
+        "DateOfBirth": "Date of birth",
+        "dateError":"Date of birth is required."
     },
     "Address": {
         "title": "Your Address",
         "streetAddress": "Street Address",
         "zipCode": "Zip Code",
-        "next": "next"
+        "next": "next",
+        "popUpError": "Please enter valid address and zip code."
     },
     "ContactInfo":{
         "title":"Contact Details",
         "email":"Email Address",
         "phoneNo":"Phone Number",
-        "next": "next"
+        "next": "next",
+        "popUpError": "Please enter valid address and phone number.",
+        "email-inavlid": "Invalid Email Address",
+        "phone-inavlid": "Invalid Phone Number"
     },
     "DriverSplash": {
         "title": "Get covered in minutes!",
@@ -99,7 +105,8 @@
     "MilesPerDay":{
         "title": "How many miles driven in a day?",
         "miles": "Miles Per Day",
-        "next": "next"
+        "next": "next",
+        "error": "Please enter the miles !"
     },
     "Finance": {
         "title": "What is the ownership status of your vehicle?",
@@ -115,7 +122,9 @@
     },
     "popup": {
         "title": "Please hold, while i get lowest prices for you.",
-        "title2": "Please wait a moment..."
+        "title2": "Please wait a moment...",
+        "errorTitle": "Erro",
+        "errorSubtitile": "Please try again later !"
     },
     "SecoundaryDriverInformation":{
         "title": "Tell name of the driver ?",
@@ -149,5 +158,15 @@
         "title2": "been in any at-fault accidents in the last 5 years?",
         "yes": "Yes",
         "no": "No"
+    },
+    "Quote": {
+        "title": "Quote id",
+        "no": "Quote no",
+        "month": "month",
+        "call": "Agent contact number",
+        "email":"Quote has been sent to your email address !"
+    },
+    "select": {
+        "dropdown": "Please select one of these options"
     }
 }

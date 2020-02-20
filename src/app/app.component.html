@@ -11,8 +11,9 @@
         </ion-title>
         <ion-list slot="end">
           <ion-item>
-            <p></p>
-            <ion-select placeholder="Select One" [(ngModel)]="selectedLanguage" (ionChange)="languageChanged()">
+            <!-- <ion-label>Language</ion-label> -->
+             <ion-select [(ngModel)]="selectedLanguage" (ionChange)="languageChanged()">
+              <!-- <ion-select-option value="en" disabled>Languages</ion-select-option> -->
               <ion-select-option value="en">English</ion-select-option>
               <ion-select-option value="sp">Spanish</ion-select-option>
             </ion-select>

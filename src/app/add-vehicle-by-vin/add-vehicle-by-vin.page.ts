@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { LoadingController } from '@ionic/angular';
 import { TranslateService } from '@ngx-translate/core';
-
+import { ToastController } from '@ionic/angular';
 @Component({
   selector: 'app-add-vehicle-by-vin',
   templateUrl: './add-vehicle-by-vin.page.html',
@@ -20,6 +20,8 @@ export class AddVehicleByVinPage implements OnInit {
   public gettingDetailsByVIN = false;
   public hasError = false;
   modelText = '';
+  public select = false;
+  modelText2 = '';
 
   public singleCarObj;
 
@@ -28,7 +30,8 @@ export class AddVehicleByVinPage implements OnInit {
               public loadingController: LoadingController,
               private http: HttpClient,
               private router: Router,
-              private translate: TranslateService) {
+              private translate: TranslateService,
+              private toastController: ToastController) {
     this.singleCarObj = obj.carObjTemplate;
    }
 
@@ -75,6 +78,7 @@ export class AddVehicleByVinPage implements OnInit {
           this.isDisabled = false;
           // this.dialog.closeAll();
           this.loadingController.dismiss('login');
+          this.select = true;
           this.vehicleInfo.setValue({
             year : this.receivedVehicleDetailsFromVIN['year'],
             make : this.receivedVehicleDetailsFromVIN['make'],
@@ -153,5 +157,16 @@ export class AddVehicleByVinPage implements OnInit {
     await loading.present();
     const { role, data } = await loading.onDidDismiss();
     console.log('Loading dismissed!');
+  }
+  async getErrorTost() {
+    this.translate.get('VIN.title').
+    subscribe((text: string) => {
+      this.modelText2 = text;
+    });
+    const toast = await this.toastController.create({
+      message: this.modelText2,
+      duration: 2000
+    });
+    toast.present();
   }
 }

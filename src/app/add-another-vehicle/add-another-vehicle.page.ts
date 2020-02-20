@@ -4,6 +4,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 import { JsonCommanObjectService } from 'src/services/json-comman-object.service.service';
 @Component({
   selector: 'app-add-another-vehicle',
@@ -27,7 +28,8 @@ export class AddAnotherVehiclePage implements OnInit {
               private translate: TranslateService,
               private router: Router,
               private obj: JsonCommanObjectService,
-              private http: HttpClient ) {
+              private http: HttpClient,
+              public alertController: AlertController ) {
                 this.finalObjectSendToServer = this.obj.customerDetails();
                 this.existingListOfCars = this.finalObjectSendToServer.cars;
   }
@@ -47,9 +49,6 @@ export class AddAnotherVehiclePage implements OnInit {
     });
     const loading = await this.loadingController.create({
       message: this.modelText,
-      // name: "circular",
-      backdropDismiss: true,
-      // color: 'danger';
       id: 'alert'
     });
     await loading.present();
@@ -64,9 +63,26 @@ export class AddAnotherVehiclePage implements OnInit {
       console.log('Response from the server : ');
       console.log(response);
       this.obj.quotes = response;
-      // this.router.navigate(['/apply/get-a-quote']);
+      this.router.navigate(['/get-a-quote']);
       // this.presentAlert('alert').
       this.loadingController.dismiss('login');
+    },
+    (error) => {
+      this.loadingController.dismiss('login');
     });
+  }
+
+  async errorAlert() {
+    this.translate.get('popup.subTitle').
+    subscribe((text: string) => {
+      this.modelText = text;
+    });
+    const alert = await this.alertController.create({
+      subHeader: 'Error',
+      message: this.modelText,
+      buttons: ['OK']
+    });
+
+    await alert.present();
   }
 }

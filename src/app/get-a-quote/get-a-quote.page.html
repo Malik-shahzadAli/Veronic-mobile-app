@@ -1,0 +1,47 @@
+<ion-content class="color">
+   <ion-card class="card">
+    <ion-card-header>
+      <!-- <ion-card-subtitle class="textColor">{{ 'HOME.subTitle' | translate }}</ion-card-subtitle> -->
+      <ion-card-title class="textColor">{{ 'Quote.title' | translate }}: {{quoteId}} </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col class="col-md-4" *ngFor="let p of price; let i = index">
+            <ion-card class="back">
+              <ion-card-header class="back">
+                <ion-grid>
+                  <ion-row>
+                    <ion-icon name="pricetags-outline" size="large" class="text left"></ion-icon>
+                    <ion-title class="text left">${{p}}</ion-title>
+                </ion-row>
+                </ion-grid>
+              <ion-card-subtitle class="text" text-center>
+                Quote No: {{i+1}}
+              </ion-card-subtitle>
+              </ion-card-header>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-chip color="secondary" (click)='sendEmail()'>
+              <ion-icon name="mail-outline"></ion-icon>
+              <ion-label color="dark">Email Quote</ion-label>
+            </ion-chip>
+          </ion-col>
+          <ion-col>
+            <ion-chip color="secondary" (click)='agentPhone()'>
+              <ion-icon name="call-outline"></ion-icon>
+              <ion-label color="dark">Call Agent</ion-label>
+            </ion-chip>
+          </ion-col>
+        </ion-row>
+    
+      </ion-grid>
+  
+    </ion-card-content>
+  </ion-card>
+  
+ 
+</ion-content>

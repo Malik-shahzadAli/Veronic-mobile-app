@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { JsonCommanObjectService } from 'src/services/json-comman-object.service.service';
 import { HttpClient } from '@angular/common/http';
-
+import { ToastController } from '@ionic/angular';
+import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-address',
   templateUrl: './address.page.html',
@@ -10,7 +11,10 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AddressPage implements OnInit {
 
-  constructor(private obj: JsonCommanObjectService , private http: HttpClient) {
+  constructor(private obj: JsonCommanObjectService,
+              private http: HttpClient,
+              public toastController: ToastController,
+              private translate: TranslateService) {
     this.finalObj = this.obj.customerDetails();
     console.log('Inside address Constructor : ', this.finalObj);
    }
@@ -19,6 +23,7 @@ export class AddressPage implements OnInit {
 
   public addressError = true;
   public zipCodeError = true;
+  modelText = '';
 
   public nextBtnEnableDisabled = true;
   driverAddress = new FormGroup({
@@ -124,6 +129,16 @@ export class AddressPage implements OnInit {
       this.nextBtnEnableDisabled = false;
     }
   }
-
+  async getErrorTost() {
+    this.translate.get('Address.popUpError').
+    subscribe((text: string) => {
+      this.modelText = text;
+    });
+    const toast = await this.toastController.create({
+      message: this.modelText,
+      duration: 2000
+    });
+    toast.present();
+  }
 
 }

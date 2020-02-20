@@ -72,6 +72,10 @@ const routes: Routes = [
     path: 'add-another-vehicle',
     loadChildren: () => import('./add-another-vehicle/add-another-vehicle.module').then( m => m.AddAnotherVehiclePageModule)
   },
+  {
+    path: 'get-a-quote',
+    loadChildren: () => import('./get-a-quote/get-a-quote.module').then( m => m.GetAQuotePageModule)
+  },
 ];
 
 @NgModule({

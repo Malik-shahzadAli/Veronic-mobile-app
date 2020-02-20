@@ -10,7 +10,7 @@
             <form [formGroup]='genderAndMartialStatus'>
               <div class="toggle" (change)="changeStatus($event)">
                 <div>
-                  <input type="radio" formControlName="martialStatus" value="S" id='single' />
+                  <input type="radio"  formControlName="martialStatus" value="S" id='single' />
                   <label for="single">{{ 'MerriageStatus.single' | translate }}</label>
                 </div>
                 <div style="margin-top: 10px;">
@@ -36,7 +36,12 @@
                     <div class="ion-text-start" style="float: left;">
                       <ion-back-button defaultHref="driver-splash"></ion-back-button>
                     </div>
-                    <div class="ion-text-end">
+                    <div class="ion-text-end" *ngIf='!select'>
+                      <ion-chip class="background"  (click)="getErrorTost()">
+                        <ion-label class="text">{{ 'MerriageStatus.next' | translate }}</ion-label>
+                      </ion-chip>
+                    </div>
+                    <div class="ion-text-end"  *ngIf='select'>
                       <ion-chip class="background" routerLink='/driver-education' (click)="getUserMaritalStatusNextClick()">
                         <ion-label class="text">{{ 'MerriageStatus.next' | translate }}</ion-label>
                       </ion-chip>

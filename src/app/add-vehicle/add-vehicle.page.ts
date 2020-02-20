@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { JsonCommanObjectService } from 'src/services/json-comman-object.service.service';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-add-vehicle',
@@ -12,14 +14,18 @@ export class AddVehiclePage implements OnInit {
   public singleCarObj;
   public selectedValue;
   public isDisabled = true;
+  public select = false;
+  modelText = '';
   vehicleInfo = new FormGroup({
     entryVehicle: new FormControl('')
   });
-  constructor(private obj: JsonCommanObjectService, private router: Router) {
+  constructor(private obj: JsonCommanObjectService, private router: Router,
+              private translate: TranslateService, private toastController: ToastController) {
     this.singleCarObj = obj.carObjTemplate;
   }
   changeStatus(e) {
     this.selectedValue = e.target.value;
+    this.select = true;
     console.log(this.selectedValue);
     if (this.selectedValue === 'year_make_model' || this.selectedValue === 'vin') {
       this.isDisabled = false;
@@ -39,5 +45,15 @@ export class AddVehiclePage implements OnInit {
 
   ngOnInit() {
   }
-
+  async getErrorTost() {
+    this.translate.get('select.dropdown').
+    subscribe((text: string) => {
+      this.modelText = text;
+    });
+    const toast = await this.toastController.create({
+      message: this.modelText,
+      duration: 2000
+    });
+    toast.present();
+  }
 }

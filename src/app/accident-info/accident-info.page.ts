@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { JsonCommanObjectService } from 'src/services/json-comman-object.service.service';
-
+import { TranslateService } from '@ngx-translate/core';
+import { ToastController } from '@ionic/angular';
 @Component({
   selector: 'app-accident-info',
   templateUrl: './accident-info.page.html',
@@ -12,6 +13,8 @@ export class AccidentInfoPage implements OnInit {
   public finalObj;
   public selectedValue;
   public dropDownSelected = true;
+  public select = false;
+  modelText = '';
 
   accidentStatusArray = [
     {status : 'YES', value : 'Y'},
@@ -23,7 +26,7 @@ export class AccidentInfoPage implements OnInit {
   get accidentStatus() {
     return this.accidentAsk.get('accidentStatus');
   }
-  constructor(private obj: JsonCommanObjectService) {
+  constructor(private obj: JsonCommanObjectService,  private translate: TranslateService, private toastController: ToastController) {
     this.finalObj = this.obj.customerDetails();
     console.log('Inside Accident-Info Component : ', this.finalObj);
   }
@@ -32,6 +35,7 @@ export class AccidentInfoPage implements OnInit {
     this.selectedValue = e.target.value;
     console.log(this.selectedValue);
     this.dropDownSelected = false;
+    this.select = true;
 
   }
 
@@ -50,6 +54,17 @@ export class AccidentInfoPage implements OnInit {
       this.dropDownSelected = false;
 
     }
+  }
+  async getErrorTost() {
+    this.translate.get('select.dropdown').
+    subscribe((text: string) => {
+      this.modelText = text;
+    });
+    const toast = await this.toastController.create({
+      message: this.modelText,
+      duration: 2000
+    });
+    toast.present();
   }
 
 }

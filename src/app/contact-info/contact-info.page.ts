@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { JsonCommanObjectService } from 'src/services/json-comman-object.service.service';
+import { TranslateService } from '@ngx-translate/core';
+import { ToastController } from '@ionic/angular';
 @Component({
   selector: 'app-contact-info',
   templateUrl: './contact-info.page.html',
@@ -8,7 +10,7 @@ import { JsonCommanObjectService } from 'src/services/json-comman-object.service
 })
 export class ContactInfoPage implements OnInit {
 
-  constructor(private obj: JsonCommanObjectService) {
+  constructor(private obj: JsonCommanObjectService, private translate: TranslateService, private toastController: ToastController ) {
     this.finalObj = this.obj.customerDetails();
    }
   public finalObj;
@@ -18,7 +20,7 @@ export class ContactInfoPage implements OnInit {
   public validPhoneEnableDisabled = true;
 
   public bothValidation = true;
-
+  modelText = '';
   contactInfo = new FormGroup({
     email : new FormControl('', [
       Validators.required
@@ -87,5 +89,16 @@ export class ContactInfoPage implements OnInit {
       return [intlCode, '(', match[2], ') ', match[3], '-', match[4]].join('');
     }
     return null;
+  }
+  async getErrorTost() {
+    this.translate.get('ContactInfo.popUpError').
+    subscribe((text: string) => {
+      this.modelText = text;
+    });
+    const toast = await this.toastController.create({
+      message: this.modelText,
+      duration: 2000
+    });
+    toast.present();
   }
 }

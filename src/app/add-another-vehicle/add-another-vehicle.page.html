@@ -9,11 +9,14 @@
       <ion-grid >
         <ion-row >
           <ion-col size-md='4' offset-md='4'>
-            <ion-card style="background:white;">             
-              <ion-card-content>
-                <ion-icon name="car-sport-outline" style="zoom: 3.0;"></ion-icon>
-              </ion-card-content>
-            </ion-card>
+            <div *ngFor="let c of existingListOfCars">
+              <ion-card style="background:white;">             
+                <ion-card-content>
+                  <ion-icon name="car-sport-outline" style="zoom: 3.0;"></ion-icon>
+                  <P style="text-align: left; color: red;">{{c.make}} | {{c.model}} | {{c.year}}</P>
+                </ion-card-content>
+              </ion-card>
+            </div>
             <ion-button routerLink='/add-vehicle'>{{ 'AddAnotherVehical.addAnotherVehicle' | translate }}</ion-button>
          
             <ion-grid>

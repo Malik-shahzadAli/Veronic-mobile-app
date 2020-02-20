@@ -17,7 +17,12 @@
                   <div class="ion-text-start" style="float: left;">
                     <ion-back-button defaultHref="add-vehicle"></ion-back-button>
                   </div>
-                  <div class="ion-text-end">
+                  <div class="ion-text-end" *ngIf='milesInfo.status === "INVALID"'>
+                    <ion-chip class="background" (click)="getErrorTost()">
+                      <ion-label class="text">{{ 'Education.next' | translate }}</ion-label>
+                    </ion-chip>
+                  </div>
+                  <div class="ion-text-end" *ngIf='milesInfo.status !== "INVALID"'>
                     <ion-chip class="background" routerLink='/finance-mode' (click)="milesPerDayNextClick()" >
                       <ion-label class="text">{{ 'Accident.next' | translate }}</ion-label>
                     </ion-chip>

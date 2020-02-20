@@ -21,7 +21,13 @@
                   <div class="ion-text-start" style="float: left;">
                     <ion-back-button defaultHref="date-of-birth"></ion-back-button>
                   </div>
-                  <div class="ion-text-end">
+                  <div class="ion-text-end" *ngIf="addressError || zipCodeError">
+                    <ion-chip class="background" (click)="getErrorTost()" >
+                      <ion-label class="text">{{ 'Address.next' | translate }}</ion-label>
+                    </ion-chip>
+                  </div>
+                  
+                  <div class="ion-text-end" *ngIf="!addressError && zipCodeError">
                     <ion-chip class="background" (click)="getUserAddressNextClick()" routerLink='/contact-info'>
                       <ion-label class="text">{{ 'Address.next' | translate }}</ion-label>
                     </ion-chip>

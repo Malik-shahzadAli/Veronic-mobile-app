@@ -11,14 +11,14 @@
             <form [formGroup]='contactInfo'>
               <ion-input class="roundedInput input-lg" (keyup)="validateEmail($event)" formControlName='email' placeholder="{{ 'ContactInfo.email' | translate }}"></ion-input>
               <div *ngIf="enableDisabled">
-                <p class="text-color-red">* Invalid Email Address</p>
+                <p class="text-color-red">*{{ 'ContactInfo.email-inavlid' | translate }}</p>
             </div>
               <ion-input 
               mask="(000) 000-0000"
               formControlName='phone'
                (keyup) = "validatePhone($event)" class="roundedInput"  placeholder="{{ 'ContactInfo.phoneNo' | translate }}"></ion-input>
                <div *ngIf="validPhoneEnableDisabled">
-                <p class="text-color-red">* Invalid Phone Number</p>
+                <p class="text-color-red">*{{ 'ContactInfo.phone-inavlid' | translate }}</p>
             </div>
             </form>
             <!--  -->
@@ -28,7 +28,12 @@
                   <div class="ion-text-start" style="float: left;">
                     <ion-back-button defaultHref="address"></ion-back-button>
                   </div>
-                  <div class="ion-text-end">
+                  <div class="ion-text-end"  *ngIf="validPhoneEnableDisabled || enableDisabled">
+                    <ion-chip class="background"  (click)="getErrorTost()">
+                      <ion-label class="text">{{ 'ContactInfo.next' | translate }}</ion-label>
+                    </ion-chip>
+                  </div>
+                  <div class="ion-text-end"  *ngIf="!validPhoneEnableDisabled && !enableDisabled">
                     <ion-chip class="background" routerLink='/driver-splash' (click)="getUserContactInfoNextClick()">
                       <ion-label class="text">{{ 'ContactInfo.next' | translate }}</ion-label>
                     </ion-chip>

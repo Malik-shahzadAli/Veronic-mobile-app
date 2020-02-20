@@ -10,16 +10,21 @@
             <ion-col size-md='4' offset-md='4'>
               <form [formGroup]='primaryName'>
               <ion-input class="roundedInput input-lg" (input)="validateFirstname($event)" formControlName='firstName' placeholder="{{ 'PRIMARY-NAME.firstName' | translate }}"></ion-input>
-              <div *ngIf="firstNameError"><p class="text-color-red">* Minimum 3 characters are required</p></div>
+              <div *ngIf="firstNameError"><p class="text-color-red">* {{ 'PRIMARY-NAME.error' | translate }} </p></div>
               <ion-input class="roundedInput" (input)="validateLastname($event)" formControlName='lastName' placeholder="{{ 'PRIMARY-NAME.lastName' | translate }}"></ion-input>
-              <div *ngIf="lastNameError"><p class="text-color-red">* Minimum 3 characters are required</p></div>
+              <div *ngIf="lastNameError"><p class="text-color-red">* {{ 'PRIMARY-NAME.error' | translate }}</p></div>
               <ion-grid>
                 <ion-row>
                   <ion-col>
                     <div class="ion-text-start" style="float: left;">
                       <ion-back-button defaultHref="home"></ion-back-button>
                     </div>
-                    <div class="ion-text-end">
+                    <div class="ion-text-end" *ngIf="firstNameError || lastNameError">
+                      <ion-chip class="background" (click)="getErrorTost()">
+                        <ion-label class="text">{{ 'PRIMARY-NAME.next' | translate }}</ion-label>
+                      </ion-chip>
+                    </div>
+                    <div class="ion-text-end" *ngIf="!firstNameError && !lastNameError">
                       <ion-chip class="background" (click)="getUserNameNextClick()" routerLink='/date-of-birth'>
                         <ion-label class="text">{{ 'PRIMARY-NAME.next' | translate }}</ion-label>
                       </ion-chip>

@@ -13,24 +13,30 @@
         "title": "Para empezar, ¿cómo te llamas?",
         "next": "siguiente",
         "firstName": "Nombre de pila",
-        "lastName": "apellido"
+        "lastName": "apellido",
+        "error": "Se requieren un mínimo de 3 caracteres."
     },
     "Date-of-birth":{
         "title": "¿Cuándo naciste?",
         "next": "siguiente",
-        "DateOfBirth": "Fecha de nacimiento"
+        "DateOfBirth": "Fecha de nacimiento",
+        "dateError":"Se requiere fecha de nacimiento"
     },
     "Address": {
         "title": "¿Su dirección?",
         "streetAddress": "Dirección",
         "zipCode": "código postal",
-        "next": "siguiente"
+        "next": "siguiente",
+        "popUpError": "Por favor ingrese una dirección válida y código postal."
     },
     "ContactInfo":{
         "title":"Detalles de contacto",
         "email":"Dirección de correo electrónico",
         "phoneNo":"número de teléfono",
-        "next": "siguiente"
+        "next": "siguiente",
+        "popUpError": "Por favor ingrese una dirección válida y número de teléfono.",
+        "email-inavlid": "Dirección de correo electrónico no válida",
+        "phone-inavlid": "Numero de telefono invalido"
     },
     "DriverSplash": {
         "title": "¡Cúbrete en minutos!",
@@ -97,7 +103,8 @@
     "MilesPerDay":{
         "title": "¿Cuántas millas recorridas en un día?",
         "miles": "Millas por día",
-        "next": "siguiente"
+        "next": "siguiente",
+        "erro": "Por favor ingrese las millas !"
     },
     "Finance": {
         "title": "¿Cuál es el estado de propiedad de su vehículo?",
@@ -113,7 +120,9 @@
     },
     "popup": {
         "title": "Espera, mientras obtengo los precios más bajos para ti.",
-        "title2": "por favor, espere un momento..."
+        "title2": "por favor, espere un momento...",
+        "errorTitle": "Error",
+        "errorSubtitle": "Por favor, inténtelo de nuevo más tarde !"
     },
     "SecoundaryDriverInformation":{
         "title": "¿Decir el nombre del conductor?",
@@ -147,5 +156,15 @@
         "title2": "Ha tenido algún accidente por culpa en los últimos 5 años?",
         "yes": "si",
         "no": "No"
+    },
+    "Quote": {
+        "title": "ID de cita",
+        "no": "Cita no",
+        "month": "mes",
+        "call": "Agente contacto no",
+        "email":"La cotización ha sido enviada a su dirección de correo electrónico !"
+    },
+    "select": {
+        "dropdown": "Por favor seleccione una de estas opciones"
     }
 }

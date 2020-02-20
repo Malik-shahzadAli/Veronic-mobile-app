@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { JsonCommanObjectService } from 'src/services/json-comman-object.service.service';
-
+import { ToastController } from '@ionic/angular';
+import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-marriage-status',
   templateUrl: './marriage-status.page.html',
@@ -13,6 +14,8 @@ export class MarriageStatusPage implements OnInit {
   public selectedValue;
   public customerFirstName;
   public dropDownSelected = true;
+  public select = false;
+  modelText = '';
   maritalStatusArray = [
     {status : 'Single', value : 'S'},
     {status: 'Married', value : 'M'},
@@ -30,7 +33,9 @@ export class MarriageStatusPage implements OnInit {
   get maritalStatus() {
     return this.genderAndMartialStatus.get('martialStatus');
   }
-  constructor(private obj: JsonCommanObjectService) {
+  constructor(private obj: JsonCommanObjectService,
+              private toastController: ToastController,
+              private translate: TranslateService) {
     this.finalObj = this.obj.customerDetails();
     console.log('Inside MaritalStatus Component : ', this.finalObj);
     this.customerFirstName = this.finalObj.customer.customerData.firstName;
@@ -39,6 +44,7 @@ export class MarriageStatusPage implements OnInit {
     this.selectedValue = e.target.value;
     console.log(this.selectedValue);
     this.dropDownSelected = false;
+    this.select = true;
   }
 
   getUserMaritalStatusNextClick(){
@@ -57,5 +63,16 @@ export class MarriageStatusPage implements OnInit {
       this.customerFirstName = this.finalObj.customer.customerData.firstName;
       this.dropDownSelected = false;
     }
+  }
+  async getErrorTost() {
+    this.translate.get('select.dropdown').
+    subscribe((text: string) => {
+      this.modelText = text;
+    });
+    const toast = await this.toastController.create({
+      message: this.modelText,
+      duration: 2000
+    });
+    toast.present();
   }
 }

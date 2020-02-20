@@ -4,6 +4,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { JsonCommanObjectService } from 'src/services/json-comman-object.service.service';
 // import * as jquery from 'jquery';
+import { TranslateService } from '@ngx-translate/core';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-add-vehicle-by-year-make-model',
@@ -27,8 +29,11 @@ export class AddVehicleByYearMakeModelPage implements OnInit {
   public userChooseMake;
 
   public nextBtnEnableDisable = true;
+  public select = false;
+  modelText = '';
 
-  constructor(private http: HttpClient, private obj: JsonCommanObjectService) {
+  constructor(private http: HttpClient, private obj: JsonCommanObjectService,
+              private translate: TranslateService, private toastController: ToastController) {
     this.singleCarObj = obj.carObjTemplate;
 
   }
@@ -57,7 +62,6 @@ export class AddVehicleByYearMakeModelPage implements OnInit {
     this.nextBtnEnableDisable = true;
     // this.listOfVehicleCompanies = [''];
     // this.listOfVehicleModels = [''];
-
     this.vehicleInfo.patchValue({
       make : '',
       model : ''
@@ -69,6 +73,7 @@ export class AddVehicleByYearMakeModelPage implements OnInit {
           console.log(response);
           this.listOfVehicleCompanies = response['makes'];
           this.vehicleMakeDisabled = false;
+          
       });
   }
   //GETTING LIST OF MODELS
@@ -94,12 +99,14 @@ export class AddVehicleByYearMakeModelPage implements OnInit {
           console.log(response);
           this.listOfVehicleModels = response['models'];
           this.vehicleModelDisabled = false;
+          
           // this.nextBtnEnableDisable = false;
       });
   }
   // USER CHOOSE VEHICLE
   chooseVehicle(e) {
     this.nextBtnEnableDisable = false;
+    this.select = true;
 
   }
 
@@ -152,6 +159,17 @@ export class AddVehicleByYearMakeModelPage implements OnInit {
           this.vehicleYearDisabled = false;
       });
     }
+  }
+  async getErrorTost() {
+    this.translate.get('select.dropdown').
+    subscribe((text: string) => {
+      this.modelText = text;
+    });
+    const toast = await this.toastController.create({
+      message: this.modelText,
+      duration: 2000
+    });
+    toast.present();
   }
 
 }
