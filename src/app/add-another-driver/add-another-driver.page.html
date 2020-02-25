@@ -32,12 +32,14 @@
               <ion-row>
                 <ion-col>
                   <div class="ion-text-start" style="float: left;">
-                    <ion-back-button defaultHref="accident-info"></ion-back-button>
+                    <ion-button fill="clear"  routerLink='/accident-info' routerDirection="back"> <small>{{ 'PRIMARY-NAME.back' | translate }} </small><ion-icon slot="start" name="arrow-back"></ion-icon> </ion-button>
+                    <!-- <ion-back-button defaultHref="accident-info"></ion-back-button> -->
                   </div>
                   <div class="ion-text-end">
-                    <ion-chip class="background" routerLink='/vehicle-splash'>
+                    <ion-button fill="clear" routerLink='/vehicle-splash'> <small>{{ 'PRIMARY-NAME.next' | translate }} </small> <ion-icon slot="end" name="arrow-forward"></ion-icon></ion-button>
+                    <!-- <ion-chip class="background" routerLink='/vehicle-splash'>
                       <ion-label class="text">{{ 'Accident.next' | translate }}</ion-label>
-                    </ion-chip>
+                    </ion-chip> -->
                   </div>
                 </ion-col>
               </ion-row>

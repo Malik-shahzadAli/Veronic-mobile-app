@@ -34,17 +34,14 @@
                 <ion-row>
                   <ion-col>
                     <div class="ion-text-start" style="float: left;">
-                      <ion-back-button defaultHref="driver-splash"></ion-back-button>
+                      <ion-button fill="clear"  routerLink='/driver-splash' routerDirection="back"> <small>{{ 'PRIMARY-NAME.back' | translate }} </small><ion-icon slot="start" name="arrow-back"></ion-icon> </ion-button>
+                      <!-- <ion-back-button defaultHref="driver-splash"></ion-back-button> -->
                     </div>
                     <div class="ion-text-end" *ngIf='!select'>
-                      <ion-chip class="background"  (click)="getErrorTost()">
-                        <ion-label class="text">{{ 'MerriageStatus.next' | translate }}</ion-label>
-                      </ion-chip>
+                      <ion-button fill="clear" (click)="getErrorTost()"> <small>{{ 'PRIMARY-NAME.next' | translate }}</small> <ion-icon slot="end" name="arrow-forward"></ion-icon></ion-button>
                     </div>
                     <div class="ion-text-end"  *ngIf='select'>
-                      <ion-chip class="background" routerLink='/driver-education' (click)="getUserMaritalStatusNextClick()">
-                        <ion-label class="text">{{ 'MerriageStatus.next' | translate }}</ion-label>
-                      </ion-chip>
+                      <ion-button fill="clear" routerLink='/driver-education' (click)="getUserMaritalStatusNextClick()"> <small>{{ 'PRIMARY-NAME.next' | translate }} </small> <ion-icon slot="end" name="arrow-forward"></ion-icon></ion-button>
                     </div>
                   </ion-col>
                 </ion-row>

@@ -21,6 +21,8 @@ export class DateOfBirthPage implements OnInit {
   private finalObj;
   public userEnterDate;
   public enableDisabled = true;
+  currentYear = new Date().getFullYear();
+  year = this.currentYear - 16;
 
   dateOfBirth = new FormGroup({
     dob : new FormControl('', [

@@ -76,6 +76,10 @@ const routes: Routes = [
     path: 'get-a-quote',
     loadChildren: () => import('./get-a-quote/get-a-quote.module').then( m => m.GetAQuotePageModule)
   },
+  {
+    path: 'first-splash',
+    loadChildren: () => import('./first-splash/first-splash.module').then( m => m.FirstSplashPageModule)
+  },
 ];
 
 @NgModule({

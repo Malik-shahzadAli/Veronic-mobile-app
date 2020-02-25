@@ -10,5 +10,8 @@ export class HomePage {
   constructor() {
     // this.selectedLanguage = this.translateConfigService.getDefaultLanguage();
   }
+  finish() {
+    localStorage.setItem('isIntroDone', 'yes');
+  }
 
 }

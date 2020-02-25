@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { JsonCommanObjectService } from 'src/services/json-comman-object.service.service';
+import { TranslateService } from '@ngx-translate/core';
+import { ToastController } from '@ionic/angular';
+
 @Component({
   selector: 'app-sec-driver-accident-info',
   templateUrl: './sec-driver-accident-info.component.html',
@@ -12,82 +15,84 @@ export class SecDriverAccidentInfoComponent implements OnInit {
   public gettingDriverAccidentInfoFromSingleDriverObj;
   public driverName;
 
+  public select = false;
+  public modelText = '';
+
   public selectedValue;
   public customerObject;
-  accidentArray = [{status :'YES', value : 'Y'},{status: 'NO', value : 'N'}];
-
+  accidentArray = [
+    {status: 'YES', value : 'Y'},
+    {status: 'NO', value : 'N'}
+  ];
   accidentAsk = new FormGroup({
-    accidentStatus : new FormControl('',[
+    accidentStatus : new FormControl('', [
       Validators.required
     ])
-  })
+  });
 
-  get accidentStatus (){ 
+  get accidentStatus() {
     return this.accidentAsk.get('accidentStatus');
   }
 
-  constructor(private obj : JsonCommanObjectService) {
+  constructor(private obj: JsonCommanObjectService,  private toastController: ToastController, private translate: TranslateService) {
     this.singleDriverObj = this.obj.driverObjTemplate;
     this.driverName = this.singleDriverObj.driverData.dName;
 
     this.customerObject = this.obj.customerDetails();
 
-    console.log("Inside (Another driver) Accident-Info Component : ",this.singleDriverObj);
+    console.log('Inside (Another driver) Accident-Info Component : ', this.singleDriverObj);
    }
 
 
   changeStatus(e) {
-    
     this.selectedValue = e.target.value;
     console.log(this.selectedValue);
     this.dropDownSelected = false;
+    this.select = true;
 
   }
 
-  getUserAccidentInfoStatusNextClick(){
-    const accident_status = this.accidentStatus.value; 
+  getUserAccidentInfoStatusNextClick() {
+    const accidentStatus = this.accidentStatus.value;
 
-    console.log("Accident Info selected value : ", accident_status);
+    console.log('Accident Info selected value : ', accidentStatus);
 
-    let info = {
-      "dIncidentType": "507",
-      "dIncidentTime": {
-          "amount": 4,
-          "unit": "yr"
+    const info = {
+      dIncidentType: '507',
+      dIncidentTime: {
+          amount: 4,
+          unit: 'yr'
       },
-      "isDGuilty": accident_status
-  }
-    
+      isDGuilty: accidentStatus
+  };
     this.singleDriverObj.driverIncidents.push(info);
-    console.log("****************");
     this.customerObject.drivers.push(this.singleDriverObj);
-    console.log("Final Object : ");
     console.log(this.customerObject);
 
     this.obj.driverObjTemplate = {
-      "driverData": {
-          "dRelation": "",
-          "dName": "",
-          "dEdu": "",
-          "isDEmployed": "",
-          "dDob": ""
+      driverData: {
+          dRelation: '',
+          dName: '',
+          dEdu: '',
+          isDEmployed: '',
+          dDob: ''
       },
-      "driverIncidents": []
-    }
-
-    // console.log("getUserAccidentInfoStatusNextClick Function called");
-    // console.log(this.singleDriverObj);
+      driverIncidents: []
+    };
   }
 
   ngOnInit() {
     this.dropDownSelected = true;
-
-    // if(this.singleDriverObj.driverIncidents.isDGuilty){
-
-    //   this.accidentAsk.patchValue({
-    //     accidentStatus : this.singleDriverObj.drivers.isDGuilty
-    //   })
-    // }
   }
-
+  async getErrorTost() {
+    this.translate.get('select.dropdown').
+    subscribe((text: string) => {
+      this.modelText = text;
+    });
+    const toast = await this.toastController.create({
+      message: this.modelText,
+      duration: 2000
+    });
+    toast.present();
+  }
 }

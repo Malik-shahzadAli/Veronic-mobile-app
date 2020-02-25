@@ -36,7 +36,12 @@
 }
   .card{
     background-color: white;
-    margin-top: 30vh;
+	margin-top: 30vh;
+	-moz-box-shadow: 0 0 6px #ccc;
+	-webkit-box-shadow: 0 0 6px #ccc;;
+	box-shadow: 0 0 6px #ccc;;
+	width: 90%;
+	margin-left: 5vw;
   }
   .background{
     background:#D70020;
@@ -49,13 +54,25 @@
   }
   .roundedInput {
     border: solid 1px #6c757d;
-    border-radius: 18px;
-    margin-top:5px;
-    padding: 12px;
+    border-radius: 25px;
+	margin-top:7px;
+	margin-left: 0px;
+	padding: 12px;
+	--padding-start:10px;
+
+	
+}
+input{
+	padding-left: 12px;
+	padding-bottom: 12px;
 }
 ion-back-button{
 	--color:  #D70020 !important;
-  }
+}
+ion-button{
+	--color:  #D70020 !important;
+}
+
 
 // Radio Button
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600'); 
@@ -130,4 +147,14 @@ body:not(:-moz-handler-blocked) fieldset {display: table-cell;}
 			display: flex; justify-content: center; align-items: center;
 		}
 	}
+}
+
+ion-button{
+    --padding-start: 3px;
+    --padding-end: 0px;
+	--padding-top: 0px;
+	--margin-start: 0px;
+}
+.error-message{
+	font-size: 12px !important;
 }

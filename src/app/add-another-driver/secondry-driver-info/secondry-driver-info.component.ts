@@ -40,7 +40,7 @@ export class SecondryDriverInfoComponent implements OnInit {
       this.nextBtnEnableDisable = false;
     }
   }
-  getUserNameNextClick(){
+  getUserNameNextClick() {
     const _firstName = this.firstname.value;
     // this.singleDriverObj.drivers.push({driverData : {dName : _firstName}})
     this.singleDriverObj.driverData.dName = _firstName;

@@ -14,7 +14,8 @@
         "next": "siguiente",
         "firstName": "Nombre de pila",
         "lastName": "apellido",
-        "error": "Se requieren un mínimo de 3 caracteres."
+        "error": "Se requieren un mínimo de 3 caracteres.",
+        "back": "ESPALDA"
     },
     "Date-of-birth":{
         "title": "¿Cuándo naciste?",

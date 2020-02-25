@@ -1,55 +1,60 @@
-<ion-content class="color">
-  <ion-card class="card">
-    <ion-card-header>
-      <ion-card-subtitle class="textColor">{{ 'HOME.subTitle' | translate }}</ion-card-subtitle>
-      <ion-card-title class="textColor">{{ 'HOME.title' | translate }}</ion-card-title>
-    </ion-card-header>
-  
-    <ion-card-content>
-      <ion-grid>
-        <ion-row>
-          <ion-col size-md='4' offset-md='4'>
-            <div  class="ion-text-start">
-              <p class="textColor">
-                <span>1</span>
-                {{ 'HOME.customerInfo' | translate }}
-              </p>
+
+
+<ion-content class="background-color">
+  <!-- <div class="background-color"> -->
+  <div style = "height: 20vh;">
+  </div>
+  <ion-slides  >
+    <ion-slide>
+      <div class="slide">
+        <div class="center">
+          <ion-avatar>
+            <div class="image">
+                <ion-img src='https://veronicasinsurance.com/wp-content/uploads/2019/04/VeronicasLogo_Full-color-e1558847884493.png'></ion-img>
             </div>
-            <div class="ion-text-start">
-              <p class="textColor">
-                <span>2</span>
-                {{ 'HOME.Drivers' | translate }}
-              </p>
+          </ion-avatar>
+        </div>
+        <div class="text">
+          <h2>Welcome</h2>
+          <p>The <b>ionic conference app</b> is a practical preview of the ionic framework in action, and a demonstration of proper code use.</p>
+        </div>
+      </div>
+    </ion-slide>
+
+    <ion-slide>
+      <div>
+        <div class="center">
+          <ion-avatar>
+            <div class="image">
+                <ion-img src='https://veronicasinsurance.com/wp-content/uploads/2019/04/VeronicasLogo_Full-color-e1558847884493.png'></ion-img>
             </div>
-            <div class="ion-text-start">
-              <p class="textColor">
-                <span>3</span>
-                {{ 'HOME.Vehical' | translate }}
-              </p>
+          </ion-avatar>
+        </div>
+        <div class="text">
+          <h2>What is Ionic?</h2>
+          <p><b>Ionic Framework</b> is an open source SDK that enables developers to build high quality mobile apps with web technologies like HTML, CSS, and JavaScript.</p>
+        </div>
+        
+      </div>
+    </ion-slide>
+
+    <ion-slide>
+      <div>
+        <div class="center">
+          <ion-avatar>
+            <div class="image">
+                <ion-img src='https://veronicasinsurance.com/wp-content/uploads/2019/04/VeronicasLogo_Full-color-e1558847884493.png'></ion-img>
             </div>
-            <div class="ion-text-start">
-              <p class="textColor">
-                <span>4</span>
-                {{ 'HOME.Quote' | translate }}
-              </p>
-            </div>
-            <div class="ion-text-start">
-              <p class="textColor">
-                <span>5</span>
-                {{ 'HOME.Purchase' | translate }}
-              </p>
-            </div>
-            <div class="ion-text-end">
-              <ion-chip class="background" routerLink='/primary-name'>
-                <ion-label class="text">{{ 'HOME.getStarted' | translate }}</ion-label>
-              </ion-chip>
-            </div>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-  
-    </ion-card-content>
-  </ion-card>
-  
- 
+          </ion-avatar>
+          </div>
+          <div class="text">
+            <h2>Ready to Play?</h2>
+            <ion-button fill="clear" style="color: white;" (click)='finish()' routerLink='/first-splash'>Continue <ion-icon slot="end" name="arrow-forward"></ion-icon></ion-button>
+          </div>
+        
+      </div>
+    </ion-slide>
+
+  </ion-slides>
+<!-- </div> -->
 </ion-content>

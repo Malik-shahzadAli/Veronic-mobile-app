@@ -13,10 +13,11 @@
     },
     "PRIMARY-NAME": {
         "title": "To start, what’s your name?",
-        "next": "next",
+        "next": "NEXT",
         "firstName": "First name",
         "lastName": "Last name",
-        "error":"Minimum 3 characters are required"
+        "error":"Minimum 3 characters are required",
+        "back": "BACK"
     },
     "Date-of-birth":{
         "title": "When were you born?",

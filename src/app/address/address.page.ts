@@ -125,6 +125,7 @@ export class AddressPage implements OnInit {
   enableDisableNextBtn() {
     if (this.addressError || this.zipCodeError) {
       this.nextBtnEnableDisabled = true;
+      this.addressError = true;
     } else {
       this.nextBtnEnableDisabled = false;
     }

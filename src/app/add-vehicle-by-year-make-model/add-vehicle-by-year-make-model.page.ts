@@ -31,6 +31,8 @@ export class AddVehicleByYearMakeModelPage implements OnInit {
   public nextBtnEnableDisable = true;
   public select = false;
   modelText = '';
+  public makeDisable = true;
+  public modelDisable = true;
 
   constructor(private http: HttpClient, private obj: JsonCommanObjectService,
               private translate: TranslateService, private toastController: ToastController) {
@@ -73,7 +75,7 @@ export class AddVehicleByYearMakeModelPage implements OnInit {
           console.log(response);
           this.listOfVehicleCompanies = response['makes'];
           this.vehicleMakeDisabled = false;
-          
+          this.makeDisable = false;
       });
   }
   //GETTING LIST OF MODELS
@@ -99,7 +101,7 @@ export class AddVehicleByYearMakeModelPage implements OnInit {
           console.log(response);
           this.listOfVehicleModels = response['models'];
           this.vehicleModelDisabled = false;
-          
+          this.modelDisable = false;
           // this.nextBtnEnableDisable = false;
       });
   }

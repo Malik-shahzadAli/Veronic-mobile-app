@@ -33,6 +33,7 @@ export class PrimaryNamePage implements OnInit {
     return this.primaryName.get('lastName');
   }
   ngOnInit() {
+    console.log(this.primaryName);
     if (((this.finalObj.customer.customerData.firstName) !== '') &&  ((this.finalObj.customer.customerData.firstName) !== '')) {
 
       this.firstNameError = false;

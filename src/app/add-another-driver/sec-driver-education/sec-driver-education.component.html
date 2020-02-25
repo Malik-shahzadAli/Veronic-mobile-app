@@ -1,7 +1,7 @@
 <ion-content class="color">
   <ion-card class="card" style="margin-top: 15vh;">
     <ion-card-header>
-      <ion-card-title class="textColor">{{ 'SecoundaryDriverEducation.title' | translate }} Ali {{ 'SecoundaryDriverEducation.title2' | translate }}</ion-card-title>
+      <ion-card-title class="textColor">{{ 'SecoundaryDriverEducation.title' | translate }} {{driverName}} {{ 'SecoundaryDriverEducation.title2' | translate }}</ion-card-title>
     </ion-card-header>
     <ion-card-content>
       <ion-grid>
@@ -32,12 +32,22 @@
               <ion-row>
                 <ion-col>
                   <div class="ion-text-start" style="float: left;">
-                    <ion-back-button defaultHref="/add-another-driver/relationship"></ion-back-button>
+                    <ion-button fill="clear"  routerLink='/add-another-driver/relationship' routerDirection="back"> <small>{{ 'PRIMARY-NAME.back' | translate }} </small><ion-icon slot="start" name="arrow-back"></ion-icon> </ion-button>
+                    <!-- <ion-back-button defaultHref="/add-another-driver/relationship"></ion-back-button> -->
                   </div>
-                  <div class="ion-text-end">
-                    <ion-chip class="background" (click)="getUserEducationNextClick()" routerLink='/add-another-driver/is-employed'>
+                  <div class="ion-text-end" *ngIf='!select'>
+                    <ion-button fill="clear" (click)="getErrorTost()"><small>{{ 'PRIMARY-NAME.next' | translate }} </small> <ion-icon slot="end" name="arrow-forward"></ion-icon></ion-button>
+                    <!-- <ion-button (click)="getErrorTost()">{{ 'AddAnotherVehical.addAnotherVehicle' | translate }}</ion-button> -->
+                    <!-- <ion-chip class="background" (click)="getErrorTost()">
+                      <ion-label class="text">{{ 'Education.next' | translate }}</ion-label>
+                    </ion-chip> -->
+                  </div>
+                  <div class="ion-text-end" *ngIf='select'>
+                    <ion-button fill="clear" (click)="getUserEducationNextClick()" routerLink='/add-another-driver/is-employed'><small>{{ 'PRIMARY-NAME.next' | translate }} </small> <ion-icon slot="end" name="arrow-forward"></ion-icon></ion-button>
+                    <!-- <ion-button (click)="getUserEducationNextClick()" routerLink='/add-another-driver/is-employed'>{{ 'AddAnotherVehical.addAnotherVehicle' | translate }}</ion-button> -->
+                    <!-- <ion-chip class="background" (click)="getUserEducationNextClick()" routerLink='/add-another-driver/is-employed'>
                       <ion-label class="text">{{ 'PRIMARY-NAME.next' | translate }}</ion-label>
-                    </ion-chip>
+                    </ion-chip> -->
                   </div>
                 </ion-col>
               </ion-row>

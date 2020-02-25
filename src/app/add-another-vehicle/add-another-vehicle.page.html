@@ -18,17 +18,15 @@
               </ion-card>
             </div>
             <ion-button routerLink='/add-vehicle'>{{ 'AddAnotherVehical.addAnotherVehicle' | translate }}</ion-button>
-         
             <ion-grid>
               <ion-row>
                 <ion-col>
                   <div class="ion-text-start" style="float: left;">
-                    <ion-back-button defaultHref="finance-mode"></ion-back-button>
+                    <ion-button fill="clear"  routerLink='/finance-mode' routerDirection="back"> <small>{{ 'PRIMARY-NAME.back' | translate }} </small><ion-icon slot="start" name="arrow-back"></ion-icon> </ion-button>
+                    <!-- <ion-back-button defaultHref="finance-mode"></ion-back-button> -->
                   </div>
                   <div class="ion-text-end">
-                    <ion-chip class="background" (click)="getQuote()">
-                      <ion-label class="text">{{ 'AddAnotherVehical.getQuote' | translate }}</ion-label>
-                    </ion-chip>
+                    <ion-button fill="clear" (click)="getQuote()"><small>{{ 'AddAnotherVehical.getQuote' | translate }}</small> <ion-icon slot="end" name="arrow-forward"></ion-icon></ion-button>
                   </div>
                 </ion-col>
               </ion-row>

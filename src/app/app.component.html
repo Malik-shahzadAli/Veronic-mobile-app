@@ -7,34 +7,34 @@
           <ion-menu-button menu="custom"></ion-menu-button>
         </ion-buttons>
         <ion-title>
-          Veronica
+          <small>Veronica's Insurance</small>
         </ion-title>
         <ion-list slot="end">
           <ion-item>
-            <!-- <ion-label>Language</ion-label> -->
+            <ion-select interface="popover" [(ngModel)]="selectedLanguage" (ionChange)="languageChanged()">
+              <ion-select-option value="en"> English</ion-select-option>
+              <ion-select-option value="sp"> Spanish</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <!-- <ion-item>
              <ion-select [(ngModel)]="selectedLanguage" (ionChange)="languageChanged()">
-              <!-- <ion-select-option value="en" disabled>Languages</ion-select-option> -->
               <ion-select-option value="en">English</ion-select-option>
               <ion-select-option value="sp">Spanish</ion-select-option>
             </ion-select>
-          </ion-item>
+          </ion-item> -->
         </ion-list>
       </ion-toolbar>
     </ion-header>
   </ion-header>
 
   <ion-menu side="start" menuId="custom" contentId="main" class="my-custom-menu">
-    <ion-header>
-      <ion-toolbar>
-        <ion-title>
-          <ion-img src='https://veronicasinsurance.com/wp-content/uploads/2019/04/VeronicasLogo_Full-color-e1558847884493.png' style="width: 130px; height: 80px;"></ion-img>
-        </ion-title>
-      </ion-toolbar>
+    <ion-header class="background-img" style="height: 20vh;" >
+      <ion-img src='https://veronicasinsurance.com/wp-content/uploads/2019/04/VeronicasLogo_Full-color-e1558847884493.png' class='header-img' ></ion-img>
     </ion-header>
     <ion-content>
       <ion-list>
-        <ion-item>Chat with Customer Service</ion-item>
-        <ion-item>Get a Quote</ion-item>
+        <ion-item><ion-icon slot="start" name="chatbox-ellipses-outline"></ion-icon>Chat</ion-item>
+        <ion-item><ion-icon slot="start" name="pricetags-outline"></ion-icon> Get a Quote</ion-item>
       </ion-list>
     </ion-content>
   </ion-menu>

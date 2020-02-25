@@ -41,12 +41,14 @@
               <ion-row>
                 <ion-col>
                   <div class="ion-text-start" style="float: left;">
-                    <ion-back-button defaultHref="contact-info"></ion-back-button>
+                    <ion-button fill="clear"  routerLink='/contact-info' routerDirection="back"> <small>{{ 'PRIMARY-NAME.back' | translate }} </small><ion-icon slot="start" name="arrow-back"></ion-icon> </ion-button>
+                    <!-- <ion-back-button defaultHref="contact-info"></ion-back-button> -->
                   </div>
                   <div class="ion-text-end">
-                    <ion-chip class="background" routerLink='/marriage-status'>
+                    <ion-button fill="clear"  routerLink='/marriage-status'><small>{{ 'PRIMARY-NAME.next' | translate }} </small> <ion-icon slot="end" name="arrow-forward"></ion-icon></ion-button>
+                    <!-- <ion-chip class="background" routerLink='/marriage-status'>
                       <ion-label class="text">{{ 'DriverSplash.next' | translate }}</ion-label>
-                    </ion-chip>
+                    </ion-chip> -->
                   </div>
                 </ion-col>
               </ion-row>

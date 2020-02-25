@@ -1,7 +1,7 @@
 <ion-content class="color">
   <ion-card class="card">
     <ion-card-header>
-      <ion-card-title class="textColor">{{ 'SecoundaryDriverDOB.title' | translate }} Ali {{ 'SecoundaryDriverDOB.title2' | translate }} </ion-card-title>
+      <ion-card-title class="textColor">{{ 'SecoundaryDriverDOB.title' | translate }} {{driverName}} {{ 'SecoundaryDriverDOB.title2' | translate }} </ion-card-title>
     </ion-card-header>
   
     <ion-card-content>
@@ -9,7 +9,7 @@
         <ion-row >
           <ion-col size-md='4' offset-md='4'>
             <form [formGroup]='dateOfBirth'>
-              <ion-datetime formControlName='dob' class="roundedInput input-lg"></ion-datetime>
+              <ion-datetime formControlName='dob' max='{{year}}' (ionChange)="validateDOB($event)" class="roundedInput input-lg"></ion-datetime>
             </form>
             <!-- <ion-input class="roundedInput input-lg" placeholder="{{ 'PRIMARY-NAME.firstName' | translate }}"></ion-input> -->
             <!-- <ion-input class="roundedInput" placeholder="{{ 'PRIMARY-NAME.lastName' | translate }}"></ion-input> -->
@@ -17,12 +17,21 @@
               <ion-row>
                 <ion-col>
                   <div class="ion-text-start" style="float: left;">
-                    <ion-back-button defaultHref="add-another-driver/secondry-driver-info"></ion-back-button>
+                    <ion-button fill="clear"  routerLink='/add-another-driver/secondry-driver-info' routerDirection="back"> <small>{{ 'PRIMARY-NAME.back' | translate }} </small><ion-icon slot="start" name="arrow-back"></ion-icon> </ion-button>
+                    <!-- <ion-back-button defaultHref="add-another-driver/secondry-driver-info"></ion-back-button> -->
                   </div>
-                  <div class="ion-text-end">
-                    <ion-chip class="background" (click)="getUserDobNextClick()" routerLink='/add-another-driver/relationship' >
+                  <div class="ion-text-end" *ngIf="dateError">
+                    <ion-button fill="clear" (click)="getErrorTost()"><small>{{ 'PRIMARY-NAME.next' | translate }} </small><ion-icon slot="end" name="arrow-forward"></ion-icon></ion-button>
+                    <!-- <ion-chip class="background" (click)="getErrorTost()">
                       <ion-label class="text">{{ 'PRIMARY-NAME.next' | translate }}</ion-label>
-                    </ion-chip>
+                    </ion-chip> -->
+                  </div>
+                  <div class="ion-text-end" *ngIf="!dateError">
+                    <ion-button fill="clear" (click)="getUserDobNextClick()" routerLink='/add-another-driver/relationship'> <small>{{ 'PRIMARY-NAME.next' | translate }} </small><ion-icon slot="end" name="arrow-forward"></ion-icon></ion-button>
+                    <!-- <ion-button (click)="getUserDobNextClick()" routerLink='/add-another-driver/relationship'>{{ 'AddAnotherVehical.addAnotherVehicle' | translate }}</ion-button> -->
+                    <!-- <ion-chip class="background" (click)="getUserDobNextClick()" routerLink='/add-another-driver/relationship' >
+                      <ion-label class="text">{{ 'PRIMARY-NAME.next' | translate }}</ion-label>
+                    </ion-chip> -->
                   </div>
                 </ion-col>
               </ion-row>

@@ -8,25 +8,22 @@
           </ion-card-header>
           <ion-card-content>
             <form [formGroup]='dateOfBirth'>
-            <ion-datetime formControlName='dob' (ionChange)="validateDOB($event)" placeholder="{{ 'Date-of-birth.DateOfBirth' | translate }}" class="roundedInput"></ion-datetime>
-            <div *ngIf="dateError"><p class="text-color-red">* {{ 'Date-of-birth.dateError' | translate }}</p></div>
+            <ion-datetime formControlName='dob' (ionChange)="validateDOB($event)" max='{{year}}' placeholder="{{ 'Date-of-birth.DateOfBirth' | translate }}" class="roundedInput"></ion-datetime>
+            <div *ngIf="dateError && !dateOfBirth.controls.dob.untouched"><p class="text-color-red error-message">* {{ 'Date-of-birth.dateError' | translate }}</p></div>
             </form>
             <!--  -->
             <ion-grid>
               <ion-row>
                 <ion-col>
                   <div class="ion-text-start" style="float: left;">
-                    <ion-back-button defaultHref="primary-name"></ion-back-button>
+                    <ion-button fill="clear"  routerLink='/primary-name' routerDirection="back"> <small>{{ 'PRIMARY-NAME.back' | translate }} </small><ion-icon slot="start" name="arrow-back"></ion-icon> </ion-button>
+                    <!-- <ion-back-button defaultHref="primary-name"></ion-back-button> -->
                   </div>
                   <div class="ion-text-end" *ngIf="dateError">
-                    <ion-chip class="background" (click)="getErrorTost()">
-                      <ion-label class="text">{{ 'PRIMARY-NAME.next' | translate }}</ion-label>
-                    </ion-chip>
+                    <ion-button fill="clear"  (click)="getErrorTost()"><small>{{ 'PRIMARY-NAME.next' | translate }} </small> <ion-icon slot="end" name="arrow-forward"></ion-icon></ion-button>
                   </div>
                   <div class="ion-text-end" *ngIf="!dateError">
-                    <ion-chip class="background" (click)='getUserDobNextClick()' routerLink='/address'>
-                      <ion-label class="text">{{ 'Date-of-birth.next' | translate }}</ion-label>
-                    </ion-chip>
+                    <ion-button fill="clear"  (click)='getUserDobNextClick()' routerLink='/address'><small>{{ 'PRIMARY-NAME.next' | translate }} </small> <ion-icon slot="end" name="arrow-forward"></ion-icon></ion-button>
                   </div>
                 </ion-col>
               </ion-row>

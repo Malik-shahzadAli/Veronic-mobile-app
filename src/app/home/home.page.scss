@@ -29,4 +29,28 @@
 ion-content ion-toolbar {
   --background: translucent;
 }
-
+.image{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 6vh;
+}
+ion-avatar{
+  background: white;
+  // background-image: linear-gradient(to right top, #231719, #531D26, #851F2E, #B81D2F, #EA2027);
+  height: 25vh;
+  width: 25vh;
+  // border: 1px solid;
+}
+.center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.background-color{
+  --ion-background-color: linear-gradient(to right top, #b81d2f,#ffa09a, #da4248,#ac0826,#a50022);
+}
+.text{
+  padding: 2vh;
+  color: white;
+}
