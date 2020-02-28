@@ -8,7 +8,7 @@ export class TranslateConfigService {
 
   constructor(private translate: TranslateService) { }
 
-  getDefaultLanguage(){
+  getDefaultLanguage() {
     const language = this.translate.getBrowserLang();
     this.translate.setDefaultLang(language);
     return language;

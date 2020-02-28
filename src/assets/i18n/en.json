@@ -63,7 +63,7 @@
     "Education": {
         "title": "What’s the highest level of education you’ve completed?",
         "highSchool":"High school or GED",
-        "associateDegree":"Associate degree | Certification | Diploma",
+        "associateDegree":"Associate degree | Certification",
         "bechelor":"Bachelor's degree",
         "graduate":"Graduate or professional degree",
         "next": "next"

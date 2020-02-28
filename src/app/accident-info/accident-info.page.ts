@@ -40,9 +40,9 @@ export class AccidentInfoPage implements OnInit {
   }
 
   getUserAccidentInfoStatusNextClick() {
-    const accidentStatus = this.accidentStatus.value;
-    console.log('Accident Info selected value : ', accidentStatus);
-    this.finalObj.customer.customerIncidents.push({isCGuilty: accidentStatus});
+    // const accidentStatus = this.accidentStatus.value;
+    // console.log('Accident Info selected value : ', accidentStatus);
+    this.finalObj.customer.customerIncidents.push({isCGuilty: this.selectedValue});
     console.log('getUserAccidentInfoStatusNextClick Function called');
     console.log(this.finalObj);
   }

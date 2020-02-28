@@ -46,10 +46,10 @@ export class FinanceModePage implements OnInit {
   }
 
   financeModeNextClick(){
-    console.log('#### SingleCarTemplate', this.singleCarObj);
-    const financeValue  = this.financeStatus.value;
-    console.log('Finance-Value' , financeValue);
-    this.singleCarObj.financeMode = financeValue;
+    // console.log('#### SingleCarTemplate', this.singleCarObj);
+    // const financeValue  = this.financeStatus.value;
+    // console.log('Finance-Value' , financeValue);
+    this.singleCarObj.financeMode = this.selectedValue;
     console.log('INSIDE FINANCE MODE NEXT BTN FUNCTION');
     console.log('Updated Object : ', this.singleCarObj);
 

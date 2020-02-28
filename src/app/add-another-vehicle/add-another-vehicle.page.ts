@@ -33,7 +33,7 @@ export class AddAnotherVehiclePage implements OnInit {
                 this.finalObjectSendToServer = this.obj.customerDetails();
                 this.existingListOfCars = this.finalObjectSendToServer.cars;
   }
-  addAnotherVehicle(){
+  addAnotherVehicle() {
     console.log('Right After emplty Object ', this.finalObjectSendToServer);
     this.router.navigate(['/apply/add-vehicle']);
   }

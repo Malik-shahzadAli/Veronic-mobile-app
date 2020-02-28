@@ -1,17 +1,15 @@
 
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
-
+export class HomePage  {
+  selectedLanguage: string;
   constructor() {
-    // this.selectedLanguage = this.translateConfigService.getDefaultLanguage();
   }
   finish() {
     localStorage.setItem('isIntroDone', 'yes');
   }
-
 }

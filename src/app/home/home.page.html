@@ -4,7 +4,7 @@
   <!-- <div class="background-color"> -->
   <div style = "height: 20vh;">
   </div>
-  <ion-slides  >
+  <ion-slides pager='true'>
     <ion-slide>
       <div class="slide">
         <div class="center">
@@ -49,6 +49,10 @@
           </div>
           <div class="text">
             <h2>Ready to Play?</h2>
+            <!-- <ion-select [(ngModel)]="selectedLanguage" (ionChange)="languageChanged()">
+              <ion-select-option value="en">English</ion-select-option>
+              <ion-select-option value="sp">Spanish</ion-select-option>
+            </ion-select> -->
             <ion-button fill="clear" style="color: white;" (click)='finish()' routerLink='/first-splash'>Continue <ion-icon slot="end" name="arrow-forward"></ion-icon></ion-button>
           </div>
         

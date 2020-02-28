@@ -46,8 +46,8 @@ export class DriverRelationshipComponent implements OnInit {
   }
 
   getDriverRelationshipNextClick() {
-    const _relationship = this.relationStatus.value;
-    this.singleDriverObj.driverData.dRelation = _relationship;
+    // const _relationship = this.relationStatus.value;
+    this.singleDriverObj.driverData.dRelation = this.selectedValue;
     console.log('Add another driver Relationship, NEXT on button click');
     console.log(this.singleDriverObj);
   }

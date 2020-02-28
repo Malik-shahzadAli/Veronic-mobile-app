@@ -51,9 +51,9 @@ export class SecDriverEducationComponent implements OnInit {
   }
 
   getUserEducationNextClick() {
-    const driverEducation = this.educationStatus.value;
-    console.log('New Driver Education selected value : ', driverEducation);
-    this.singleDriverObj.driverData.dEdu = driverEducation;
+    // const driverEducation = this.educationStatus.value;
+    // console.log('New Driver Education selected value : ', driverEducation);
+    this.singleDriverObj.driverData.dEdu = this.selectedValue;
     console.log('getUserEducationNextClick Function called');
     console.log(this.singleDriverObj);
   }

@@ -42,9 +42,9 @@ export class HomeOwnerPage implements OnInit {
   }
 
   getUserHomeOwnerStatusNextClick() {
-    const homeOwnerStatus = this.homeOwnerStatus.value;
-    console.log('HomeOwner selected value : ', homeOwnerStatus);
-    this.finalObj.customer.customerData.homeOwner = homeOwnerStatus;
+    // const homeOwnerStatus = this.homeOwnerStatus.value;
+    // console.log('HomeOwner selected value : ', homeOwnerStatus);
+    this.finalObj.customer.customerData.homeOwner = this.selectedValue;
     console.log('getUserHomeOwnerStatusNextClick Function called');
     console.log(this.finalObj);
   }

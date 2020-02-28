@@ -36,15 +36,15 @@ export class DriverEducationPage implements OnInit {
    }
    changeStatus(e) {
     this.selectedValue = e.target.value;
-    console.log(this.selectedValue);
-    this.dropDownSelected = false;
+    console.log('SELECTED VALUE  ' + this.selectedValue);
+    // this.dropDownSelected = false;
     this.select = true;
 
   }
   getUserEducationNextClick() {
-    const driverEducation = this.educationStatus.value;
-    console.log('Driver Education selected value : ', driverEducation);
-    this.finalObj.customer.customerData.edu = driverEducation;
+    // const driverEducation = this.educationStatus.value;
+    // console.log('Driver Education selected value : ', driverEducation);
+    this.finalObj.customer.customerData.edu = this.selectedValue;
     console.log('getUserEducationNextClick Function calle');
     console.log(this.finalObj);
   }

@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="flex">
+    <ion-card style="align-self: center !important; width:99%;box-shadow:rgba(0, 0, 0, 0.0) 0px 4px 16px;">
+    
+      <ion-row>
+        <div class="cc-selector">
+          <form [formGroup]='languageSelect' (change)="changeStatus($event)">
+            <ion-col size='6' style="margin-left: 10vh;" >
+              <input id="visa" type="radio" formControlName="language" value="en"   />
+              <label class="drinkcard-cc visa" for="visa"></label>
+           
+            </ion-col>
+            <ion-col size='6'>
+         
+              <input id="mastercard" type="radio" formControlName="language" value="sp"/>
+              <label class="drinkcard-cc mastercard"for="mastercard"></label>
+            
+            </ion-col>
+          </form>
+      </div>
+      </ion-row>
+     
+    </ion-card>
+  </div>
+</ion-content> 
+

@@ -42,7 +42,7 @@ export class MarriageStatusPage implements OnInit {
    }
    changeStatus(e) {
     this.selectedValue = e.target.value;
-    console.log(this.selectedValue);
+    console.log('Selected Value' + this.selectedValue);
     this.dropDownSelected = false;
     this.select = true;
   }

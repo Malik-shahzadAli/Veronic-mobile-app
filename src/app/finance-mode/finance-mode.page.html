@@ -1,9 +1,8 @@
-<ion-content class="color" >
+<!-- <ion-content class="color" >
   <ion-card class="card">
     <ion-card-header >
       <ion-card-title class="textColor">{{ 'Finance.title' | translate }}</ion-card-title>
     </ion-card-header>
-
     <ion-card-content >
       <ion-grid >
         <ion-row >
@@ -25,29 +24,62 @@
                 <ion-col>
                   <div class="ion-text-start" style="float: left;">
                     <ion-button fill="clear"  routerLink='/miles-per-day' routerDirection="back"> <small>{{ 'PRIMARY-NAME.back' | translate }} </small><ion-icon slot="start" name="arrow-back"></ion-icon> </ion-button>
-                    <!-- <ion-back-button defaultHref="miles-per-day"></ion-back-button> -->
                   </div>
                   <div class="ion-text-end" *ngIf='!select'>
                     <ion-button fill="clear" (click)="getErrorTost()"> <small> {{ 'PRIMARY-NAME.next' | translate }} </small><ion-icon slot="end" name="arrow-forward"></ion-icon></ion-button>
-                    <!-- <ion-chip class="background" (click)="getErrorTost()">
-                      <ion-label class="text">{{ 'Education.next' | translate }}</ion-label>
-                    </ion-chip> -->
                   </div>
                   <div class="ion-text-end" *ngIf='select'>
                     <ion-button fill="clear" routerLink='/add-another-vehicle' (click)="financeModeNextClick()"><small>{{ 'PRIMARY-NAME.next' | translate }} </small>  <ion-icon slot="end" name="arrow-forward"></ion-icon></ion-button>
-                    <!-- <ion-chip class="background" routerLink='/add-another-vehicle' (click)="financeModeNextClick()">
-                      <ion-label class="text">{{ 'Accident.next' | translate }}</ion-label>
-                    </ion-chip> -->
                   </div>
                 </ion-col>
               </ion-row>
             </ion-grid>
-  
           </ion-col>
         </ion-row>
       </ion-grid>
     </ion-card-content>
   </ion-card>
-  
- 
+</ion-content> -->
+<ion-content >
+  <div class="flex">
+  <ion-card style="align-self: center !important; width:99%;box-shadow:rgba(0, 0, 0, 0.0) 0px 4px 16px;">
+    <div class="ion-text-center">
+      <ion-progress-bar color='danger' value="0.5" style="margin-bottom: 3vh;"></ion-progress-bar>
+      <img src="assets/icon/money.png" />
+    </div>
+    <ion-card-header style="margin-bottom: 0px !important; padding-bottom: 0px !important; padding-top: 0px !important;">
+      <ion-card-subtitle class="ion-text-center">Customer Info</ion-card-subtitle>
+      <ion-card-title class="ion-text-center">{{ 'Finance.title' | translate }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content style="padding-bottom:0px !important">
+      <form [formGroup]='financeMode'>
+        <div class="toggle" (ionChange)="changeStatus($event)">
+          <ion-list>
+            <ion-radio-group  value="anchovies">
+              <ion-item>
+                <label for="accidentYes">{{ 'Finance.makingPayment' | translate }}</label>
+                <ion-radio slot="end" formControlName="finance" value="Y" id='accidentYes' color="danger"></ion-radio>
+              </ion-item>
+    
+              <ion-item>
+                <label for="accidentNo">{{ 'Finance.paidOff' | translate }}</label>
+                <ion-radio slot="end"  formControlName="finance" value='N' id="accidentNo" color="danger"></ion-radio>
+              </ion-item>
+            </ion-radio-group>
+          </ion-list>
+        </div>
+      </form>
+    </ion-card-content>
+    <ion-card-header style="margin-bottom: 0px !important; padding-bottom: 0px !important; padding-top: 0px !important;">
+      <ion-chip *ngIf='!select' class="disableNext" size="large" color="danger" (click)="getErrorTost()" >
+        <ion-label class="next">NEXT</ion-label>
+      </ion-chip>
+      <!-- Enable Button -->
+      <ion-chip *ngIf='select' class="enableNext" size="large"  routerLink='/add-another-vehicle' (click)="financeModeNextClick()" >
+        <ion-label class="next">NEXT</ion-label>
+      </ion-chip>
+    </ion-card-header>
+    <ion-progress-bar color='danger' value="0.5"></ion-progress-bar>
+  </ion-card>
+</div>
 </ion-content>

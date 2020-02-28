@@ -1,8 +1,12 @@
 <ion-app>
 
-  <ion-header [translucent]="true" style="background: white; opacity:1;">
-    <ion-header>
-      <ion-toolbar>
+  <!-- <ion-header [translucent]="true"> -->
+    <!-- <ion-header> -->
+      <ion-content>
+      <ion-toolbar color="danger">
+        <ion-buttons slot="primary">
+          <ion-back-button></ion-back-button>
+        </ion-buttons>
         <ion-buttons slot="start">
           <ion-menu-button menu="custom"></ion-menu-button>
         </ion-buttons>
@@ -10,12 +14,12 @@
           <small>Veronica's Insurance</small>
         </ion-title>
         <ion-list slot="end">
-          <ion-item>
+          <!-- <ion-item>
             <ion-select interface="popover" [(ngModel)]="selectedLanguage" (ionChange)="languageChanged()">
               <ion-select-option value="en"> English</ion-select-option>
               <ion-select-option value="sp"> Spanish</ion-select-option>
             </ion-select>
-          </ion-item>
+          </ion-item> -->
           <!-- <ion-item>
              <ion-select [(ngModel)]="selectedLanguage" (ionChange)="languageChanged()">
               <ion-select-option value="en">English</ion-select-option>
@@ -24,8 +28,9 @@
           </ion-item> -->
         </ion-list>
       </ion-toolbar>
-    </ion-header>
-  </ion-header>
+    <!-- </ion-header> -->
+  <!-- </ion-header> -->
+</ion-content>
 
   <ion-menu side="start" menuId="custom" contentId="main" class="my-custom-menu">
     <ion-header class="background-img" style="height: 20vh;" >

@@ -53,9 +53,9 @@ export class SecDriverAccidentInfoComponent implements OnInit {
   }
 
   getUserAccidentInfoStatusNextClick() {
-    const accidentStatus = this.accidentStatus.value;
+    // const accidentStatus = this.accidentStatus.value;
 
-    console.log('Accident Info selected value : ', accidentStatus);
+    console.log('Accident Info selected value : ', this.selectedValue);
 
     const info = {
       dIncidentType: '507',
@@ -63,7 +63,7 @@ export class SecDriverAccidentInfoComponent implements OnInit {
           amount: 4,
           unit: 'yr'
       },
-      isDGuilty: accidentStatus
+      isDGuilty: this.selectedValue
   };
     this.singleDriverObj.driverIncidents.push(info);
     this.customerObject.drivers.push(this.singleDriverObj);

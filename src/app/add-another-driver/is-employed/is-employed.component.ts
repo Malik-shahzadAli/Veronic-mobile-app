@@ -49,9 +49,9 @@ export class IsEmployedComponent implements OnInit {
 
   }
     getDriverIsEmployedNextClick() {
-      const driverEmployment = this.employmentStatus.value;
-      console.log('New Driver Employment selected value : ', driverEmployment);
-      this.singleDriverObj.driverData.isDEmployed = driverEmployment;
+      // const driverEmployment = this.employmentStatus.value;
+      // console.log('New Driver Employment selected value : ', driverEmployment);
+      this.singleDriverObj.driverData.isDEmployed = this.selectedValue;
       console.log('getUserEducationNextClick Function called');
       console.log(this.singleDriverObj);
     }

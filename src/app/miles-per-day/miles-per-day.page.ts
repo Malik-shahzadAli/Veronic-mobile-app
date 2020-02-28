@@ -20,6 +20,9 @@ export class MilesPerDayPage implements OnInit {
       Validators.minLength(1)
     ])
   });
+  sppedChange() {
+    console.log('change Speeed');
+  }
   get miles() {
     return this.milesInfo.get('milesPerDay');
   }

@@ -31,12 +31,16 @@
 .text-color-red{
 	color: #D70020;
 }
-.color{
-    --ion-background-color:#D70020;
+ion-content{
+	display: flex;
+	// --background: #fff url('assets/icon/background.png') no-repeat center center / cover;
+	// --background-image: url('assets/icon/background.png');
+	// --ion-background-color:#D70020;
+	// --ion-background-color: linear-gradient(to left bottom, #b81d2f,#ffa09a, #da4248,#ac0826,#a50022);
 }
   .card{
-    background-color: white;
-	margin-top: 30vh;
+    --ion-background-color: white;
+	margin-top: 26vh;
 	-moz-box-shadow: 0 0 6px #ccc;
 	-webkit-box-shadow: 0 0 6px #ccc;;
 	box-shadow: 0 0 6px #ccc;;
@@ -55,13 +59,19 @@
   .roundedInput {
     border: solid 1px #6c757d;
     border-radius: 25px;
-	margin-top:7px;
+	margin-top:8px;
 	margin-left: 0px;
-	padding: 12px;
-	--padding-start:10px;
-
-	
-}
+	// padding: 25px;
+	--padding-start:7%;
+	--padding-top:15px;
+	--padding-bottom:15px;
+	font-size: large;
+	// --placeholder-font-weight:200;
+	}
+	.next{
+		font-size: large;
+		padding-left:42%;
+	}
 input{
 	padding-left: 12px;
 	padding-bottom: 12px;
@@ -72,7 +82,9 @@ ion-back-button{
 ion-button{
 	--color:  #D70020 !important;
 }
-
+.rightBtn{
+	padding-right: 1px;
+}
 
 // Radio Button
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600'); 
@@ -157,4 +169,23 @@ ion-button{
 }
 .error-message{
 	font-size: 12px !important;
+}
+
+.flex{
+	height: 100%;
+	display: flex;
+}
+
+.disableNext{
+	width: 100%; 
+	height: 8vh; 
+	margin-bottom: 4vh;
+}
+.enableNext{
+	background: #EA2027;
+	width: 100%; 
+	height: 8vh; 
+	margin-bottom: 4vh;
+	color: white;
+
 }
