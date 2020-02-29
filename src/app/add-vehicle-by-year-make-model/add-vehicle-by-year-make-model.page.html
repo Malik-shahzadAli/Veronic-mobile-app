@@ -70,15 +70,15 @@
     </ion-card-header>
     <ion-card-content>
       <form [formGroup]='vehicleInfo'>
-        <ion-select placeholder="Year"  class="roundedInput input-lg" (ionChange)="gettingMake($event)" formControlName='year'>
+        <ion-select placeholder="Year" appNoArrow class="roundedInput input-lg" (ionChange)="gettingMake($event)" formControlName='year'>
           <ion-select-option value="" disabled>Year</ion-select-option>
           <ion-select-option *ngFor="let y of listOfModelyears" [value]="y">{{y}}</ion-select-option>
         </ion-select>
-        <ion-select placeholder="Year" disabled='{{makeDisable}}' class="roundedInput input-lg" (ionChange)="gettingModel($event)" formControlName='make'>
+        <ion-select placeholder="Year" appNoArrow disabled='{{makeDisable}}' class="roundedInput input-lg" (ionChange)="gettingModel($event)" formControlName='make'>
           <ion-select-option value="" disabled>Make</ion-select-option>
           <ion-select-option *ngFor="let c of listOfVehicleCompanies" [value]="c">{{c}}</ion-select-option>
         </ion-select>
-        <ion-select placeholder="Year" disabled='{{modelDisable}}' class="roundedInput input-lg" (ionChange)="chooseVehicle($event)" formControlName='model'>
+        <ion-select placeholder="Year" appNoArrow disabled='{{modelDisable}}' class="roundedInput input-lg" (ionChange)="chooseVehicle($event)" formControlName='model'>
           <ion-select-option value="" disabled>Model</ion-select-option>
           <ion-select-option *ngFor="let m of listOfVehicleModels" [value]="m">{{m}}</ion-select-option>
         </ion-select>

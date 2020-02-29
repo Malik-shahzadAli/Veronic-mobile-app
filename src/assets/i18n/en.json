@@ -62,10 +62,10 @@
     },
     "Education": {
         "title": "What’s the highest level of education you’ve completed?",
-        "highSchool":"High school or GED",
-        "associateDegree":"Associate degree | Certification",
-        "bechelor":"Bachelor's degree",
-        "graduate":"Graduate or professional degree",
+        "highSchool":"High School",
+        "associateDegree":"Associate",
+        "bechelor":"Bachelor's",
+        "graduate":"Master's",
         "next": "next"
     },
     "HomeOwner": {
@@ -144,10 +144,10 @@
     "SecoundaryDriverEducation": {
         "title":"What’s the highest level of education",
         "title2": "have completed?",
-        "school": "High school or GED",
-        "diploma": "Associate degree | Certification | Diploma",
-        "degree":"Bachelor's degree",
-        "graduation": "Graduate or professional degree"
+        "school": "High School",
+        "diploma": "Associate",
+        "degree":"Bachelor's",
+        "graduation": "Master's"
     },
     "isEmployed": {
         "title": "Is Employed",

@@ -64,7 +64,7 @@ export class AppComponent implements OnInit {
     if (window.localStorage && window.localStorage.getItem('isIntroDone'))  {
       const language = window.localStorage.getItem('language');
       this.translateConfigService.setLanguage(language);
-      this.router.navigateByUrl('/first-splash');
+      this.router.navigateByUrl('/primary-name');
       window.localStorage.setItem('firstRunFinished', 'true');
     }
   }
