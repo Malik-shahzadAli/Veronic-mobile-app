@@ -1,5 +1,12 @@
+
+ 
+<ion-header>
+  <ion-toolbar>
+    <ion-title></ion-title>
+  </ion-toolbar>
+</ion-header>
 <ion-content class="color">
-  <ion-card class="card">
+  <!-- <ion-card class="card">
     <ion-card-header>
       <ion-card-title class="textColor">{{ 'DriverSplash.title' | translate }}</ion-card-title>
     </ion-card-header>
@@ -42,13 +49,11 @@
                 <ion-col>
                   <div class="ion-text-start" style="float: left;">
                     <ion-button fill="clear"  routerLink='/contact-info' routerDirection="back"> <small>{{ 'PRIMARY-NAME.back' | translate }} </small><ion-icon slot="start" name="arrow-back"></ion-icon> </ion-button>
-                    <!-- <ion-back-button defaultHref="contact-info"></ion-back-button> -->
+                  
                   </div>
                   <div class="ion-text-end">
                     <ion-button fill="clear"  routerLink='/marriage-status'><small>{{ 'PRIMARY-NAME.next' | translate }} </small> <ion-icon slot="end" name="arrow-forward"></ion-icon></ion-button>
-                    <!-- <ion-chip class="background" routerLink='/marriage-status'>
-                      <ion-label class="text">{{ 'DriverSplash.next' | translate }}</ion-label>
-                    </ion-chip> -->
+                   
                   </div>
                 </ion-col>
               </ion-row>
@@ -58,7 +63,28 @@
       </ion-grid>
   
     </ion-card-content>
-  </ion-card>
-  
+  </ion-card> -->
+  <div class="flex">
+    <div style="align-self: center !important; width:99%;">
+      <div class="ion-content-center" style="text-align: center;">
+        <img src="assets/icon/driver.png" />
+        <h2 style="color: white;">DRIVER INFO</h2>
+        <div style="width: 80%; margin-left: 10%;">
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <div class="ion-text-start" style="float: left;">
+                  <ion-button fill="clear" style="color: white;"  routerLink='/contact-info' routerDirection="back"> {{ 'PRIMARY-NAME.back' | translate }}<ion-icon slot="start" name="arrow-back"></ion-icon> </ion-button>
+                </div>
+                <div class="ion-text-end">
+                  <ion-button fill="clear" style="color: white;"  routerLink='/marriage-status'>{{ 'PRIMARY-NAME.next' | translate }}  <ion-icon slot="end" name="arrow-forward"></ion-icon></ion-button>
+                </div>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+      </div>
+    </div>
+  </div>
  
 </ion-content>

@@ -36,7 +36,7 @@ ion-content ion-toolbar {
     padding-top: 6vh;
 }
 ion-avatar{
-  background: white;
+  // background: white;
   // background-image: linear-gradient(to right top, #231719, #531D26, #851F2E, #B81D2F, #EA2027);
   height: 25vh;
   width: 25vh;
@@ -47,10 +47,16 @@ ion-avatar{
   align-items: center;
   justify-content: center;
 }
+// .img-class{
+//  width:25vh;
+// }
+.haeding{
+  color: #D70020;
+}
 .background-color{
-  --ion-background-color: linear-gradient(to right top, #b81d2f,#ffa09a, #da4248,#ac0826,#a50022);
+  // --ion-background-color: linear-gradient(to right top, #b81d2f,#ffa09a, #da4248,#ac0826,#a50022);
 }
-.text{
-  padding: 2vh;
-  color: white;
-}
+// .text{
+//   padding: 2vh;
+//   color: white;
+// }

@@ -52,12 +52,26 @@
     </ion-card-content>
   </ion-card>
 </ion-content> -->
+<ion-header>
+  <ion-toolbar>
+    <ion-title></ion-title>
+  </ion-toolbar>
+</ion-header>
 <ion-content >
   <div class="flex">
   <ion-card style="align-self: center !important; width:99%;box-shadow:rgba(0, 0, 0, 0.0) 0px 4px 16px;">
-    <div class="ion-text-center">
+    <!-- <div class="ion-text-center">
       <ion-progress-bar color='danger' value="0.5" style="margin-bottom: 3vh;"></ion-progress-bar>
       <img src="assets/icon/marriage2.png" />
+    </div> -->
+    <div class="ion-text-center">
+      <ion-progress-bar color='danger' value="0.66" style="margin-bottom: 3vh;"></ion-progress-bar>
+    </div>
+    <div style="align-self: flex-start !important; align-items: start; position: fixed; display: flow-root;">
+      <ion-back-button defaultHref='/date-of-birth' slot="start"></ion-back-button>
+    </div>
+    <div class="ion-text-center">
+      <img src="assets/icon/contact.png" />
     </div>
     <ion-card-header style="margin-bottom: 0px !important; padding-bottom: 0px !important; padding-top: 0px !important;">
       <ion-card-subtitle class="ion-text-center">Customer Info</ion-card-subtitle>
@@ -105,7 +119,7 @@
         <ion-label class="next">NEXT</ion-label>
       </ion-chip>
     </ion-card-header>
-    <ion-progress-bar color='danger' value="0.5"></ion-progress-bar>
+    <ion-progress-bar color='danger' value="0.25"></ion-progress-bar>
   </ion-card>
 </div>
 </ion-content>

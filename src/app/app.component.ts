@@ -8,6 +8,8 @@ import { TranslateService } from '@ngx-translate/core';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 // import { type } from 'os';
+import { Plugins } from '@capacitor/core';
+
 
 @Component({
   selector: 'app-root',
@@ -28,7 +30,7 @@ export class AppComponent implements OnInit {
   ) {
     this.initializeApp();
     // this.presentAlertConfirm();
-    // this.selectedLanguage = this.translateConfigService.getDefaultLanguage();
+    this.selectedLanguage = this.translateConfigService.getDefaultLanguage();
   }
 
 

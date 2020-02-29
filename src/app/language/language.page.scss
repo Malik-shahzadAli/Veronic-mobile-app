@@ -1,4 +1,4 @@
-.cc-selector input{
+.cc-selector ion-radio{
     margin:0;padding:0;
     -webkit-appearance:none;
        -moz-appearance:none;
@@ -9,8 +9,8 @@
 }
 .mastercard{background-image:url(./../../assets/icon/spain.png);}
 
-.cc-selector input:active +.drinkcard-cc{opacity: .9;}
-.cc-selector input:checked +.drinkcard-cc{
+.cc-selector ion-radio:active +.drinkcard-cc{opacity: .9;}
+.cc-selector ion-radio:checked +.drinkcard-cc{
     -webkit-filter: none;
        -moz-filter: none;
             filter: none;
@@ -38,3 +38,8 @@
 a:visited{color:#888}
 a{color:#444;text-decoration:none;}
 p{margin-bottom:.3em;}
+.ios .overscroll .hydrated{
+   --offset-top:0px !important;
+    --offset-bottom:0px !important;
+     --keyboard-offset:0px !important;
+}

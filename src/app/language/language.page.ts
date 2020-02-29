@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class LanguagePage implements OnInit {
   public selectedValue;
   selectedLanguage: string;
+  select = false;
   languageSelect = new FormGroup({
     language : new FormControl('', [
       Validators.required
@@ -27,8 +28,9 @@ export class LanguagePage implements OnInit {
     console.log(this.selectedValue);
     this.translateConfigService.setLanguage(this.selectedValue);
     localStorage.setItem('language', this.selectedValue);
+    this.select = true;
     // this.translateConfigService.setLanguage(this.selectedLanguage);
-    this.router.navigateByUrl('/home');
+    // this.router.navigateByUrl('/home');
   }
 
 }

@@ -5,26 +5,35 @@
 </ion-header>
 
 <ion-content>
-  <div class="flex">
+  <div class="flex" style="justify-content:center">
     <ion-card style="align-self: center !important; width:99%;box-shadow:rgba(0, 0, 0, 0.0) 0px 4px 16px;">
-    
-      <ion-row>
-        <div class="cc-selector">
-          <form [formGroup]='languageSelect' (change)="changeStatus($event)">
-            <ion-col size='6' style="margin-left: 10vh;" >
-              <input id="visa" type="radio" formControlName="language" value="en"   />
+      <!-- <ion-row> -->
+        <div class="cc-selector ">
+          <ion-radio-group (ionChange)="changeStatus($event)" class="ion-text-center">
+            <ion-item class="ion-text-center">
+              <ion-radio id='visa'  value="en" > </ion-radio>
               <label class="drinkcard-cc visa" for="visa"></label>
-           
-            </ion-col>
-            <ion-col size='6'>
-         
-              <input id="mastercard" type="radio" formControlName="language" value="sp"/>
+              <ion-radio id="mastercard"  value="sp"></ion-radio>
               <label class="drinkcard-cc mastercard"for="mastercard"></label>
-            
+            </ion-item>
+          </ion-radio-group>
+          <!-- <form [formGroup]='languageSelect' > -->
+            <!-- <div style="width: 80vw; margin-left: 15vw;" (ionChange)="changeStatus($event)">
+            <ion-col >
+              <ion-radio  formControlName="language" value="en" > </ion-radio>
+              <label class="drinkcard-cc visa" for="visa"></label>
             </ion-col>
-          </form>
+            <ion-col >
+              <ion-radio id="mastercard" type="radio" formControlName="language" value="sp"></ion-radio>
+              <label class="drinkcard-cc mastercard"for="mastercard"></label>
+            </ion-col>
+            <div  style="width: 60vw; zoom: 3; padding-left: 3vh;">
+              <ion-button *ngIf='!select' fill="clear" [disabled]='!select'> <ion-icon slot="start"  name="arrow-forward"></ion-icon></ion-button>
+            </div>
+          </div> -->
+          <!-- </form> -->
       </div>
-      </ion-row>
+      <!-- </ion-row> -->
      
     </ion-card>
   </div>
