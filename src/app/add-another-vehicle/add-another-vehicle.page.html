@@ -69,7 +69,6 @@
       <ion-grid >
         <ion-row >
           <ion-col size-md='4' offset-md='4'>
-       
               <div *ngFor="let c of existingListOfCars">
               <ion-card  style="background:white;">             
                 <ion-card-content>
@@ -85,10 +84,7 @@
                           <!-- <p>{{c.year}}</p> -->
                         </ion-col>
                       </ion-row>
-               
-                      
                     <!-- </ion-avatar> -->
-                    
                   </div>
                 </ion-card-content>
               </ion-card>
@@ -98,8 +94,8 @@
       </ion-grid>
     </ion-card-content>
     <ion-card-header>
-      <ion-chip  class="disableNext" size="large" color='primary'  routerLink='/add-vehicle' >
-        <ion-label class="next" style="padding-left:12%;">{{ 'AddAnotherVehical.addAnotherVehicle' | translate }}</ion-label>
+      <ion-chip  class="disableNext" size="large" style="display: flex;" color='primary'  routerLink='/add-vehicle' >
+        <ion-label class="nex" >{{ 'AddAnotherVehical.addAnotherVehicle' | translate }}</ion-label>
       </ion-chip>
       <!-- Enable Button -->
       <ion-chip  class="enableNext" size="large"  (click)="getQuote()" >

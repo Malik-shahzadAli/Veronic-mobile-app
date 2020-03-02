@@ -1,18 +1,15 @@
-
-
 <ion-content class="background-color">
-  <!-- <div class="background-color"> -->
-  <div style = "height: 20vh;">
-  </div>
-  <ion-slides pager='true'>
+  <ion-slides pager='true' style="height:95vh">
     <ion-slide>
       <div class="slide">
         <div class="center">
           <img src="assets/icon/welcome.png" class="img-class" />
         </div>
         <div >
-          <h2 class="haeding">Welcome</h2>
-          <p>The <b>ionic conference app</b> is a practical preview of the ionic framework in action, and a demonstration of proper code use.</p>
+          <h1 class="haeding">Welcome</h1>
+          <div style="width: 90vw;">
+            <p>Get covered in minutes! </p>
+          </div>
         </div>
       </div>
     </ion-slide>
@@ -23,27 +20,30 @@
           <img src="assets/icon/three.png" class="img-class" />
         </div>
         <div >
-          <h2 class="haeding">What is Ionic?</h2>
-          <p><b>Ionic Framework</b> is an open source SDK that enables developers to build high quality mobile apps with web technologies like HTML, CSS, and JavaScript.</p>
+          <h2 class="haeding">As easy as 1 2 3</h2>
+          <div style="width: 90vw;">
+            <ol style="text-align: left;">
+              <li>Tell us about yourself.</li>
+              <li>Tell us about other drivers. (if any)</li>
+              <li>Tell us about your cars.</li>
+            </ol>
+            <h2 class="haeding">You're done!</h2>
+          </div>
         </div>
-        
       </div>
     </ion-slide>
 
     <ion-slide>
       <div>
-        <div class="center">
-       <img src="assets/icon/getStart.png" class="img-class" />
-       
-          </div>
-          <div >
-            <h2 class="haeding">Ready to Start?</h2>
-            <ion-button fill="clear"  (click)='finish()' routerLink='/primary-name'>Continue <ion-icon slot="end" name="arrow-forward"></ion-icon></ion-button>
-          </div>
-        
+        <div class="center">  
+          <img src="assets/icon/getStart.png" class="img-class" />
+       </div>
+        <div >
+          <h2 class="haeding">Ready to Start?</h2>
+          <ion-button fill="clear"  (click)='finish()' routerLink='/primary-name'>Continue <ion-icon slot="end" name="arrow-forward"></ion-icon></ion-button>
+        </div>
       </div>
     </ion-slide>
 
   </ion-slides>
-<!-- </div> -->
 </ion-content>

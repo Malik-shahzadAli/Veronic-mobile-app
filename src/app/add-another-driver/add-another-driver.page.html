@@ -18,7 +18,7 @@
     </div>
     <ion-card-header>
       <ion-card-title class="ion-text-center">{{ 'AddAnOtherDriver.title' | translate }}</ion-card-title>
-      <ion-card-subtitle class="ion-text-center">{{ 'AddAnOtherDriver.subtitle' | translate }}</ion-card-subtitle>
+      <!-- <ion-card-subtitle class="ion-text-center">{{ 'AddAnOtherDriver.subtitle' | translate }}</ion-card-subtitle> -->
     </ion-card-header>
 
     <ion-card-content >
@@ -26,8 +26,8 @@
         <ion-row >
           <ion-col size-md='4' offset-md='4'>
           
-              <ion-card>             
-                <ion-card-content>
+              <!-- <ion-card>              -->
+                <!-- <ion-card-content>
                   <div class="ion-text-center">
                     <ion-avatar style=" margin: auto;">
                       <ion-img src='assets/icon/userAded.png'></ion-img>
@@ -35,17 +35,58 @@
                     <p style="margin-bottom:3px">{{customerFirstName}}</p>
                   </div>
                 </ion-card-content>
+              </ion-card> -->
+              <ion-card  style="background:white;">             
+                <ion-card-content>
+                  <div class="ion-text-center">
+                    <!-- <ion-avatar style=" margin: auto;"> -->
+                      <ion-row size='4'>
+                        <ion-col >
+                          <ion-img src='assets/icon/userAded.png' style="width: 100% !important;"></ion-img>
+                        </ion-col>
+                        <ion-col style="display: flow-root;">
+                          <p style="margin-top:30%;">{{customerFirstName}}</p>
+                          <!-- <p>{{customerFirstName}}</p> -->
+                          <!-- <p> {{c.model}}</p> -->
+                          <!-- <p>{{c.year}}</p> -->
+                        </ion-col>
+                        <ion-col>
+                          <!-- <p style="margin-top:30%;">ALI</p> -->
+                        </ion-col>
+                      </ion-row>
+                    <!-- </ion-avatar> -->
+                  </div>
+                </ion-card-content>
               </ion-card>
        
             <div *ngFor="let d of existingListOfDrivers">
               <ion-card  style="background:white;">             
-                <ion-card-content>
-
+                <!-- <ion-card-content>
                   <div class="ion-text-center">
                     <ion-avatar style=" margin: auto;">
                       <ion-img src='assets/icon/userAded.png'></ion-img>
                     </ion-avatar>
                     <p style="margin-bottom:3px">{{d.driverData.dName}}</p>
+                  </div>
+                </ion-card-content> -->
+                <ion-card-content>
+                  <div class="ion-text-center">
+                    <!-- <ion-avatar style=" margin: auto;"> -->
+                      <ion-row size='4'>
+                        <ion-col >
+                          <ion-img src='assets/icon/userAded.png' style="width: 100% !important;"></ion-img>
+                        </ion-col>
+                        <ion-col style="display: flow-root;">
+                          <p style="margin-top:30%;">{{d.driverData.dName}}</p>
+                          <!-- <p>{{customerFirstName}}</p> -->
+                          <!-- <p> {{c.model}}</p> -->
+                          <!-- <p>{{c.year}}</p> -->
+                        </ion-col>
+                        <ion-col>
+                          <!-- <p style="margin-top:30%;">ALI</p> -->
+                        </ion-col>
+                      </ion-row>
+                    <!-- </ion-avatar> -->
                   </div>
                 </ion-card-content>
               </ion-card>
@@ -57,8 +98,8 @@
       </ion-grid>
     </ion-card-content>
     <ion-card-header>
-      <ion-chip  class="disableNext" size="large" color="primary"  (click)="addAnotherDriver()" >
-        <ion-label class="next" style="padding-left:12%;">{{ 'AddAnOtherDriver.button' | translate }}</ion-label>
+      <ion-chip  class="disableNext" size="large" style="display: flex;" color="primary"  (click)="addAnotherDriver()" >
+        <ion-label class="nex">{{ 'AddAnOtherDriver.button' | translate }}</ion-label>
       </ion-chip>
       <!-- Enable Button -->
       <ion-chip  class="enableNext" size="large"  routerLink='/vehicle-splash' >
