@@ -1,16 +1,16 @@
-.cc-selector ion-radio{
+.cc-selector ion-img{
     margin:0;padding:0;
     -webkit-appearance:none;
        -moz-appearance:none;
             appearance:none;
 }
 .visa{
-   background-image:url(./../../assets/icon/english.png);
-}
-.mastercard{background-image:url(./../../assets/icon/spain.png);}
 
-.cc-selector ion-radio:active +.drinkcard-cc{opacity: .9;}
-.cc-selector ion-radio:checked +.drinkcard-cc{
+}
+// .mastercard{background-image:url(./../../assets/icon/spain.png);}
+
+.cc-selector ion-img:active +.drinkcard-cc{opacity: .9;}
+.cc-selector ion-img:checked +.drinkcard-cc{
     -webkit-filter: none;
        -moz-filter: none;
             filter: none;
@@ -42,4 +42,10 @@ p{margin-bottom:.3em;}
    --offset-top:0px !important;
     --offset-bottom:0px !important;
      --keyboard-offset:0px !important;
+}
+.overLay{
+   // position: absolute;
+   background-color: rgba(0, 0, 0, 0.8); 
+   z-index: 1000;
+   // border: 2px solid #EA2027;
 }

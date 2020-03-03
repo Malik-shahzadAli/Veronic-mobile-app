@@ -58,6 +58,8 @@ export class PrimaryNamePage implements OnInit {
     } else {
       this.nextBtnEnableDisable = false;
     }
+    // if (typeof e !== 'string') return '';
+    // return e.charAt(0).toUpperCase() + e.slice(1);
   }
   validateLastname(e) {
     const userEnteredLastName = e.target.value;

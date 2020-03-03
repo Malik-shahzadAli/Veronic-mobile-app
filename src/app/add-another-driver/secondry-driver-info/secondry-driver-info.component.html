@@ -47,12 +47,12 @@
       <img src="assets/icon/user-cloud.png" />
     </div>
     <ion-card-header>
-      <ion-card-subtitle class="ion-text-center">Customer Info</ion-card-subtitle>
+      <ion-card-subtitle class="ion-text-center">{{ 'DInfo.dInfo' | translate }}</ion-card-subtitle>
       <ion-card-title class="ion-text-center">{{ 'SecoundaryDriverInformation.title' | translate }}</ion-card-title>
     </ion-card-header>
     <ion-card-content>
       <form [formGroup]='primaryName'>
-        <ion-input class="roundedInput input-lg" formControlName='firstName' placeholder="{{ 'SecoundaryDriverInformation.name' | translate }}"></ion-input>
+        <ion-input class="roundedInput input-lg capital" formControlName='firstName' placeholder="{{ 'SecoundaryDriverInformation.name' | translate }}"></ion-input>
       </form>
     </ion-card-content>
     <ion-card-header>

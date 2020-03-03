@@ -73,18 +73,18 @@
               <ion-card  style="background:white;">             
                 <ion-card-content>
                   <div class="ion-text-center">
-                    <!-- <ion-avatar style=" margin: auto;"> -->
                       <ion-row size='4'>
                         <ion-col >
-                          <ion-img src='assets/icon/car.png' style="width: 60% !important;"></ion-img>
+                          <ion-img src='assets/icon/car.png' style="width: 100% !important;"></ion-img>
                         </ion-col>
-                        <ion-col>
+                        <ion-col style="display: flow-root;">
                           <p>{{c.make}} | {{c.year}}</p>
                           <p> {{c.model}}</p>
-                          <!-- <p>{{c.year}}</p> -->
+                        </ion-col>
+                        <ion-col style="padding-top: 10%;">
+                          <span ><ion-icon name="close-outline" style="zoom: 2; color:  #D70020;"></ion-icon></span>
                         </ion-col>
                       </ion-row>
-                    <!-- </ion-avatar> -->
                   </div>
                 </ion-card-content>
               </ion-card>

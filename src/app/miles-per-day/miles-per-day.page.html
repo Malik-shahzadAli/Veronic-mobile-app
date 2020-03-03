@@ -53,14 +53,14 @@
       <img src="assets/icon/miles.png" />
     </div>
     <ion-card-header>
-      <ion-card-subtitle class="ion-text-center">Customer Info</ion-card-subtitle>
+      <ion-card-subtitle class="ion-text-center">{{ 'VInfo.vInfo' | translate }}</ion-card-subtitle>
       <ion-card-title class="ion-text-center">{{ 'MilesPerDay.title' | translate }}</ion-card-title>
     </ion-card-header>
-    <ion-card-content>
+    <ion-card-content >
       <form [formGroup]='milesInfo'>
         <ion-item  noline>
-          <ion-range min="1" max="100" formControlName='milesPerDay' pin color="danger" style="--bar-height:2vh;--pin-background:white;">
-            <ion-icon slot="start"  name="speedometer-outline"></ion-icon>
+          <ion-range min="1" max="100" formControlName='milesPerDay'  pin color="danger" style="--bar-height:2vh; --knob-size:30px !important;">
+            <ion-icon slot="start" style="padding-right:10px;"  name="speedometer-outline"></ion-icon>
             <ion-icon slot="end" size='large'  name="speedometer-outline"></ion-icon>
           </ion-range>
         </ion-item>

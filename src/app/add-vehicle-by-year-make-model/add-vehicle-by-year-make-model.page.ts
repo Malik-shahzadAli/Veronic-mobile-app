@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { JsonCommanObjectService } from 'src/services/json-comman-object.service.service';
 // import * as jquery from 'jquery';
 import { TranslateService } from '@ngx-translate/core';
-import { ToastController } from '@ionic/angular';
+import { ToastController, IonContent } from '@ionic/angular';
 
 @Component({
   selector: 'app-add-vehicle-by-year-make-model',
@@ -124,7 +124,7 @@ export class AddVehicleByYearMakeModelPage implements OnInit {
 
 
    // NEXT-BTN CLICK
-   vehicleBasicInfoNextClick(){
+   vehicleBasicInfoNextClick() {
 
     this.singleCarObj.make = this.makeValue.value;
     this.singleCarObj.model = this.modelValue.value;
@@ -133,6 +133,7 @@ export class AddVehicleByYearMakeModelPage implements OnInit {
     console.log('Updated Object : ', this.singleCarObj);
   }
   ngOnInit() {
+    // this.removeSelectCaret('id');
     if ((this.singleCarObj.year) !== '' && (this.singleCarObj.make) !== '' && (this.singleCarObj.model) !== '') {
       console.log('Here is ....');
       console.log(this.singleCarObj);
@@ -173,5 +174,18 @@ export class AddVehicleByYearMakeModelPage implements OnInit {
     });
     toast.present();
   }
+
+  // async removeSelectCaret(id) {
+  //   const select = await (window.document.querySelector(`#${id}`) as HTMLIonSelectElement).componentOnReady();
+  //   select.shadowRoot.childNodes[1]['style'].display = 'none';
+  // }
+  // async removeMakeCaret(id) {
+  //   const select = await (window.document.querySelector(`#${id}`) as HTMLIonSelectElement).componentOnReady();
+  //   select.shadowRoot.childNodes[1]['style'].display = 'none';
+  // }
+  // async removeModelCaret(id) {
+  //   const select = await (window.document.querySelector(`#${id}`) as HTMLIonSelectElement).componentOnReady();
+  //   select.shadowRoot.childNodes[1]['style'].display = 'none';
+  // }
 
 }

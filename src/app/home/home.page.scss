@@ -51,11 +51,13 @@ ion-avatar{
 //  width:25vh;
 // }
 .haeding{
-  color: #D70020;
+  // color: #D70020;
+  color: white;
 }
 .background-color{
+  --ion-background-color:radial-gradient(ellipse at center,  #EA2027 0%,#D70020 44%,#6D0019 100%);
   // --ion-background-color: linear-gradient(to right top, #b81d2f,#ffa09a, #da4248,#ac0826,#a50022);
 }
 ion-slides {
-  --bullet-background-active: #D70020
+  --bullet-background-active: white;
 }

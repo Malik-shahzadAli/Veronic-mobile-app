@@ -1,4 +1,13 @@
 {
+    "VInfo":{
+        "vInfo":"Información del vehículo"
+    },
+    "CInfo":{
+        "cInfo": "Información del cliente"
+    },
+    "DInfo":{
+        "dInfo": "Información del conductor"
+    },
     "HOME": {
         "title": "Cubrirse en minutos",
         "subTitle":"Ahorre en grande en una excelente cobertura en cinco sencillos pasos",
@@ -149,6 +158,8 @@
     },
     "isEmployed": {
         "title": "Está empleado",
+        "title2": "Está",
+        "title3": "empleado ?",
         "employ": "Empleado",
         "other": "Otro"
     },

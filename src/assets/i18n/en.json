@@ -1,5 +1,14 @@
 
 {
+    "VInfo":{
+        "vInfo":"Vehicle Info"
+    },
+    "CInfo":{
+        "cInfo": "Customer Info"
+    },
+    "DInfo":{
+        "dInfo": "Driver Info"
+    },
     "HOME": {
         "title": "Get covered in minutes!",
         "subTitle":"Save big on great coverage in five easy steps",
@@ -62,6 +71,8 @@
     },
     "Education": {
         "title": "What’s the highest level of education you’ve completed?",
+        "title2": "What’s the highest level of education",
+        "title3": "completed?",
         "highSchool":"High School",
         "associateDegree":"Associate",
         "bechelor":"Bachelor's",
@@ -151,6 +162,8 @@
     },
     "isEmployed": {
         "title": "Is Employed",
+        "title2": "Is",
+        "title3": "employed?",
         "employ": "Employed",
         "other": "Other"
     },

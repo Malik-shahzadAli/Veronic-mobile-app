@@ -65,16 +65,16 @@
       <img src="assets/icon/year.png" />
     </div>
     <ion-card-header>
-      <ion-card-subtitle class="ion-text-center">Customer Info</ion-card-subtitle>
+      <ion-card-subtitle class="ion-text-center">{{ 'VInfo.vInfo' | translate }}</ion-card-subtitle>
       <ion-card-title class="ion-text-center">{{ 'Year.title' | translate }}</ion-card-title>
     </ion-card-header>
     <ion-card-content>
       <form [formGroup]='vehicleInfo'>
-        <ion-select placeholder="Year" appNoArrow class="roundedInput input-lg" (ionChange)="gettingMake($event)" formControlName='year'>
+        <ion-select placeholder="Year" class='id' appNoArrow class="roundedInput input-lg" (ionChange)="gettingMake($event)" formControlName='year'>
           <ion-select-option value="" disabled>Year</ion-select-option>
           <ion-select-option *ngFor="let y of listOfModelyears" [value]="y">{{y}}</ion-select-option>
         </ion-select>
-        <ion-select placeholder="Year" appNoArrow disabled='{{makeDisable}}' class="roundedInput input-lg" (ionChange)="gettingModel($event)" formControlName='make'>
+        <ion-select placeholder="Year"  id='id' appNoArrow disabled='{{makeDisable}}' class="roundedInput input-lg" (ionChange)="gettingModel($event)" formControlName='make'>
           <ion-select-option value="" disabled>Make</ion-select-option>
           <ion-select-option *ngFor="let c of listOfVehicleCompanies" [value]="c">{{c}}</ion-select-option>
         </ion-select>

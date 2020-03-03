@@ -61,7 +61,7 @@ export class AppComponent implements OnInit {
   //   this.translateConfigService.setLanguage(this.selectedLanguage);
   // }
   ngOnInit() {
-    if (window.localStorage && window.localStorage.getItem('isIntroDone'))  {
+    if (window.localStorage && window.localStorage.getItem('isIntroDone') && window.localStorage.getItem('language'))  {
       const language = window.localStorage.getItem('language');
       this.translateConfigService.setLanguage(language);
       this.router.navigateByUrl('/primary-name');

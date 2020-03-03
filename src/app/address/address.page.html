@@ -22,7 +22,7 @@
     <ion-card-content>
       <form [formGroup]='driverAddress'>
         <ion-input type="number" class="roundedInput" (input)="validateZipCode($event)" placeholder="{{ 'Address.zipCode' | translate }}" formControlName='zipCode'></ion-input>
-        <ion-input class="roundedInput input-lg" (input)="validateAddress($event)" formControlName='street' placeholder="{{ 'Address.streetAddress' | translate }}"></ion-input>
+        <ion-input class="roundedInput input-lg capital" (input)="validateAddress($event)" formControlName='street' placeholder="{{ 'Address.streetAddress' | translate }}"></ion-input>
       </form>
     </ion-card-content>
     <ion-card-header>

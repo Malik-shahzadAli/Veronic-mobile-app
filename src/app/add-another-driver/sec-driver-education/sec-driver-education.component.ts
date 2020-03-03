@@ -59,6 +59,7 @@ export class SecDriverEducationComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log(this.driverName);
     if (this.singleDriverObj.driverData.dEdu) {
       this.driverEducation.patchValue({
         education : this.singleDriverObj.driverData.dEdu

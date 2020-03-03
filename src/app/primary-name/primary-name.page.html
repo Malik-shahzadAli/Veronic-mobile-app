@@ -21,8 +21,8 @@
     </ion-card-header>
     <ion-card-content>
       <form [formGroup]='primaryName'>
-        <ion-input class="roundedInput input-lg" (input)="validateFirstname($event)" style="padding-left: 10px;" formControlName='firstName' placeholder="{{ 'PRIMARY-NAME.firstName' | translate }}"></ion-input>
-        <ion-input class="roundedInput" (input)="validateLastname($event)" formControlName='lastName' placeholder="{{ 'PRIMARY-NAME.lastName' | translate }}"></ion-input>
+        <ion-input class="roundedInput input-lg capital" (input)="validateFirstname($event)" style="padding-left: 10px; " formControlName='firstName' placeholder="{{ 'PRIMARY-NAME.firstName' | translate }}"></ion-input>
+        <ion-input class="roundedInput capital" (input)="validateLastname($event)" formControlName='lastName' placeholder="{{ 'PRIMARY-NAME.lastName' | translate }}"></ion-input>
       </form>
     </ion-card-content>
     <ion-card-header>
