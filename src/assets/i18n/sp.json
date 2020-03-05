@@ -178,5 +178,8 @@
     },
     "select": {
         "dropdown": "Por favor seleccione una de estas opciones"
+    },
+    "opt":{
+        "title":"Verificación"
     }
 }

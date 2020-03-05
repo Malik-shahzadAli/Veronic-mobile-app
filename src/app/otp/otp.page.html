@@ -1,0 +1,76 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title></ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content >
+  <div class="flex">
+    <ion-card style="align-self: center !important; width:99%;box-shadow:rgba(0, 0, 0, 0.0) 0px 4px 16px;">
+      <div class="ion-text-center">
+        <ion-progress-bar color='danger' value="0.3" style="margin-bottom: 3vh;"></ion-progress-bar>
+      </div>
+      <div style="align-self: flex-start !important; align-items: start; position: fixed; display: flow-root;">
+        <ion-back-button defaultHref='/primary-name' slot="start"></ion-back-button>
+      </div>
+      <div class="ion-text-center">
+        <img src="assets/icon/otp.png" />
+      </div>
+      <ion-card-header>
+        <ion-card-subtitle class="ion-text-center">Customer Info</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <form [formGroup]='otpForm'>
+          <!-- <table>
+            <tr>
+              <td> -->
+                
+              <!-- </td>
+              <td> -->
+                
+              <!-- </td>
+              <td> -->
+                
+              <!-- </td>
+              <td> -->
+                
+              <!-- </td>
+            </tr>
+          </table> -->
+          <!-- <ng-otp-input  (onInputChange)="onOtpChange($event)"  [config]="{length:5}"></ng-otp-input> -->
+          <ion-input type="text" readonly class="roundedInput" aria-describedby="enteredPhoneNo" formControlName='phoneNo'> </ion-input>
+          <ion-row>
+            <ion-col>
+              <ion-input class="roundedInput" formControlName="first" type="text" #otp1 id='one' pattern="[0-9]{6}" maxlength="1" size="1" (keyup)="next(otp2, $event.target.value, otp1)">
+                </ion-input>
+            </ion-col>
+            <ion-col>
+             <ion-input class="roundedInput" type="text" formControlName="sec" #otp2  pattern="[0-9]{6}" maxlength="1" size="1" (keyup)="next(otp3, $event.target.value, otp1)">
+                </ion-input>
+            </ion-col>
+            <ion-col>
+             <ion-input class="roundedInput" type="text" #otp3 formControlName="third" pattern="[0-9]{6}" maxlength="1" size="1" (keyup)="next(otp4,$event.target.value, otp2)">
+                </ion-input>
+            </ion-col>
+            <ion-col>
+              <ion-input class="roundedInput" type="text" #otp4 formControlName="fourth"  pattern="[0-9]{6}" maxlength="1" size="1" (keyup)="next(otp4,$event.target.value, otp3)">
+                </ion-input>
+            </ion-col>
+          </ion-row>
+          <!-- <ion-datetime (ionChange)="validateDOB($event)"  class="roundedInput"></ion-datetime> -->
+        </form>
+        <p *ngIf='maxtime > 0'>Remainig Time :{{maxtime}}</p>
+        <span *ngIf='maxtime == 0'> Resend </span>
+      </ion-card-content>
+      <ion-card-header>
+        <ion-chip *ngIf="dateError" class="disableNext" size="large" color="danger" (click)="getErrorTost()" routerLink='/driver-splash' >
+          <!-- <ion-label class="next">{{ 'PRIMARY-NAME.next' | translate }}</ion-label> -->
+        </ion-chip>
+        <!-- Enable Button -->
+        <ion-chip *ngIf="!dateError" class="enableNext" size="large"  (click)='validateOTP()' routerLink='/address' >
+          <!-- <ion-label class="next">{{ 'PRIMARY-NAME.next' | translate }}</ion-label> -->
+        </ion-chip>
+      </ion-card-header>
+      <ion-progress-bar color='danger' value="0.5"></ion-progress-bar>
+    </ion-card>
+  </div>
+</ion-content>

@@ -3,14 +3,17 @@ import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
 import { JsonCommanObjectService } from 'src/services/json-comman-object.service.service';
 import { TranslateService } from '@ngx-translate/core';
 import { ToastController } from '@ionic/angular';
+import {Ng2TelInputModule} from 'ng2-tel-input';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 @Component({
   selector: 'app-contact-info',
   templateUrl: './contact-info.page.html',
   styleUrls: ['./contact-info.page.scss'],
 })
 export class ContactInfoPage implements OnInit {
-
-  constructor(private obj: JsonCommanObjectService, private translate: TranslateService, private toastController: ToastController ) {
+  public errorMessage = '';
+  constructor(private obj: JsonCommanObjectService, private http: HttpClient ,
+              private translate: TranslateService, private toastController: ToastController ) {
     this.finalObj = this.obj.customerDetails();
    }
   public finalObj;
@@ -70,14 +73,27 @@ export class ContactInfoPage implements OnInit {
   }
 
   getUserContactInfoNextClick() {
-    const emailAddress = this.emailAddress.value;
-    const phoneNumber = this.phoneNumber.value;
-
-    const phone = this.formatPhoneNumber(phoneNumber);
-
-    this.finalObj.customer.customerData.email = emailAddress;
-    this.finalObj.customer.customerData.phone = phone;
-    console.log(this.finalObj);
+      // this.spinnerShowHide = false;
+      const emailAddress = this.emailAddress.value;
+      const phoneNumber = this.phoneNumber.value;
+      const phone = this.formatPhoneNumber(phoneNumber);
+      console.log('Next btn phone : ', phone);
+      this.http.post('https://www.staging.admin.veronicasquote.com/api/otp/generate', {"phoneNo" : '+923086111049'})
+        .subscribe((response) => {
+          console.log('Server Response, validate Phone Number and send OTP');
+          console.log(response);
+          this.finalObj.customer.customerData.email = emailAddress;
+          // this.finalObj.customer.customerData.phone = phone;
+          this.finalObj.customer.customerData.phone = '+923086111049';
+        },
+        (error) => {
+          console.log(error);
+          if (error.error.hasError) {
+             this.errorMessage = error.error.message;
+            console.log('Error Here');
+          }
+        });
+      console.log(this.finalObj);
   }
   ngOnInit() {
   }

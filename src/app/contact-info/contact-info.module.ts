@@ -9,6 +9,7 @@ import { ContactInfoPageRoutingModule } from './contact-info-routing.module';
 
 import { ContactInfoPage } from './contact-info.page';
 import { TranslateModule} from '@ngx-translate/core';
+import {Ng2TelInputModule} from 'ng2-tel-input';
 @NgModule({
   imports: [
     CommonModule,
@@ -16,6 +17,7 @@ import { TranslateModule} from '@ngx-translate/core';
     IonicModule,
     TranslateModule,
     ReactiveFormsModule,
+    Ng2TelInputModule,
 
     ContactInfoPageRoutingModule
   ],

@@ -84,6 +84,10 @@ const routes: Routes = [
     path: 'language',
     loadChildren: () => import('./language/language.module').then( m => m.LanguagePageModule)
   },
+  {
+    path: 'otp',
+    loadChildren: () => import('./otp/otp.module').then( m => m.OTPPageModule)
+  },
 ];
 
 @NgModule({

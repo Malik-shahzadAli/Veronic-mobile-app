@@ -39,7 +39,8 @@
         "streetAddress": "Street Address",
         "zipCode": "Zip Code",
         "next": "next",
-        "popUpError": "Please enter valid address and zip code."
+        "popUpError": "Please enter valid credentials.",
+        "calforniaZip": "Please enter california zip code"
     },
     "ContactInfo":{
         "title":"Contact Details",
@@ -182,5 +183,8 @@
     },
     "select": {
         "dropdown": "Please select one of these options"
+    },
+    "opt":{
+        "title":"Verification"
     }
 }
