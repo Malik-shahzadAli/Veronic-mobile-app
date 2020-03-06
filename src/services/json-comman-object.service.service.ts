@@ -26,6 +26,7 @@ export class JsonCommanObjectService {
     },
     "cars": [],
     "drivers": [],
+    "ref" : {"fullName": '', "phoneNo" : ''},
     "source": 'APP'
 };
 

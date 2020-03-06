@@ -88,6 +88,14 @@ const routes: Routes = [
     path: 'otp',
     loadChildren: () => import('./otp/otp.module').then( m => m.OTPPageModule)
   },
+  {
+    path: 'referring',
+    loadChildren: () => import('./referring/referring.module').then( m => m.ReferringPageModule)
+  },
+  {
+    path: 'referred-person',
+    loadChildren: () => import('./referred-person/referred-person.module').then( m => m.ReferredPersonPageModule)
+  },
 ];
 
 @NgModule({

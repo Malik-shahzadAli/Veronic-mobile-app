@@ -75,7 +75,7 @@
                     <div class="ion-text-center">
                         <ion-row size='4'>
                           <ion-col >
-                            <ion-img src='assets/icon/car.png' style="width: 100% !important;"></ion-img>
+                            <ion-img src='assets/icon/car.svg' style="width: 100% !important;"></ion-img>
                           </ion-col>
                           <ion-col style="display: flow-root;">
                             <p>{{c.make}} | {{c.year}}</p>
@@ -98,8 +98,8 @@
           <ion-label class="nex" >{{ 'AddAnotherVehical.addAnotherVehicle' | translate }}</ion-label>
         </ion-chip>
         <!-- Enable Button -->
-        <ion-chip  class="enableNext" size="large"  (click)="getQuote()" >
-          <ion-label class="getQuote">{{ 'AddAnotherVehical.getQuote' | translate }}</ion-label>
+        <ion-chip  class="enableNext" size="large"  routerLink='/referring' >
+          <ion-label class="getQuote">NEXT</ion-label>
         </ion-chip>
       </ion-card-header>
       <ion-progress-bar color='danger' value="1"></ion-progress-bar>

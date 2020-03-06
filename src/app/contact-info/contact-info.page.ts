@@ -77,14 +77,15 @@ export class ContactInfoPage implements OnInit {
       const emailAddress = this.emailAddress.value;
       const phoneNumber = this.phoneNumber.value;
       const phone = this.formatPhoneNumber(phoneNumber);
+      const newPhone = '+1' + phone;
       console.log('Next btn phone : ', phone);
-      this.http.post('https://www.staging.admin.veronicasquote.com/api/otp/generate', {"phoneNo" : '+923086111049'})
+      this.http.post('https://www.staging.admin.veronicasquote.com/api/otp/generate', {"phoneNo" : newPhone})
         .subscribe((response) => {
           console.log('Server Response, validate Phone Number and send OTP');
           console.log(response);
           this.finalObj.customer.customerData.email = emailAddress;
-          // this.finalObj.customer.customerData.phone = phone;
-          this.finalObj.customer.customerData.phone = '+923086111049';
+          this.finalObj.customer.customerData.phone = phone;
+          // this.finalObj.customer.customerData.phone = '+923086111049';
         },
         (error) => {
           console.log(error);

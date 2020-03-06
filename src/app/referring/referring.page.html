@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+  <div class="flex">
+  <ion-card style="align-self: center !important; width:99%;box-shadow:rgba(0, 0, 0, 0.0) 0px 4px 16px;">
+    <!-- <div class="ion-text-center">
+      <ion-progress-bar color='danger' value="0.5" style="margin-bottom: 3vh;"></ion-progress-bar>
+      <img src="assets/icon/home.png" />
+    </div> -->
+    <div class="ion-text-center">
+      <ion-progress-bar color='danger' value="0.66" style="margin-bottom: 3vh;"></ion-progress-bar>
+    </div>
+    <div style="align-self: flex-start !important; align-items: start; position: fixed; display: flow-root;">
+      <ion-back-button defaultHref='/date-of-birth' slot="start"></ion-back-button>
+    </div>
+    <div class="ion-text-center">
+      <img src="assets/icon/refer.svg" />
+    </div>
+    <ion-card-header style="margin-bottom: 0px !important; padding-bottom: 0px !important; padding-top: 0px !important;">
+      <ion-card-subtitle class="ion-text-center">Referral Info</ion-card-subtitle>
+      <ion-card-title class="ion-text-center">Did someone refer you ?</ion-card-title>
+    </ion-card-header>
+    <ion-card-content style="padding-bottom:0px !important">
+      <form [formGroup]='referringSomeone'>
+        <div class="toggle" (ionChange)="changeStatus($event)">
+          <ion-list>
+            <ion-radio-group>
+              <ion-item>
+                <label >Yes</label>
+                <ion-radio slot="end" formControlName="ref" value="yes" color="danger"></ion-radio>
+              </ion-item>
+    
+              <ion-item>
+                <label >No</label>
+                <ion-radio slot="end" formControlName="ref" value='no' color="danger"></ion-radio>
+              </ion-item>
+            </ion-radio-group>
+          </ion-list>
+        </div>
+      </form>
+    </ion-card-content>
+    <ion-card-header style="margin-bottom: 0px !important; padding-bottom: 0px !important; padding-top: 0px !important;">
+      <ion-chip *ngIf='!select' class="disableNext" size="large" color="danger" (click)="nextButtonClick()" >
+        <ion-label class="next">NEXT</ion-label>
+      </ion-chip>
+      <!-- Enable Button -->
+      <ion-chip *ngIf='select' class="enableNext" size="large"   (click)="nextButtonClick()" >
+        <ion-label class="next">NEXT</ion-label>
+      </ion-chip>
+    </ion-card-header>
+    <ion-progress-bar color='danger' value="0.75"></ion-progress-bar>
+  </ion-card>
+</div>
+</ion-content>
