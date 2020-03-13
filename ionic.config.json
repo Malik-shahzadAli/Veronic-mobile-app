@@ -1,0 +1,8 @@
+{
+  "name": "Veronica",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular"
+}

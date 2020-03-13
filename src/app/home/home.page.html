@@ -1,0 +1,50 @@
+<ion-content class="background-color">
+  <ion-slides pager='true' style="height:95vh">
+    <ion-slide>
+      <div class="slide">
+        <div class="center">
+          <img src="assets/icon/welcome2.svg" class="img-class" />
+        </div>
+        <div>
+          <h1 class="haeding">Welcome</h1>
+          <div style="width: 90vw;">
+            <p style="color: white;">Get covered in minutes! </p>
+          </div>
+        </div>
+      </div>
+    </ion-slide>
+
+    <ion-slide>
+      <div>
+        <div class="center">
+          <img src="assets/icon/three.svg" class="img-class" />
+        </div>
+        <div >
+          <h2 class="haeding">Simple & Easy</h2>
+          <div style="width: 90vw;">
+            <p style="color: white;">Add information about yourself,your cars, drivers and you are done.</p>
+            <!-- <ol style="text-align: center;color: white;" >
+              <li>Yourself.</li>
+              <li>Drivers.</li>
+              <li>Cars.</li>
+            </ol> -->
+            <!-- <h2 class="haeding">You're done!</h2> -->
+          </div>
+        </div>
+      </div>
+    </ion-slide>
+
+    <ion-slide>
+      <div>
+        <div class="center">  
+          <img src="assets/icon/getStart.svg" class="img-class" />
+       </div>
+        <div >
+          <h2 class="haeding">Ready to Start?</h2>
+          <ion-button fill="clear"  (click)='finish()' style="color: white;" routerLink='/first-splash'>Continue <ion-icon slot="end" name="arrow-forward"></ion-icon></ion-button>
+        </div>
+      </div>
+    </ion-slide>
+
+  </ion-slides>
+</ion-content>

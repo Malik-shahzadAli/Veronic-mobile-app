@@ -1,0 +1,35 @@
+// .my-custom-menu {
+//     --width: 500px;
+//   }
+// @import '~ionic-selectable/esm5/ionic-selectable.component.min.css';
+
+// .country-flag {
+//   display: inline-block;
+//   width: 20px;
+// }
+// @import url('')
+.background-img{
+    background:  #D70020;
+}
+.header-img{
+    width: 25vh !important;
+}
+.header-md:after{
+    display: none;
+}
+.color{
+    --ion-background:#D70020;
+    --background:red;
+}
+ion-menu {
+    --ion-background-color: #D70020;
+    --ion-text-color: white;
+  
+    ion-toolbar {
+      --background: #D70020;
+    }
+  
+    ion-list {/* optional, but it needs when you use gradient as a background color.*/
+      background: transparent;
+    }
+  }

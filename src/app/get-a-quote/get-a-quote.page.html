@@ -1,0 +1,153 @@
+
+<ion-header>
+  <ion-toolbar>
+    <ion-title></ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="color">
+<h5 style="text-align: center; margin-bottom: 0px;">Quote</h5>
+<h1 style="text-align: center; font-size: 3rem; margin-top: 0; margin-bottom: 0;"> <strong>{{quoteId}} </strong></h1>
+<ion-slides pager='true' style="height: 50vh;">
+  <!-- <div  *ngFor="let p of price; let i = index"> -->
+    <!-- <div> -->
+    <ion-slide *ngFor="let p of price; let i = index">
+      <div class="slide">
+          <ion-card class="back" style="width: 90vw; height: 40vh;"> 
+            <ion-card-header class="back">
+              <h1 style="color: white; padding-top: 1vh; font-size: 4rem;"><span style="font-size: 2rem;">$</span>{{p}}</h1>
+              <p  style="color: white; margin-top: 10vh;">DETAILS HERE</p>
+            </ion-card-header>
+          </ion-card>
+      </div>
+    </ion-slide>
+  <!-- </div> -->
+  <!-- <div> -->
+    <!-- <ion-slide>
+      <div class="slide">
+          <ion-card class="back" style="width: 90vw; height: 40vh;"> 
+            <ion-card-header class="back">
+              <h1 style="color: white; padding-top: 1vh; font-size: 5rem;">${{p}}</h1>
+              <p  style="color: white; margin-top: 10vh;">DETAILS HERE</p>
+            </ion-card-header>
+          </ion-card>
+      </div>
+    </ion-slide> -->
+    
+  <!-- </div> -->
+</ion-slides>
+<ion-slides >
+  <ion-slide>
+    <ion-card style="width: 92vw;box-shadow:rgba(0, 0, 0, 0.0) 0px 0px 0px;">
+      <ion-row >
+        <ion-col>
+          <ion-chip class="enableNext" style="width: 100%; display: flex; " color="danger" (click)='sendEmail()'>
+            <ion-icon name="mail" style=" margin-left: auto; "></ion-icon>
+            <ion-label color="dark" style=" margin-right: auto;color: white; ">Email Quote</ion-label>
+          </ion-chip>
+        </ion-col>
+        <ion-col>
+          <ion-chip class="enableNext" style="width: 100%;display: flex;" color="danger" (click)='agentPhone()'>
+            <ion-icon name="call" style=" margin-left: auto; "></ion-icon>
+            <ion-label color="dark" style=" margin-right: auto;color: white; ">Call Agent</ion-label>
+          </ion-chip>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  </ion-slide>
+</ion-slides>
+
+
+  <!-- <ion-card class="card">
+    <ion-card-header>
+      <ion-card-title class="textColor">{{ 'Quote.title' | translate }}: {{quoteId}} </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-slides pager='true'>
+            <ion-slide>
+              <div class="slide">
+                <ion-col> 
+                  <ion-card class="back"> 
+                     <ion-card-header class="back">
+                      <ion-grid>
+                        <ion-row>
+                          <ion-icon name="pricetags-outline" size="large" class="text left"></ion-icon>
+                          <ion-title class="text left">${{p}}</ion-title>
+                      </ion-row>
+                      </ion-grid>
+                    <ion-card-subtitle class="text" text-center>
+                      Quote No: {{i+1}}
+                    </ion-card-subtitle>
+                    </ion-card-header>
+                  </ion-card>
+                </ion-col>
+              </div>
+            </ion-slide>
+        
+            <ion-slide>
+              <div>
+                <div class="center">
+                  <img src="assets/icon/three.svg" class="img-class" />
+                </div>
+                <div >
+                  <h2 class="haeding">Simple & Easy</h2>
+                  <div style="width: 90vw;">
+                    <p style="color: white;">Add information about yourself,your cars, drivers and you are done.</p>
+                  </div>
+                </div>
+              </div>
+            </ion-slide>
+        
+            <ion-slide>
+              <div>
+                <div class="center">  
+                  <img src="assets/icon/getStart.svg" class="img-class" />
+               </div>
+                <div >
+                  <h2 class="haeding">Ready to Start?</h2>
+                  <ion-button fill="clear"  (click)='finish()' style="color: white;" routerLink='/primary-name'>Continue <ion-icon slot="end" name="arrow-forward"></ion-icon></ion-button>
+                </div>
+              </div>
+            </ion-slide>
+        
+          </ion-slides> -->
+          <!-- <ion-col class="col-md-4" *ngFor="let p of price; let i = index"> -->
+            <!-- <ion-col class="col-md-4" > -->
+            <!-- <ion-card class="back"> -->
+              <!-- <ion-card-header class="back">
+                <ion-grid>
+                  <ion-row>
+                    <ion-icon name="pricetags-outline" size="large" class="text left"></ion-icon>
+                    <ion-title class="text left">${{p}}</ion-title>
+                </ion-row>
+                </ion-grid>
+              <ion-card-subtitle class="text" text-center>
+                Quote No: {{i+1}}
+              </ion-card-subtitle>
+              </ion-card-header>
+            </ion-card> -->
+          <!-- </ion-col> -->
+        <!-- </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-chip color="secondary" (click)='sendEmail()'>
+              <ion-icon name="mail-outline"></ion-icon>
+              <ion-label color="dark">Email Quote</ion-label>
+            </ion-chip>
+          </ion-col>
+          <ion-col>
+            <ion-chip color="secondary" (click)='agentPhone()'>
+              <ion-icon name="call-outline"></ion-icon>
+              <ion-label color="dark">Call Agent</ion-label>
+            </ion-chip>
+          </ion-col>
+        </ion-row>
+    
+      </ion-grid> -->
+  
+    <!-- </ion-card-content>
+  </ion-card>
+   -->
+ 
+</ion-content>

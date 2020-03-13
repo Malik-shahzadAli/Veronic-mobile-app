@@ -1,0 +1,95 @@
+<!-- <ion-content class="color">
+  <ion-card class="card">
+    <ion-card-header>
+      <ion-card-title class="textColor">{{ 'isEmployed.title' | translate }}</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <ion-grid>
+        <ion-row >
+          <ion-col size-md='4' offset-md='4'>
+            <form [formGroup]='driverIsEmployed'>
+              <div class="toggle" (change)="changeStatus($event)">
+                <div>
+                  <input type="radio" formControlName="employmentStatus" value="E" id='employed' />
+                  <label for="employed">{{ 'isEmployed.employ' | translate }}</label>
+                </div>
+                <div style="margin-top: 10px;">
+                  <input type="radio" formControlName="employmentStatus" value='U' id='unemployed' />
+                  <label for="unemployed">{{ 'isEmployed.other' | translate }}</label>
+                </div>
+              </div>
+            </form> 
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <div class="ion-text-start" style="float: left;">
+                    <ion-button fill="clear"  routerLink='/add-another-driver/education' routerDirection="back"> <small>{{ 'PRIMARY-NAME.back' | translate }} </small><ion-icon slot="start" name="arrow-back"></ion-icon> </ion-button>
+                   
+                  </div>
+                  <div class="ion-text-end" *ngIf='!select'>
+                    <ion-button fill="clear" (click)="getErrorTost()"><small>{{ 'PRIMARY-NAME.next' | translate }} </small> <ion-icon slot="end" name="arrow-forward"></ion-icon></ion-button>
+                  
+                  </div>
+                  <div class="ion-text-end" *ngIf='select'>
+                    <ion-button fill="clear" (click)="getDriverIsEmployedNextClick()" routerLink='/add-another-driver/accident'> <small>{{ 'PRIMARY-NAME.next' | translate }} </small> <ion-icon slot="end" name="arrow-forward"></ion-icon></ion-button>
+   
+                  </div>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+  
+ 
+</ion-content> -->
+
+<ion-content >
+  <div class="flex">
+  <ion-card style="align-self: center !important; width:99%;box-shadow:rgba(0, 0, 0, 0.0) 0px 4px 16px;">
+    <div class="ion-text-center">
+      <ion-progress-bar color='danger' value="0.75" style="margin-bottom: 3vh;"></ion-progress-bar>
+      <div style="display: table-caption;">
+        <ion-back-button defaultHref='/add-another-driver/education' slot="start"></ion-back-button>
+      </div>
+      <img src="assets/icon/employee.svg" />
+    </div>
+    <ion-card-header style="margin-bottom: 0px !important; padding-bottom: 0px !important; padding-top: 0px !important;">
+      <ion-card-subtitle class="ion-text-center">{{ 'DInfo.dInfo' | translate }}</ion-card-subtitle>
+      <ion-card-title class="ion-text-center">{{ 'isEmployed.title2' | translate }} {{driverName}} {{ 'isEmployed.title3' | translate }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content style="padding-bottom:0px !important">
+      <form [formGroup]='driverIsEmployed'>
+        <div class="toggle" (ionChange)="changeStatus($event)">
+          <ion-list>
+            <ion-radio-group  value="anchovies">
+              <ion-item>
+                <label for="employed">{{ 'isEmployed.employ' | translate }}</label>
+                <ion-radio slot="end" formControlName="employmentStatus" value="E" id='employed' color="danger"></ion-radio>
+              </ion-item>
+    
+              <ion-item>
+                <label for="unemployed">{{ 'isEmployed.other' | translate }}</label>
+                <ion-radio slot="end" formControlName="employmentStatus" value='U' id='unemployed' color="danger"></ion-radio>
+              </ion-item>
+            </ion-radio-group>
+          </ion-list>
+        </div>
+      </form>
+    </ion-card-content>
+    <ion-card-header style="margin-bottom: 0px !important; padding-bottom: 0px !important; padding-top: 0px !important;">
+      <ion-chip *ngIf='!select' class="disableNext" size="large" color="danger" (click)="getErrorTost()" >
+        <ion-label class="next">NEXT</ion-label>
+      </ion-chip>
+      <!-- Enable Button -->
+      <ion-chip *ngIf='select' class="enableNext" size="large" (click)="getDriverIsEmployedNextClick()" routerLink='/add-another-driver/accident' >
+        <ion-label class="next">NEXT</ion-label>
+      </ion-chip>
+    </ion-card-header>
+    <ion-progress-bar color='danger' value="0.80"></ion-progress-bar>
+  </ion-card>
+</div>
+</ion-content>

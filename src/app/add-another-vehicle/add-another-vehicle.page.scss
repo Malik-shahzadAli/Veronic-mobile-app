@@ -1,0 +1,51 @@
+// --spinner-color: 'red';
+
+// .loader{
+//     // --spinner-color: 'red'; 
+//     --background: none;
+
+//     .loading-wrapper{
+//         box-shadow: none !important;
+//         -webkit-box-shadow: !important;
+//     }
+// }
+.addVehicle{
+    width: 100%; 
+	height: 8vh; 
+	// margin-bottom: 4vh;
+}
+.nex{
+    font-size: large;
+    padding-left:12%;
+    // text-align: end;
+}
+.getQuote{
+    font-size: large;
+    padding-left:35%;
+    // background: #EA2027;
+    // color: white;
+    // width: 100%; 
+	// height: 8vh; 
+	// margin-bottom: 4vh;
+}
+.nex{
+    margin: auto; 
+    font-size: large;
+    padding-left: 0;
+}
+.card-content-md {
+    -webkit-padding-start: 0px !important; 
+    padding-inline-start: 0px !important;
+    -webkit-padding-end:0px !important;
+    padding-inline-end: 0px !important;
+}
+.card-content-ios{
+    -webkit-padding-start: 0px !important; 
+    padding-inline-start: 0px !important;
+    -webkit-padding-end:0px !important;
+    padding-inline-end: 0px !important;
+   padding-bottom: 0px !important; 
+}
+.card-content-md{
+    padding-bottom: 0px !important;
+}

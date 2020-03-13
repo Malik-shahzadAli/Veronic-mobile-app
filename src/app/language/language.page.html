@@ -1,0 +1,94 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="flex" style="justify-content:center">
+    <ion-card style="align-self: center !important; width:99%;box-shadow:rgba(0, 0, 0, 0.0) 0px 4px 16px;">
+      <form>
+        <ion-row class="cc-selector">
+          <ion-col></ion-col>
+          <ion-col>
+            <ion-input id="visa" type="radio" name="credit-card" value="visa" > </ion-input>
+            <label class="drinkcard-cc visa" for="visa" (click)="language('en')"></label>
+          </ion-col>
+          <ion-col>
+            <ion-input id="mastercard" type="radio" name="credit-card" value="mastercard"> </ion-input>
+            <label class="drinkcard-cc mastercard"for="mastercard" (click)="language('sp')"></label>
+          </ion-col>
+          <ion-col></ion-col>
+        </ion-row>
+        <ion-row>
+          <div style="display: flex; padding-left: 40%;">
+            <ion-button fill="clear" *ngIf='!select' style="zoom: 2; margin-left: 46%;" color='danger' (click)="getErrorTost()"> <ion-icon slot="start" name="arrow-forward"></ion-icon></ion-button>
+            <ion-button fill="clear" *ngIf='select' style="zoom: 2; margin-left: 46%;" routerLink='/home'> <ion-icon slot="start" name="arrow-forward"></ion-icon></ion-button>
+          </div>
+        </ion-row>
+    </form>
+      <!-- <ion-row>
+        <ion-col></ion-col>
+        <ion-col >
+          <span (click)="language('en')" >
+            <ion-img  src='assets/icon/english.png' ></ion-img>
+          </span>
+          <br>
+          <span style="padding-left:14px">
+            English
+          </span>
+        </ion-col>
+        <ion-col> 
+          <span (click)="language('sp')">
+            <ion-img src='assets/icon/spain.png'></ion-img>
+          </span>
+          <br>
+          <span style="padding-left:14px">
+            Espanol
+          </span>
+        </ion-col>
+        <ion-col></ion-col>
+      </ion-row>
+      <ion-row>
+        <div style="display: flex; padding-left: 40%;">
+          <ion-button fill="clear" *ngIf='!select' style="zoom: 2; margin-left: 46%;" color='danger' (click)="getErrorTost()"> <ion-icon slot="start" name="arrow-forward"></ion-icon></ion-button>
+          <ion-button fill="clear" *ngIf='select' style="zoom: 2; margin-left: 46%;" routerLink='/home'> <ion-icon slot="start" name="arrow-forward"></ion-icon></ion-button>
+        </div>
+      </ion-row>
+
+
+      <!-- <ion-row> -->
+        <!-- <div class="cc-selector "> -->
+          <!-- <ion-radio-group (ionChange)="changeStatus($event)" class="ion-text-center"> -->
+            <!-- <ion-item class="ion-text-center"> -->
+              <!-- <ion-radio id='visa'  value="en" > </ion-radio> -->
+              <!-- <label class="drinkcard-cc visa" for="visa"></label> -->
+              <!-- <ion-radio id="mastercard"  value="sp"></ion-radio> -->
+              <!-- <label class="drinkcard-cc mastercard"for="mastercard"></label> -->
+            <!-- </ion-item> -->
+          <!-- </ion-radio-group> -->
+          <!-- <form [formGroup]='languageSelect' > -->
+            <!-- <div style="width: 80vw; margin-left: 15vw;" (ionChange)="changeStatus($event)">
+            <ion-col >
+              <ion-radio  formControlName="language" value="en" > </ion-radio>
+              <label class="drinkcard-cc visa" for="visa"></label>
+            </ion-col>
+            <ion-col >
+              <ion-radio id="mastercard" type="radio" formControlName="language" value="sp"></ion-radio>
+              <label class="drinkcard-cc mastercard"for="mastercard"></label>
+            </ion-col>
+            <div  style="width: 60vw; zoom: 3; padding-left: 3vh;">
+              <ion-button *ngIf='!select' fill="clear" [disabled]='!select'> <ion-icon slot="start"  name="arrow-forward"></ion-icon></ion-button>
+            </div>
+          </div> -->
+          <!-- </form> -->
+      <!-- </div> -->
+      <!-- </ion-row> -->
+     
+    <!-- </ion-card> -->
+
+  </ion-card>
+  </div>
+  
+</ion-content> 
+

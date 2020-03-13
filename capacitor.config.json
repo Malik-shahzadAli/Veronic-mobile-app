@@ -1,0 +1,8 @@
+{
+  "appId": "com.veronica-quotes.angular-ionic",
+  "appName": "Veronica",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "cordova": {}
+}

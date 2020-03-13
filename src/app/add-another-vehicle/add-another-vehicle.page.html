@@ -1,0 +1,108 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title></ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content >
+  <div class="flex">
+  <ion-card style="align-self: center !important; width:99%;box-shadow:rgba(0, 0, 0, 0.0) 0px 4px 16px;">
+    <div class="ion-text-center">
+      <ion-progress-bar color='danger' value="1" style="margin-bottom: 3vh;"></ion-progress-bar>
+    </div>
+    <div style="align-self: flex-start !important; align-items: start; position: fixed; display: flow-root;">
+      <ion-back-button defaultHref='/finance-mode' slot="start"></ion-back-button>
+    </div>
+    <div class="ion-text-center">
+      <img src="assets/icon/car.png" />
+    </div>
+    <ion-card-header style="margin-bottom: 0px !important; padding-bottom: 0px !important; padding-top: 0px !important;">
+      <ion-card-subtitle class="ion-text-center">Customer Info</ion-card-subtitle>
+      <ion-card-title class="ion-text-center">{{ 'AddAnotherVehical.title' | translate }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content style="padding-bottom:0px !important">
+      <div *ngFor="let c of existingListOfCars">
+        <ion-card style="background:white;">             
+          <ion-card-content>
+            <ion-icon name="car-sport-outline" style="zoom: 3.0;"></ion-icon>
+            <P style="text-align: left; color: red;">{{c.make}} | {{c.model}} | {{c.year}}</P>
+          </ion-card-content>
+        </ion-card>
+      </div>
+    </ion-card-content>
+    <ion-card-header style="margin-bottom: 0px !important; padding-bottom: 0px !important; padding-top: 0px !important;">
+      <ion-chip  class="addVehicle " size="large" color='primary'  routerLink='/add-vehicle'  >
+        <ion-label class="nex">{{ 'AddAnotherVehical.addAnotherVehicle' | translate }}</ion-label>
+      </ion-chip>
+      <ion-chip  class="enableNext" size="large"  (click)="getQuote()" >
+        <ion-label class="getQuote">{{ 'AddAnotherVehical.getQuote' | translate }}</ion-label>
+      </ion-chip>
+ 
+    </ion-card-header>
+    <ion-progress-bar color='danger' value="1"></ion-progress-bar>
+  </ion-card>
+</div>
+</ion-content> -->
+
+<ion-header>
+  <ion-toolbar>
+    <ion-title></ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content >
+  <div>
+    <ion-card style="align-self: center !important; box-shadow:rgba(0, 0, 0, 0.0) 0px 4px 16px;">
+      <div class="ion-text-center">
+        <ion-progress-bar color='danger' value="0.66" style="margin-bottom: 3vh;"></ion-progress-bar>
+      </div>
+      <div style="display: table-caption;">
+        <ion-back-button defaultHref='/finance-mode'  slot="start"></ion-back-button>
+      </div>
+      <!-- <div class="ion-text-center">
+        <img src="assets/icon/car.png" />
+      </div> -->
+      <ion-card-header>
+        <ion-card-title class="ion-text-center">Vehicle Info</ion-card-title>
+        <ion-card-subtitle class="ion-text-center">{{ 'AddAnotherVehical.title' | translate }}</ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-card-content >
+        <ion-grid >
+          <ion-row >
+            <ion-col size-md='4' offset-md='4'>
+                <div *ngFor="let c of existingListOfCars">
+                <ion-card  style="background:white;">             
+                  <ion-card-content>
+                    <div class="ion-text-center">
+                        <ion-row size='4'>
+                          <ion-col >
+                            <ion-img src='assets/icon/car.svg' style="width: 100% !important;"></ion-img>
+                          </ion-col>
+                          <ion-col style="display: flow-root;">
+                            <p>{{c.make}} | {{c.year}}</p>
+                            <p> {{c.model}}</p>
+                          </ion-col>
+                          <ion-col style="padding-top: 10%;">
+                            <span ><ion-icon name="close-outline" style="zoom: 2; color:  #D70020;"></ion-icon></span>
+                          </ion-col>
+                        </ion-row>
+                    </div>
+                  </ion-card-content>
+                </ion-card>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+      <ion-card-header>
+        <ion-chip  class="disableNext" size="large" style="display: flex;" color='primary'  routerLink='/add-vehicle' >
+          <ion-label class="nex" >{{ 'AddAnotherVehical.addAnotherVehicle' | translate }}</ion-label>
+        </ion-chip>
+        <!-- Enable Button -->
+        <ion-chip  class="enableNext" size="large"  routerLink='/referring' >
+          <ion-label class="getQuote">NEXT</ion-label>
+        </ion-chip>
+      </ion-card-header>
+      <ion-progress-bar color='danger' value="1"></ion-progress-bar>
+    </ion-card>
+</div>
+</ion-content>
