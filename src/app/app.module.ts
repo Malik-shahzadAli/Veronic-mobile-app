@@ -14,10 +14,13 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateConfigService } from './translate-config.service';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
-
+// import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { FormsModule } from '@angular/forms';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+
+
+
 export function LanguageLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
 }

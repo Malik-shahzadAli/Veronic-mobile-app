@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>pwa-scan</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <scandit-sdk-barcode-picker 
+  [accessCamera]="true"
+  [scanSettings]="settings"
+  
+  [enableCameraSwitcher]="true"
+  [enableTorchToggle]="true"
+  [enablePinchToZoom]="true"
+  [enableTapToFocus]="true"
+ 
+  [paused]="false"
+  [playSoundOnScan]="true"
+  [vibrateOnScan]="true"
+ 
+  [targetScanningFPS]="30"
+
+ 
+  (submitFrame)="onSubmitFrame($event)"
+  (processFrame)="onProcessFrame($event)"
+  (scan)="onScan($event)"
+  (init)="onInit()"
+  (ready)="onReady()"
+  (error)="onError($event)">  
+
+  </scandit-sdk-barcode-picker>
+</ion-content>

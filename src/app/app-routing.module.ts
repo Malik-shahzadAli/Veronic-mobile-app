@@ -96,6 +96,10 @@ const routes: Routes = [
     path: 'referred-person',
     loadChildren: () => import('./referred-person/referred-person.module').then( m => m.ReferredPersonPageModule)
   },
+  {
+    path: 'pwa-scan',
+    loadChildren: () => import('./pwa-scan/pwa-scan.module').then( m => m.PwaScanPageModule)
+  },
 ];
 
 @NgModule({

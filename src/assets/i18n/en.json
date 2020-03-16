@@ -194,5 +194,9 @@
     },
     "reffer":{
         "title": "Want to avail 10% off by reffering someone?"
+    },
+    "scan": {
+        "title":"Do you want to scan your driving license?",
+        "scan":"Scan"
     }
 }

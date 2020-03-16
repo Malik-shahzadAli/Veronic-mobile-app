@@ -1,60 +1,61 @@
-<ion-content class="color">
-  <ion-card class="card">
+<ion-header>
+  <ion-toolbar>
+    <ion-title></ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content >
+  
+  <div class="flex">
+  <ion-card style="align-self: center !important; width:99%;box-shadow:rgba(0, 0, 0, 0.0) 0px 4px 16px;">
+    <div class="ion-text-center">
+      <img src="assets/icon/driving.svg" />
+    </div>
     <ion-card-header>
-      <!-- <ion-card-subtitle class="textColor">{{ 'HOME.subTitle' | translate }}</ion-card-subtitle>
-      <ion-card-title class="textColor">{{ 'HOME.title' | translate }}</ion-card-title> -->
+      <ion-card-subtitle class="ion-text-center">Customer Info</ion-card-subtitle>
+      <ion-card-title class="ion-text-center">{{ 'scan.title' | translate }}</ion-card-title>
     </ion-card-header>
   
     <ion-card-content>
-      <ion-button (click)='scan()'>Scan</ion-button>
-      <ion-button routerLink='/primary-name'>Manual</ion-button>
-      <!-- <ion-grid>
-        <ion-row>
-          <ion-col size-md='4' offset-md='4'>
-            <div  class="ion-text-start">
-              <p class="textColor">
-                <span>1</span>
-                {{ 'HOME.customerInfo' | translate }}
-              </p>
-            </div>
-            <div class="ion-text-start">
-              <p class="textColor">
-                <span>2</span>
-                {{ 'HOME.Drivers' | translate }}
-              </p>
-            </div>
-            <div class="ion-text-start">
-              <p class="textColor">
-                <span>3</span>
-                {{ 'HOME.Vehical' | translate }}
-              </p>
-            </div>
-            <div class="ion-text-start">
-              <p class="textColor">
-                <span>4</span>
-                {{ 'HOME.Quote' | translate }}
-              </p>
-            </div>
-            <div class="ion-text-start">
-              <p class="textColor">
-                <span>5</span>
-                {{ 'HOME.Purchase' | translate }}
-              </p>
-            </div>
-            <ion-grid>
-              <ion-row>
-                <ion-col>
-                  <div class="ion-text-end" style="float: right;">
-                    <ion-button fill="clear"  routerLink='/primary-name'><small>{{ 'HOME.getStarted' | translate }} </small> <ion-icon slot="end" name="arrow-forward"></ion-icon></ion-button>
-                  </div>
-                </ion-col>
-              </ion-row>
-            </ion-grid>
-          </ion-col>
-        </ion-row>
-      </ion-grid> -->
+      <ion-chip  class="enableNext" size="large"  (click)='scan()' >
+        <ion-label class="next">{{ 'scan.scan' | translate }}</ion-label>
+      </ion-chip>
+      <!-- <ion-chip  class="enableNext" size="large"  (click)='scan2()' >
+        <ion-label class="next">{{ 'scan.scan' | translate }}</ion-label>
+      </ion-chip> -->
+      <ion-chip  class="enableNext" size="large"   routerLink='/primary-name' >
+        <ion-label class="next">Manual</ion-label>
+      </ion-chip>
+      <!-- <div> -->
+        <ion-chip  class="enableNext" size="large"   routerLink='/pwa-scan' >
+          <ion-label class="next">PwaScan</ion-label>
+        </ion-chip>
+        <!-- <div> -->
+        <!-- <scandit-sdk-barcode-picker [scanSettings]="settings"
+        (scan)="onScan($event)"
+        (error)="onError($event)"></scandit-sdk-barcode-picker> -->
+       
+        <!-- <a class="button" id="startButton">Start</a> -->
+        <!-- <ion-button id="startButton">Start Scan</ion-button>
+        <a class="button" id="resetButton">Reset</a> -->
+      <!-- </div> -->
+
+      <!-- <div>
+        <video id="video" width="300" height="200" style="border: 1px solid gray"></video>
+      </div> -->
+<!-- 
+      <div id="sourceSelectPanel" style="display:none">
+        <label for="sourceSelect">Change video source:</label>
+        <select id="sourceSelect" style="max-width:400px">
+        </select>
+      </div>
+
+      <label>Result:</label>
+      <pre><code id="result"></code></pre> -->
     </ion-card-content>
   </ion-card>
-  
- 
+</div>
+
+<!-- <script type="text/javascript"> -->
+
+<!-- </script> -->
 </ion-content> 

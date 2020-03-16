@@ -10,6 +10,7 @@ import { FirstSplashPage } from './first-splash.page';
 import { TranslateModule } from '@ngx-translate/core';
 
 
+
 @NgModule({
   imports: [
     CommonModule,

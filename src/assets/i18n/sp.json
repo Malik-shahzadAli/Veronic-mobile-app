@@ -190,5 +190,9 @@
     },
     "reffer":{
         "title": "¿Quiere aprovechar el 10% de descuento refiriendo a alguien?"
+    },
+    "scan": {
+        "title":"¿Quieres escanear tu licencia de conducir?",
+        "scan":"Escanear"
     }
 }
