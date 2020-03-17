@@ -34,6 +34,7 @@
     "@ngx-translate/core": "^12.1.1",
     "@ngx-translate/http-loader": "^4.0.0",
     "@zxing/library": "^0.16.0",
+    "angular-cli-ghpages": "^0.6.2",
     "br-mask": "0.0.8",
     "browser": "^0.2.6",
     "cordova-browser": "^6.0.0",
