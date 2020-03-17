@@ -1,0 +1,202 @@
+
+{
+    "VInfo":{
+        "vInfo":"Vehicle Info"
+    },
+    "CInfo":{
+        "cInfo": "Customer Info"
+    },
+    "DInfo":{
+        "dInfo": "Driver Info"
+    },
+    "HOME": {
+        "title": "Get covered in minutes!",
+        "subTitle":"Save big on great coverage in five easy steps",
+        "customerInfo": "Customer Info",
+        "Drivers": "Drivers",
+        "Vehical": "Vehicles",
+        "Quote": "Quote",
+        "Purchase": "Purchase",
+        "getStarted": "Get Started"
+        
+    },
+    "PRIMARY-NAME": {
+        "title": "To start, what’s your name?",
+        "next": "NEXT",
+        "firstName": "First name",
+        "lastName": "Last name",
+        "error":"Minimum 3 characters are required",
+        "back": "BACK"
+    },
+    "Date-of-birth":{
+        "title": "When were you born?",
+        "next": "next",
+        "DateOfBirth": "Date of birth",
+        "dateError":"Date of birth is required."
+    },
+    "Address": {
+        "title": "Your Address",
+        "streetAddress": "Street Address",
+        "zipCode": "Zip Code",
+        "next": "next",
+        "popUpError": "Please enter valid credentials.",
+        "calforniaZip": "Please enter california zip code",
+        "error": "Invalid street address"
+    },
+    "ContactInfo":{
+        "title":"Contact Details",
+        "email":"Email Address",
+        "phoneNo":"Phone Number",
+        "next": "next",
+        "popUpError": "Please enter valid address and phone number.",
+        "email-inavlid": "Invalid Email Address",
+        "phone-inavlid": "Invalid Phone Number"
+    },
+    "DriverSplash": {
+        "title": "Get covered in minutes!",
+        "subTitle":"Save big on great coverage in five easy steps.",
+        "customer":"Customer Information",
+        "drivers": "Drivers",
+        "vehicles": "Vehicles",
+        "quote": "Quote",
+        "purchase": "Purchase",
+        "next": "next"
+    },
+    "MerriageStatus":{
+        "title":"What is your marital status ?",
+        "single": "Single",
+        "married": "Married",
+        "divorced": "Divorced",
+        "widowed": "Widowed",
+        "other": "Other",
+        "next": "next"
+    },
+    "Education": {
+        "title": "What’s the highest level of education you’ve completed?",
+        "title2": "What’s the highest level of education",
+        "title3": "completed?",
+        "highSchool":"High School",
+        "associateDegree":"Associate",
+        "bechelor":"Bachelor's",
+        "graduate":"Master's",
+        "next": "next"
+    },
+    "HomeOwner": {
+        "title": "Are you a homeowner?",
+        "yes":"Yes",
+        "no": "No",
+        "next": "next"
+    },
+    "Accident":{
+        "title":"Have you been in any at-fault accidents in the last 5 years?",
+        "yes":"Yes",
+        "no": "No",
+        "next": "next"
+    },
+    "AddAnOtherDriver":{
+        "title": "Review driver information",
+        "subtitle":"If there are other drivers in the household, please add them below.",
+        "button":"ADD ANOTHER DRIVER",
+        "next": "next"
+    },
+    "AddVehical": {
+        "title": "Tell us about your vehicle.",
+        "vin": "Add by VIN",
+        "year":"Year | Make | Model",
+        "next": "next"
+    },
+    "VIN": {
+        "title": "Please Enter Your VIN Number",
+        "next": "next",
+        "invalid": "Invalid VIN"
+    },
+    "Year":{
+        "title":"Tell us about your vehicle",
+        "year": "Year",
+        "make": "Make",
+        "model": "Model",
+        "next": "next"
+    },
+    "MilesPerDay":{
+        "title": "How many miles driven in a day?",
+        "miles": "Miles Per Day",
+        "next": "next",
+        "error": "Please enter the miles !"
+    },
+    "Finance": {
+        "title": "What is the ownership status of your vehicle?",
+        "makingPayment": "I'm currently making payments",
+        "paidOff": "It's paid off",
+        "next": "next"
+    },
+    "AddAnotherVehical": {
+        "title":"Review vehicle information",
+        "subtitle": "If there are other vehicles in the household, please add them below.",
+        "addAnotherVehicle": "ADD ANOTHER VEHICLE",
+        "getQuote": "GET QUOTE"
+    },
+    "popup": {
+        "title": "Please hold, while i get lowest prices for you.",
+        "title2": "Please wait a moment...",
+        "errorTitle": "Erro",
+        "errorSubtitile": "Please try again later !"
+    },
+    "SecoundaryDriverInformation":{
+        "title": "Tell name of the driver ?",
+        "name": "Name"
+    },
+    "SecoundaryDriverDOB":{
+        "title":"When was",
+        "title2": "born?"
+    },
+    "relationship":{
+        "title": "How is",
+        "title2": "related to you?",
+        "child": "Child",
+        "spouse": "Spouse"
+    },
+    "SecoundaryDriverEducation": {
+        "title":"What’s the highest level of education",
+        "title2": "have completed?",
+        "school": "High School",
+        "diploma": "Associate",
+        "degree":"Bachelor's",
+        "graduation": "Master's"
+    },
+    "isEmployed": {
+        "title": "Is Employed",
+        "title2": "Is",
+        "title3": "employed?",
+        "employ": "Employed",
+        "other": "Other"
+    },
+    "accident": {
+        "title": "Have",
+        "title2": "been in any at-fault accidents in the last 5 years?",
+        "yes": "Yes",
+        "no": "No"
+    },
+    "Quote": {
+        "title": "Quote id",
+        "no": "Quote no",
+        "month": "month",
+        "call": "Agent contact number",
+        "email":"Quote has been sent to your email address !"
+    },
+    "select": {
+        "dropdown": "Please select one of these options"
+    },
+    "opt":{
+        "title":"Verification"
+    },
+    "wait":{
+        "title":"Please wait ..."
+    },
+    "reffer":{
+        "title": "Want to avail 10% off by reffering someone?"
+    },
+    "scan": {
+        "title":"Do you want to scan your driving license?",
+        "scan":"Scan"
+    }
+}

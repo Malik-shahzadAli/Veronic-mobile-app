@@ -1,0 +1,198 @@
+{
+    "VInfo":{
+        "vInfo":"Información del vehículo"
+    },
+    "CInfo":{
+        "cInfo": "Información del cliente"
+    },
+    "DInfo":{
+        "dInfo": "Información del conductor"
+    },
+    "HOME": {
+        "title": "Cubrirse en minutos",
+        "subTitle":"Ahorre en grande en una excelente cobertura en cinco sencillos pasos",
+        "customerInfo": "Información al cliente",
+        "Drivers": "Conductores",
+        "Vehical": "Vehículos",
+        "Quote": "Citar",
+        "Purchase": "Compra",
+        "getStarted": "Empezar"
+    },
+    "PRIMARY-NAME": {
+        "title": "Para empezar, ¿cómo te llamas?",
+        "next": "siguiente",
+        "firstName": "Nombre de pila",
+        "lastName": "apellido",
+        "error": "Se requieren un mínimo de 3 caracteres.",
+        "back": "ESPALDA"
+    },
+    "Date-of-birth":{
+        "title": "¿Cuándo naciste?",
+        "next": "siguiente",
+        "DateOfBirth": "Fecha de nacimiento",
+        "dateError":"Se requiere fecha de nacimiento"
+    },
+    "Address": {
+        "title": "¿Su dirección?",
+        "streetAddress": "Dirección",
+        "zipCode": "código postal",
+        "next": "siguiente",
+        "popUpError": "Por favor ingrese una dirección válida y código postal.",
+        "calforniaZip": "Por favor ingrese el código postal de california",
+        "error":"Domicilio inválido"
+    },
+    "ContactInfo":{
+        "title":"Detalles de contacto",
+        "email":"Dirección de correo electrónico",
+        "phoneNo":"número de teléfono",
+        "next": "siguiente",
+        "popUpError": "Por favor ingrese una dirección válida y número de teléfono.",
+        "email-inavlid": "Dirección de correo electrónico no válida",
+        "phone-inavlid": "Numero de telefono invalido"
+    },
+    "DriverSplash": {
+        "title": "¡Cúbrete en minutos!",
+        "subTitle":"Ahorre en grande en una gran cobertura en cinco sencillos pasos.",
+        "customer":"Información al cliente",
+        "drivers": "Conductores",
+        "vehicles": "Vehículos",
+        "quote": "Citar",
+        "purchase": "Compra",
+        "next": "siguiente"
+    },
+    "MerriageStatus":{
+        "title":"Cuál es tu estado civil ?",
+        "single": "Soltero",
+        "married": "Casado",
+        "divorced": "Divorciado",
+        "widowed": "Viudo",
+        "other": "Otro",
+        "next": "siguiente"
+    },
+    "Education": {
+        "title": "¿Cuál es el nivel de educación más alto que has completado?",
+        "highSchool":"Preparatoria o GED",
+        "associateDegree":"Grado asociado | Certificación | Diploma",
+        "bechelor":"licenciatura",
+        "graduate":"Licenciatura o titulación profesional",
+        "next": "siguiente"
+    },
+    "HomeOwner": {
+        "title": "¿Eres un propietario?",
+        "yes":"si",
+        "no": "No",
+        "next": "siguiente"
+    },
+    "Accident":{
+        "title":"¿Has tenido algún accidente por culpa en los últimos 5 años?",
+        "yes":"Si",
+        "no": "No",
+        "next": "siguiente"
+    },
+    "AddAnOtherDriver":{
+        "title": "Revisar la información del conductor",
+        "subtitle":"Si hay otros conductores en el hogar, agréguelos a continuación.",
+        "Button":"AÑADIR OTRO CONDUCTOR",
+        "next": "siguiente"
+    },
+    "AddVehical": {
+        "title": "Cuéntanos sobre tu vehículo.",
+        "vin": "Agregar por VIN",
+        "year":"Año | Hacer| Modelo",
+        "next": "siguiente"
+    },
+    "VIN": {
+        "title": "Por favor, introduzca su número de VIN",
+        "next": "siguiente",
+        "invalid": "VIN inválido"
+    },
+    "Year":{
+        "title":"Cuéntanos sobre tu vehículo",
+        "year": "Año",
+        "make": "Hacer",
+        "model": "Modelo",
+        "next": "siguiente"
+    },
+    "MilesPerDay":{
+        "title": "¿Cuántas millas recorridas en un día?",
+        "miles": "Millas por día",
+        "next": "siguiente",
+        "erro": "Por favor ingrese las millas !"
+    },
+    "Finance": {
+        "title": "¿Cuál es el estado de propiedad de su vehículo?",
+        "makingPayment": "Actualmente estoy haciendo pagos",
+        "paidOff": "Está pagado",
+        "next": "siguiente"
+    },
+    "AddAnotherVehical": {
+        "title":"Revisar la información del vehículo",
+        "subtitle": "Si hay otros vehículos en el hogar, agréguelos a continuación.",
+        "addAnotherVehicle": "AGREGAR OTRO VEHÍCULO",
+        "getQuote": "OBTENER COTIZACIÓN"
+    },
+    "popup": {
+        "title": "Espera, mientras obtengo los precios más bajos para ti.",
+        "title2": "por favor, espere un momento...",
+        "errorTitle": "Error",
+        "errorSubtitle": "Por favor, inténtelo de nuevo más tarde !"
+    },
+    "SecoundaryDriverInformation":{
+        "title": "¿Decir el nombre del conductor?",
+        "name": "Nombre"
+    },
+    "SecoundaryDriverDOB":{
+        "title":"Cuando fue",
+        "title2": "¿nacido?"
+    },
+    "relationship":{
+        "title": "Como es",
+        "title2": "¿relacionado contigo?",
+        "child": "Niño",
+        "spouse": "Esposo"
+    },
+    "SecoundaryDriverEducation": {
+        "title":"¿Cuál es el nivel educativo más alto",
+        "title2": "Han completado?",
+        "school": "Preparatoria o GED",
+        "diploma": "Grado asociado | Certificación | Diploma",
+        "degree":"licenciatura",
+        "graduation": "Licenciatura o titulación profesional"
+    },
+    "isEmployed": {
+        "title": "Está empleado",
+        "title2": "Está",
+        "title3": "empleado ?",
+        "employ": "Empleado",
+        "other": "Otro"
+    },
+    "accident": {
+        "title": "Tener",
+        "title2": "Ha tenido algún accidente por culpa en los últimos 5 años?",
+        "yes": "si",
+        "no": "No"
+    },
+    "Quote": {
+        "title": "ID de cita",
+        "no": "Cita no",
+        "month": "mes",
+        "call": "Agente contacto no",
+        "email":"La cotización ha sido enviada a su dirección de correo electrónico !"
+    },
+    "select": {
+        "dropdown": "Por favor seleccione una de estas opciones"
+    },
+    "opt":{
+        "title":"Verificación"
+    },
+    "wait":{
+        "title":"Por favor espera ..."
+    },
+    "reffer":{
+        "title": "¿Quiere aprovechar el 10% de descuento refiriendo a alguien?"
+    },
+    "scan": {
+        "title":"¿Quieres escanear tu licencia de conducir?",
+        "scan":"Escanear"
+    }
+}
