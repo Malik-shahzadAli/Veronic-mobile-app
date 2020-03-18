@@ -16,19 +16,22 @@
     </ion-card-header>
   
     <ion-card-content>
-      <ion-chip  class="enableNext" size="large"  (click)='scan()' >
+      <!-- <ion-chip  class="enableNext" size="large"  (click)='scan()' >
         <ion-label class="next">{{ 'scan.scan' | translate }}</ion-label>
-      </ion-chip>
+      </ion-chip> -->
       <!-- <ion-chip  class="enableNext" size="large"  (click)='scan2()' >
         <ion-label class="next">{{ 'scan.scan' | translate }}</ion-label>
       </ion-chip> -->
+      <ion-chip  class="enableNext" size="large"   routerLink='/pwa-scan' >
+        <ion-label class="next">{{ 'scan.scan' | translate }}</ion-label>
+      </ion-chip>
       <ion-chip  class="enableNext" size="large"   routerLink='/primary-name' >
         <ion-label class="next">Manual</ion-label>
       </ion-chip>
       <!-- <div> -->
-        <ion-chip  class="enableNext" size="large"   routerLink='/pwa-scan' >
+        <!-- <ion-chip  class="enableNext" size="large"   routerLink='/pwa-scan' >
           <ion-label class="next">PwaScan</ion-label>
-        </ion-chip>
+        </ion-chip> -->
         <!-- <div> -->
         <!-- <scandit-sdk-barcode-picker [scanSettings]="settings"
         (scan)="onScan($event)"
