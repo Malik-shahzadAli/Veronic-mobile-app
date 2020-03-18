@@ -21,7 +21,7 @@
     </ion-card-header>
     <ion-card-content>
       <form [formGroup]='dateOfBirth'>
-        <ion-datetime formControlName='dob' (ionChange)="validateDOB($event)" max='{{year}}' placeholder="{{ 'Date-of-birth.DateOfBirth' | translate }}" class="roundedInput"></ion-datetime>
+        <ion-datetime formControlName='dob' [(ngModel)]="finalObj.customer.customerData.dob" (ionChange)="validateDOB($event)" max='{{year}}' placeholder="{{ 'Date-of-birth.DateOfBirth' | translate }}" class="roundedInput"></ion-datetime>
       </form>
     </ion-card-content>
     <ion-card-header>

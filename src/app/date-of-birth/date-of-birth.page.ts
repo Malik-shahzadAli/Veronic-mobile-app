@@ -10,6 +10,7 @@ import { ToastController } from '@ionic/angular';
 })
 export class DateOfBirthPage implements OnInit {
   dateError = true;
+  public date;
   constructor(public translate: TranslateService,
               private obj: JsonCommanObjectService,
               public toastController: ToastController) {
@@ -18,7 +19,7 @@ export class DateOfBirthPage implements OnInit {
 
   }
 
-  private finalObj;
+  public finalObj;
   public userEnterDate;
   public enableDisabled = true;
   currentYear = new Date().getFullYear();
@@ -30,6 +31,15 @@ export class DateOfBirthPage implements OnInit {
   });
 
   ngOnInit() {
+    // const d = '02161984';
+    // const month = d.slice(0, 2);
+    // const day = d.slice(2, 4);
+    // const year = d.slice(4);
+    // this.date = month + '-' + day + '-' + year;
+    // this.finalObj.customer.customerData.dob
+    if (this.finalObj.customer.customerData.dob !== '') {
+      this.dateError = false;
+    }
   }
   get birth() {
     return this.dateOfBirth.get('dob');

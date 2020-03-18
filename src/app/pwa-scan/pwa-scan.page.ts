@@ -1,21 +1,50 @@
 import { Component, OnInit } from '@angular/core';
 import { Barcode, BarcodePicker, Camera, CameraAccess, CameraSettings, ScanResult, ScanSettings } from "scandit-sdk";
 import { Router } from '@angular/router';
+import { ToastController } from '@ionic/angular';
+import { JsonCommanObjectService } from 'src/services/json-comman-object.service.service';
+import { TranslateService } from '@ngx-translate/core';
+// import { ToastController } from '@ionic/angular';
+import { LoadingController } from '@ionic/angular';
+
 @Component({
   selector: 'app-pwa-scan',
   templateUrl: './pwa-scan.page.html',
   styleUrls: ['./pwa-scan.page.scss'],
 })
 export class PwaScanPage implements OnInit {
+  private finalObj;
+  private modelText = '';
   public settings = new ScanSettings({ enabledSymbologies: [Barcode.Symbology.PDF417] });
-  constructor(public router: Router) { }
+  constructor(public router: Router, private toastController: ToastController,
+              private obj: JsonCommanObjectService,  private translate: TranslateService, public loadingController: LoadingController) {
+    this.finalObj = this.obj.customerDetails();
+  }
 
   ngOnInit() {
+    this.presentAlert();
+    // const a = 'DASSHAHZAD';
+    // console.log(a.slice(3,8));
+    // setTimeout( () => {
+      // alert("Hello");
+      // this.navCtrl.back();
+      // this.finalObj.customer.customerData.firstName = 'shahzad ali';
+      // this.finalObj.customer.customerData.dob =  12 + '-' + 11 + '-' + 1997;
+      // this.finalObj.customer.customerData.zipCode = 94043;
+      // this.finalObj.customer.customerData.streetAddress = 'CA';
+      // this.finalObj.customer.customerData.city = 'ABC';
+      // this.finalObj.customer.customerData.state = 'state.slice(3)';
+      // this.router.navigate(['/primary-name'], { replaceUrl: true});
+    // }, 3000);
   }
   onScan(event) {
-    // console.log(event);
-    // this.getErrorTost(event);
-    this.router.navigate(['/primary-name']);
+    console.log('scan completed');
+    console.log('Result ===>');
+    console.log(event.barcodes[0].data);
+    this.parseData(event.barcodes[0].data);
+    // alert(event.barcodes[0].data);
+    // this.getErrorTost(event.barcodes[0].data);
+    // this.router.navigate(['/primary-name']);
   }
   onInit() {
     console.log('on Init');
@@ -27,10 +56,81 @@ export class PwaScanPage implements OnInit {
     // console.log(event);
   }
   onReady() {
+    // Ready for scan...............
     console.log('On ready');
+    this.loadingController.dismiss('alert');
   }
   onError(event) {
     console.log(event);
   }
+  async getErrorTost(mess) {
+    const toast = await this.toastController.create({
+      message: mess,
+      duration: 10000
+    });
+    toast.present();
+  }
+  parseData(data) {
+    const array = data.split('\n');
+    console.log(array);
+    alert(array);
+    let firstName, lastName, streetAddress, zipCode, state, city, dob, gender, country, licenseNo;
+    for (const line of array ) {
+      if (line.startsWith('DCS')) {
+        lastName = line;
+      } else if (line.startsWith('DAC')) {
+        firstName = line;
+      } else if (line.startsWith('DAG')) {
+        streetAddress = line;
+      } else if (line.startsWith('DAK')) {
+        zipCode = line;
+      } else if (line.startsWith('DAJ')) {
+        state = line;
+      } else if (line.startsWith('DAI')) {
+        city = line;
+      } else if (line.startsWith('DBB')) {
+        dob = line;
+      } else if (line.startsWith('DBC')) {
+        gender = line;
+      } else if (line.startsWith('OCG')) {
+        country = line;
+      } else if (line.startsWith('DAQ')) {
+        licenseNo = line;
+      }
+    }
+    if (licenseNo === '') {
+      alert('Please Scan a valid driving license.');
+      return;
+    } else if (state.slice(3) !== 'CA') {
+      alert('Sorry currently we only operate in California.');
+      return;
+    } else {
+      const d = dob.slice(3);
+      const month = d.slice(0, 2);
+      const day = d.slice(2, 4);
+      const year = d.slice(4);
+      this.finalObj.customer.customerData.firstName = firstName.slice(3);
+      this.finalObj.customer.customerData.lastName = lastName.slice(3);
+      this.finalObj.customer.customerData.dob =  month + '-' + day + '-' + year;
+      this.finalObj.customer.customerData.zipCode = zipCode.slice(3, 8);
+      this.finalObj.customer.customerData.streetAddress = streetAddress.slice(3);
+      this.finalObj.customer.customerData.city = city.slice(3);
+      this.finalObj.customer.customerData.state = state.slice(3);
+      this.router.navigate(['/primary-name'], { replaceUrl: true});
+    }
+  }
 
+  async presentAlert() {
+    this.translate.get('wait.title').
+    subscribe((text: string) => {
+      this.modelText = text;
+    });
+    const loading = await this.loadingController.create({
+      message: this.modelText,
+      id: 'alert'
+    });
+    await loading.present();
+    const { role, data } = await loading.onDidDismiss();
+    console.log('Loading dismissed!');
+  }
 }

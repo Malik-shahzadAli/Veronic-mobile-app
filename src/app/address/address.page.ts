@@ -23,6 +23,8 @@ export class AddressPage implements OnInit {
   public nextBtnEnableDisabled = true;
   public validZip = false;
   public modelText = '';
+  public scan = false;
+  // public stateFromScan = false;
   driverAddress = new FormGroup({
     street : new FormControl(''),
     zipCode : new FormControl(''),
@@ -165,6 +167,7 @@ export class AddressPage implements OnInit {
     if(((this.finalObj.customer.customerData.streetAddress) !== "") && ((this.finalObj.customer.customerData.zipCode) !== "") && ((this.finalObj.customer.customerData.city) !== "") && ((this.finalObj.customer.customerData.city) !== "")){
       console.log("*********** Here **********");
       // this.addressInputFieldDisabled = false;
+      this.scan = true;
       this.zipCodeError = false;
       this.addressError = false;
       this.invalidZip = false;
@@ -176,7 +179,8 @@ export class AddressPage implements OnInit {
         zipCode : this.finalObj.customer.customerData.zipCode,
         city : this.finalObj.customer.customerData.city,
         state : this.finalObj.customer.customerData.state
-      })
+      });
+
     }
   }
   async getErrorTost() {

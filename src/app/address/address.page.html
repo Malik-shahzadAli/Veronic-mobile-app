@@ -4,7 +4,7 @@
   </ion-toolbar>
 </ion-header>
 <ion-content >
-  <div class="flex">
+  <div >
     <ion-card style="align-self: center !important; width:99%;box-shadow:rgba(0, 0, 0, 0.0) 0px 4px 16px;">
       <div class="ion-text-center">
         <ion-progress-bar color='danger' value="0.3" style="margin-bottom: 3vh;"></ion-progress-bar>
@@ -22,9 +22,9 @@
     <ion-card-content>
       <form [formGroup]='driverAddress'>
         <ion-input type="number" class="roundedInput" (input)="validateZipCode($event)" placeholder="{{ 'Address.zipCode' | translate }}" formControlName='zipCode'></ion-input>
-        <ion-input *ngIf = 'validZip' class="roundedInput" readonly style="background:	rgba(220,220,220,0.4); color: 	#C0C0C0" formControlName='city' placeholder="{{'Address.city' | translate}}"></ion-input>
-        <ion-input  *ngIf = 'validZip' class="roundedInput" readonly style="background:	rgba(220,220,220,0.4); color: 	#C0C0C0" formControlName='state' placeholder="{{'Address.state' | translate}}"></ion-input>
-        <ion-input  *ngIf = 'validZip' class="roundedInput input-lg capital" (input)="validateAddress($event)" formControlName='street' placeholder="{{ 'Address.streetAddress' | translate }}"></ion-input>
+        <ion-input *ngIf = 'validZip || scan' class="roundedInput" readonly style="background:	rgba(220,220,220,0.4); color: 	#C0C0C0" formControlName='city' placeholder="{{'Address.city' | translate}}"></ion-input>
+        <ion-input  *ngIf = 'validZip || scan' class="roundedInput" readonly style="background:	rgba(220,220,220,0.4); color: 	#C0C0C0" formControlName='state' placeholder="{{'Address.state' | translate}}"></ion-input>
+        <ion-input  *ngIf = 'validZip || scan' class="roundedInput input-lg capital" (input)="validateAddress($event)" formControlName='street' placeholder="{{ 'Address.streetAddress' | translate }}"></ion-input>
       </form>
     </ion-card-content>
     <ion-card-header>

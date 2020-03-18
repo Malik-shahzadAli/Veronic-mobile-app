@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl } from '@angular/forms';
 import { JsonCommanObjectService } from 'src/services/json-comman-object.service.service';
 import { ToastController } from '@ionic/angular';
 @Component({
@@ -18,7 +18,7 @@ export class PrimaryNamePage implements OnInit {
   public nextBtnEnableDisable = true;
   constructor( public translate: TranslateService,
                private obj: JsonCommanObjectService,
-               public toastController: ToastController ) {
+               public toastController: ToastController) {
     this.finalObj = this.obj.customerDetails();
     console.log('Service inside primary  constructor : ', this.finalObj);
    }
