@@ -6,8 +6,10 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 // import { ScanditSdkModule } from 'scandit-sdk-angular';
 
 // import scandit
+import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 declare var ZXing: any;
+import { JsonCommanObjectService } from 'src/services/json-comman-object.service.service';
 @Component({
   selector: 'app-first-splash',
   templateUrl: './first-splash.page.html',
@@ -15,9 +17,12 @@ declare var ZXing: any;
 })
 // public declare  ZXing: any;
 export class FirstSplashPage implements OnInit {
-  
+  private finalObj;
   // public settings = new ScanSettings({ enabledSymbologies: [Barcode.Symbology.CODE128] })
-  constructor(private barcodeScanner: BarcodeScanner, private toastController: ToastController) { }
+  constructor(private barcodeScanner: BarcodeScanner, private toastController: ToastController,
+              private obj: JsonCommanObjectService, public router: Router) {
+    this.finalObj = this.obj.customerDetails();
+   }
 
 
   ngOnInit() {
@@ -82,14 +87,6 @@ export class FirstSplashPage implements OnInit {
   }
 
   scan() {
-    // this.barcodeScanner.scan().then(
-    //   barcodeData => {
-    //     console.log('Barcode data', barcodeData);
-    //   }).catch(err => {
-    //     this.getErrorTost(err);
-    //     // console.log('Error', err);
-    // },
-    // );
     this.barcodeScanner.scan({
       // preferFrontCamera : true, // iOS and Android
       showFlipCameraButton : true, // iOS and Android
@@ -103,10 +100,12 @@ export class FirstSplashPage implements OnInit {
       disableAnimations : true, // iOS
       disableSuccessBeep: false // iOS and Android
   }).then((result) =>{
+
     alert("We got a barcode\n" +
           "Result: " + result.text + "\n" +
           "Format: " + result.format + "\n" +
           "Cancelled: " + result.cancelled);
+    this.parseData(result.text);
 }).catch((error) => {
   alert("Scanning failed: " + error);
 });
@@ -118,6 +117,54 @@ export class FirstSplashPage implements OnInit {
     });
     toast.present();
   }
-
+  parseData(data) {
+    const array = data.split('\n');
+    console.log(array);
+    alert(array);
+    let firstName, lastName, streetAddress, zipCode, state, city, dob, gender, country, licenseNo;
+    for (const line of array ) {
+      if (line.startsWith('DCS')) {
+        lastName = line;
+      } else if (line.startsWith('DAC')) {
+        firstName = line;
+      } else if (line.startsWith('DAG')) {
+        streetAddress = line;
+      } else if (line.startsWith('DAK')) {
+        zipCode = line;
+      } else if (line.startsWith('DAJ')) {
+        state = line;
+      } else if (line.startsWith('DAI')) {
+        city = line;
+      } else if (line.startsWith('DBB')) {
+        dob = line;
+      } else if (line.startsWith('DBC')) {
+        gender = line;
+      } else if (line.startsWith('OCG')) {
+        country = line;
+      } else if (line.startsWith('DAQ')) {
+        licenseNo = line;
+      }
+    }
+    if (licenseNo === '') {
+      alert('Please Scan a valid driving license.');
+      return;
+    } else if (state.slice(3) !== 'CA') {
+      alert('Sorry currently we only operate in California.');
+      return;
+    } else {
+      const d = dob.slice(3);
+      const month = d.slice(0, 2);
+      const day = d.slice(2, 4);
+      const year = d.slice(4);
+      this.finalObj.customer.customerData.firstName = firstName.slice(3);
+      this.finalObj.customer.customerData.lastName = lastName.slice(3);
+      this.finalObj.customer.customerData.dob =  month + '-' + day + '-' + year;
+      this.finalObj.customer.customerData.zipCode = zipCode.slice(3, 8);
+      this.finalObj.customer.customerData.streetAddress = streetAddress.slice(3);
+      this.finalObj.customer.customerData.city = city.slice(3);
+      this.finalObj.customer.customerData.state = state.slice(3);
+      this.router.navigate(['/primary-name']);
+    }
+  }
 }
 
