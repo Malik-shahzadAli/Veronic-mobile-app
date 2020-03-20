@@ -12,34 +12,39 @@
       </ion-title>
     </ion-toolbar>
   </ion-content>
-  <ion-menu side="start"  menuId="custom"  contentId="main" lines="none" class="my-custom-menu">
-    <ion-header  style="height: 40vh; text-align: center;"  >
+  <ion-menu side="start"  menuId="custom"  contentId="main"  class="my-custom-menu">
+    <ion-header  style="height: 32vh; background:linear-gradient(to bottom, #d70020, #c52938, #af3d49, #c52938,  #d70020);; text-align: center; border-bottom: solid rgba(0,0,0,0.04);"  >
       <ion-avatar  style="display: block; height: 100px; width: 90px; margin-left: auto; margin-right: auto; margin-top: 6vh;">
         <img src="assets/icon/avatar.svg" style='height:13vh' >
       </ion-avatar>
-      <h3 style="color: white; font-family: 'Open Sans', sans-serif !important">Shahzad Ali </h3>
-      <p style="color: white;">03086111049</p>
-    </ion-header>
-    <ion-content >
-      <ion-list no-lines >
-        <ion-item lines="none">
-          <!-- <ion-icon  style="margin-left: 30px; zoom: 1.6;" color='white' slot="start" src='assets/icon/sms3.svg'></ion-icon> -->
-          <ion-icon slot="start" style="margin-left: 6vh; zoom: 1.2;" color='white' name="chatbox-outline"></ion-icon>
-          Chat
-        </ion-item>
-        <ion-item lines="none">
-          <!-- <ion-icon  style="margin-left: 30px; zoom: 1.4;" color='white' slot="start" src='assets/icon/dollar3.svg'></ion-icon> -->
-          <ion-icon slot="start" style="margin-left: 6vh; zoom: 1.2" color='white' name="pricetag-outline"></ion-icon>
+      <h3 style="color: white; margin-top: 0px; font-family: 'Open Sans', sans-serif !important">Login </h3>
+      <!-- <p style="color: white;">03086111049</p> -->
+    </ion-header >
+    <ion-content style="--ion-background-color: transparent;">
+      <ion-list  style="--ion-background-color: transparent;" >
+        <ion-item style="--ion-background-color: transparent;">
+          <ion-icon slot="start" style=" zoom: 1.2;" color='white' name="cash-outline"></ion-icon>
           Get a Quote
+        </ion-item>
+        <ion-item >
+          <ion-icon slot="start" style=" zoom: 1.2" color='white' name="help-circle-outline"></ion-icon>
+          Help Center
         </ion-item>
       </ion-list>
     </ion-content>
-    <ion-footer style="height: 15vh;">
-      <ion-item lines="none">
-        <ion-thumbnail style="display: block; height: 60px; width: 140px; margin-left: auto; margin-right: auto;">
-          <ion-img src="assets/icon/veronica2.png"></ion-img>
-        </ion-thumbnail>
-      </ion-item>
+    <ion-footer style="height: 25vh; --ion-background-color: transparent;" no-lines  lines="none">
+      <!-- <ion-item lines="none"> -->
+        <ion-list  style="--ion-background-color: transparent;" >
+          <ion-item  style="--ion-background-color: transparent;">
+            <ion-icon slot="start" style=" zoom: 1.2;" color='white' name="person-add-outline"></ion-icon>
+            Invite Frinds
+          </ion-item>
+          <ion-item >
+            <ion-icon slot="start" style=" zoom: 1.2" color='white' name="cog-outline"></ion-icon>
+            Setting
+          </ion-item>
+        </ion-list>
+      <!-- </ion-item> -->
   </ion-footer>
   </ion-menu>
   <ion-router-outlet id="main"></ion-router-outlet>

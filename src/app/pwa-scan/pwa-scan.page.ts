@@ -16,6 +16,9 @@ export class PwaScanPage implements OnInit {
   private finalObj;
   private modelText = '';
   public settings = new ScanSettings({ enabledSymbologies: [Barcode.Symbology.PDF417] });
+  public viewfinder = 'viewfinder';
+  // public cameraSetting =  CameraSettings;
+  // public s = new ScanSettings({blurryRecognition:true})
   constructor(public router: Router, private toastController: ToastController,
               private obj: JsonCommanObjectService,  private translate: TranslateService, public loadingController: LoadingController) {
     this.finalObj = this.obj.customerDetails();
@@ -73,7 +76,7 @@ export class PwaScanPage implements OnInit {
   parseData(data) {
     const array = data.split('\n');
     console.log(array);
-    alert(array);
+    // alert(array);
     let firstName, lastName, streetAddress, zipCode, state, city, dob, gender, country, licenseNo;
     for (const line of array ) {
       if (line.startsWith('DCS')) {

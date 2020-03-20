@@ -5,7 +5,7 @@
 </ion-header>
 <ion-content >
   
-  <div class="flex">
+  <div>
   <ion-card style="align-self: center !important; width:99%;box-shadow:rgba(0, 0, 0, 0.0) 0px 4px 16px;">
     <div class="ion-text-center">
       <img src="assets/icon/driving.svg" />
@@ -16,15 +16,15 @@
     </ion-card-header>
   
     <ion-card-content>
-      <ion-chip  class="enableNext" size="large"  (click)='scan()' >
+      <!-- <ion-chip  class="enableNext" size="large"  (click)='scan()' >
         <ion-label class="next">{{ 'scan.scan' | translate }}</ion-label>
-      </ion-chip>
+      </ion-chip> -->
       <!-- <ion-chip  class="enableNext" size="large"  (click)='scan2()' >
         <ion-label class="next">{{ 'scan.scan' | translate }}</ion-label>
       </ion-chip> -->
-      <!-- <ion-chip  class="enableNext" size="large"   routerLink='/pwa-scan' >
+      <ion-chip  class="enableNext" size="large"   routerLink='/pwa-scan' >
         <ion-label class="next">{{ 'scan.scan' | translate }}</ion-label>
-      </ion-chip> -->
+      </ion-chip>
       <ion-chip  class="enableNext" size="large"   routerLink='/primary-name' >
         <ion-label class="next">Manual</ion-label>
       </ion-chip>

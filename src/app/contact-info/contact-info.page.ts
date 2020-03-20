@@ -85,6 +85,7 @@ export class ContactInfoPage implements OnInit {
       const emailAddress = this.emailAddress.value;
       const phoneNumber = this.phoneNumber.value;
       const phone = this.formatPhoneNumber(phoneNumber);
+      // const newPhone = '+923086111049';
       const newPhone = '+1' + phone;
       this.http.post('https://www.staging.admin.veronicasquote.com/api/otp/generate', {"phoneNo" : newPhone})
         .subscribe((response) => {

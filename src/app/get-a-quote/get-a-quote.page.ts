@@ -20,7 +20,7 @@ export class GetAQuotePage implements OnInit {
   public phone;
   public userEmail;
   public finalObjectSendToServer;
-  public prices = [12, 14 , 16];
+  public prices = {quoteId: 15674361, offers:["48.94", "82.33", "105.34"]}
   modelText = '';
 
   constructor(private obj: JsonCommanObjectService, private http: HttpClient,
@@ -50,8 +50,8 @@ export class GetAQuotePage implements OnInit {
     this.quotes = this.obj.quotes;
     console.log('###### Inside get a quote compoonent ######');
     console.log(this.quotes.quote);
-    // this.price = this.quotes.quote.offers;
-    // this.quoteId = this.quotes.quote.quoteId;
+    this.price = this.quotes.quote.offers;
+    this.quoteId = this.quotes.quote.quoteId;
   }
 
   async callAlert() {

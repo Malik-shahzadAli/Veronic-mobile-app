@@ -130,9 +130,11 @@ otp: string;
   validateOTP() {
     console.log(this.otpForm.value.otp);
     console.log('NUMBER----' + this.finalObj.customer.customerData.phone);
+    const pNumber = '+1' + this.finalObj.customer.customerData.phone;
+    // const pNumber = '+923086111049';
     this.presentAlert();
     this.http.post('https://www.staging.admin.veronicasquote.com/api/otp/verify',
-   {"phoneNo" : this.finalObj.customer.customerData.phone, "otp" : this.otpForm.value.otp})
+   {"phoneNo" : pNumber, "otp" : this.otpForm.value.otp})
     .subscribe((response) => {
     // console.log('Server Response, validate OTP');
     this.spinnerShowHide = true;

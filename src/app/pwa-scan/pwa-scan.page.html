@@ -5,28 +5,34 @@
 </ion-header>
 
 <ion-content>
-  <scandit-sdk-barcode-picker 
-  [accessCamera]="true"
-  [scanSettings]="settings"
-  
-  [enableCameraSwitcher]="true"
-  [enableTorchToggle]="true"
-  [enablePinchToZoom]="true"
-  [enableTapToFocus]="true"
- 
-  [paused]="false"
-  [playSoundOnScan]="true"
-  [vibrateOnScan]="true"
- 
-  [targetScanningFPS]="30"
+<div >
+<div style=' height: 100%; width: 100%; position: absolute; z-index: 1; color: white;'>
+  <p style="position:fixed; bottom: 2vh; padding: 2%; font-size: large;">
+    Please Scan the Back side of the driving license 
+  </p>
+</div>
+<scandit-sdk-barcode-picker 
+[accessCamera]="true"
+[scanSettings]="settings"
+[enableCameraSwitcher]="true"
+[enableTorchToggle]="true"
+[enablePinchToZoom]="true"
+[enableTapToFocus]="true"
 
- 
-  (submitFrame)="onSubmitFrame($event)"
-  (processFrame)="onProcessFrame($event)"
-  (scan)="onScan($event)"
-  (init)="onInit()"
-  (ready)="onReady()"
-  (error)="onError($event)">  
+[paused]="false"
+[playSoundOnScan]="true"
+[vibrateOnScan]="true"
 
-  </scandit-sdk-barcode-picker>
+
+[targetScanningFPS]="30"
+
+(submitFrame)="onSubmitFrame($event)"
+(processFrame)="onProcessFrame($event)"
+(scan)="onScan($event)"
+(init)="onInit()"
+(ready)="onReady()"
+(error)="onError($event)">
+</scandit-sdk-barcode-picker>
+</div>
+ 
 </ion-content>
