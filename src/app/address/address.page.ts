@@ -164,6 +164,7 @@ export class AddressPage implements OnInit {
     }
   }
   ngOnInit() {
+    window.localStorage.setItem('jwt', 'abcd');
     if(((this.finalObj.customer.customerData.streetAddress) !== "") && ((this.finalObj.customer.customerData.zipCode) !== "") && ((this.finalObj.customer.customerData.city) !== "") && ((this.finalObj.customer.customerData.city) !== "")){
       console.log("*********** Here **********");
       // this.addressInputFieldDisabled = false;

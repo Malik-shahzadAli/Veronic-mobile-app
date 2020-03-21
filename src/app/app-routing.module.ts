@@ -100,6 +100,10 @@ const routes: Routes = [
     path: 'pwa-scan',
     loadChildren: () => import('./pwa-scan/pwa-scan.module').then( m => m.PwaScanPageModule)
   },
+  {
+    path: 'my-quotes',
+    loadChildren: () => import('./my-quotes/my-quotes.module').then( m => m.MyQuotesPageModule)
+  },
 ];
 
 @NgModule({

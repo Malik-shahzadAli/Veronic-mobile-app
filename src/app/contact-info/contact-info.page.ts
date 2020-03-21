@@ -7,6 +7,8 @@ import {Ng2TelInputModule} from 'ng2-tel-input';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { LoadingController } from '@ionic/angular';
+import { environment } from 'src/environments/environment';
+// environment
 @Component({
   selector: 'app-contact-info',
   templateUrl: './contact-info.page.html',
@@ -85,9 +87,9 @@ export class ContactInfoPage implements OnInit {
       const emailAddress = this.emailAddress.value;
       const phoneNumber = this.phoneNumber.value;
       const phone = this.formatPhoneNumber(phoneNumber);
-      // const newPhone = '+923086111049';
-      const newPhone = '+1' + phone;
-      this.http.post('https://www.staging.admin.veronicasquote.com/api/otp/generate', {"phoneNo" : newPhone})
+      const newPhone = '+923338190934';
+      // const newPhone = '+1' + phone;
+      this.http.post(environment.baseUrl + '/api/get/otp', {"phoneNo" : newPhone})
         .subscribe((response) => {
           this.loadingController.dismiss('login');
           console.log('Server Response, validate Phone Number and send OTP');

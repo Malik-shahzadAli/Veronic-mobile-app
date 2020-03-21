@@ -12,12 +12,12 @@
       </ion-title>
     </ion-toolbar>
   </ion-content>
-  <ion-menu side="start"  menuId="custom"  contentId="main"  class="my-custom-menu">
+  <ion-menu side="start"  menuId="custom" (ionDidOpen)="menuOpened()"  contentId="main"  class="my-custom-menu">
     <ion-header  style="height: 32vh; background:linear-gradient(to bottom, #d70020, #c52938, #af3d49, #c52938,  #d70020);; text-align: center; border-bottom: solid rgba(0,0,0,0.04);"  >
       <ion-avatar  style="display: block; height: 100px; width: 90px; margin-left: auto; margin-right: auto; margin-top: 6vh;">
         <img src="assets/icon/avatar.svg" style='height:13vh' >
       </ion-avatar>
-      <h3 style="color: white; margin-top: 0px; font-family: 'Open Sans', sans-serif !important">Login </h3>
+      <h3 style="color: white; margin-top: 0px; font-family: 'Open Sans', sans-serif !important">{{userNumber}} </h3>
       <!-- <p style="color: white;">03086111049</p> -->
     </ion-header >
     <ion-content style="--ion-background-color: transparent;">
@@ -25,6 +25,10 @@
         <ion-item style="--ion-background-color: transparent;">
           <ion-icon slot="start" style=" zoom: 1.2;" color='white' name="cash-outline"></ion-icon>
           Get a Quote
+        </ion-item>
+        <ion-item style="--ion-background-color: transparent;" *ngIf='jwt' routerLink='/my-quotes'>
+          <ion-icon slot="start" style=" zoom: 1.2;" color='white' name="document-outline"></ion-icon>
+          My Quotes
         </ion-item>
         <ion-item >
           <ion-icon slot="start" style=" zoom: 1.2" color='white' name="help-circle-outline"></ion-icon>

@@ -7,6 +7,8 @@ import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { LoadingController } from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
+import { environment } from 'src/environments/environment';
+// environment
 @Component({
   selector: 'app-otp',
   templateUrl: './otp.page.html',
@@ -26,6 +28,14 @@ export class OTPPage implements OnInit {
   public third = true;
   public forth = true;
   public number;
+  public successToken = {
+    hasError: false,
+    decodedTokenData: {
+      phoneNo: "+923086111049"
+    }
+  }
+  // public url = 'https://fda8a09d.ngrok.io';
+  // public url = 'https://www.staging.admin.veronicasquote.com'
   otpForm = new FormGroup({
     otp: new FormControl(),
     // first: new FormControl(undefined),
@@ -107,7 +117,7 @@ otp: string;
   resendOTP() {
     if (this.counter < 3) {
     this.presentAlert();
-    this.http.post('https://www.staging.admin.veronicasquote.com/api/otp/generate',{"phoneNo" : this.finalObj.customer.customerData.phone})
+    this.http.post(environment.baseUrl + '/api/otp/generate',{"phoneNo" : this.finalObj.customer.customerData.phone})
       .subscribe((response) => {
         console.log(response);
         this.countdown.restart();
@@ -130,18 +140,23 @@ otp: string;
   validateOTP() {
     console.log(this.otpForm.value.otp);
     console.log('NUMBER----' + this.finalObj.customer.customerData.phone);
-    const pNumber = '+1' + this.finalObj.customer.customerData.phone;
-    // const pNumber = '+923086111049';
+    // const pNumber = '+1' + this.finalObj.customer.customerData.phone;
+    const pNumber = '+923338190934';
     this.presentAlert();
-    this.http.post('https://www.staging.admin.veronicasquote.com/api/otp/verify',
+    this.http.post(environment.baseUrl + '/api/validate/otp',
    {"phoneNo" : pNumber, "otp" : this.otpForm.value.otp})
     .subscribe((response) => {
+    console.log(response);
+    // console.log(response['authToken']);
+    // window.localStorage.setItem('jwt', response['authToken']);
+    // window.localStorage.setItem('userNumber',)
     // console.log('Server Response, validate OTP');
-    this.spinnerShowHide = true;
+    this.validateJwt(response['authToken']);
+    // this.spinnerShowHide = true;
     // console.log(response);
-    this.loadingController.dismiss('login');
+    // this.loadingController.dismiss('login');
     // this.router.navigateByUrl('/driver-splash');
-    this.router.navigate(['/driver-splash']);
+    // this.router.navigate(['/driver-splash']);
   },
   (err) => {
     console.log(err);
@@ -153,6 +168,9 @@ otp: string;
   });
   }
   ngOnInit() {
+    // const url = this.http.get("src/url/config.json");
+    // console.log(environment.baseUrl);
+    // console.log(this.successToken.decodedTokenData.phoneNo);
     console.log('NUMBER----' + this.finalObj.customer.customerData.phone);
     this.number = this.finalObj.customer.customerData.phone;
     // console.log(this.finalObj.customer.customerData.phone);
@@ -208,5 +226,32 @@ otp: string;
     } else {
       this.isNextBtnDisabled = true;
     }
+  }
+  validateJwt(Jwt) {
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        Authorization: Jwt
+      })
+    };
+
+    this.http.get(environment.baseUrl + '/api/auth/decode', httpOptions).subscribe(
+      (response) => {
+        // console.log(response['decodedTokenData']['phoneNo']);
+        const phoneNo = response['decodedTokenData']['phoneNo'];
+        window.localStorage.setItem('userNumber', phoneNo);
+        window.localStorage.setItem('jwt', Jwt);
+        //  this.spinnerShowHide = true;
+        this.loadingController.dismiss('login');
+        this.router.navigate(['/driver-splash']);
+      }, (err) => {
+        console.log(err);
+        this.loadingController.dismiss('login');
+        if (err.error.message) {
+          console.log(err.error.message);
+          this.getErrorTost(err.error.message);
+        }
+    });
   }
 }

@@ -9,6 +9,8 @@ import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 // import { type } from 'os';
 import { Plugins } from '@capacitor/core';
+// import {url} from 'src/url/config.json';
+// import { Url } from 'url';
 
 
 @Component({
@@ -18,6 +20,8 @@ import { Plugins } from '@capacitor/core';
 })
 export class AppComponent implements OnInit {
   selectedLanguage: string;
+  public jwt: boolean;
+  public userNumber: string;
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
@@ -26,7 +30,8 @@ export class AppComponent implements OnInit {
     private translateConfigService: TranslateConfigService,
     public translate: TranslateService,
     private router: Router,
-    public alertController: AlertController
+    public alertController: AlertController,
+    // private url: url
   ) {
     this.initializeApp();
     // this.presentAlertConfirm();
@@ -47,15 +52,28 @@ export class AppComponent implements OnInit {
   openFirst() {
     this.menu.enable(true, 'first');
     this.menu.open('first');
+    console.log('openFirst');
   }
 
   openEnd() {
     this.menu.open('end');
+    console.log('openEnd');
   }
 
   openCustom() {
     this.menu.enable(true, 'custom');
     this.menu.open('custom');
+    console.log('custom');
+  }
+  menuOpened() {
+    console.log('Ion Did Open');
+    if (window.localStorage && window.localStorage.getItem('jwt') && window.localStorage.getItem('userNumber') ) {
+      this.jwt = true;
+      this.userNumber = window.localStorage.getItem('userNumber');
+    } else {
+      this.jwt = false;
+      this.userNumber = 'Login';
+    }
   }
   // languageChanged() {
   //   this.translateConfigService.setLanguage(this.selectedLanguage);
@@ -67,6 +85,7 @@ export class AppComponent implements OnInit {
       this.router.navigateByUrl('/first-splash');
       window.localStorage.setItem('firstRunFinished', 'true');
     }
+   
   }
   // async presentAlertConfirm() {
   //   const alert = await this.alertController.create({
