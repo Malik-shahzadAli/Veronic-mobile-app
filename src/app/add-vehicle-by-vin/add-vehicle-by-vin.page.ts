@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { LoadingController } from '@ionic/angular';
 import { TranslateService } from '@ngx-translate/core';
 import { ToastController } from '@ionic/angular';
+import { url } from 'src/commonurl/commonurl';
 @Component({
   selector: 'app-add-vehicle-by-vin',
   templateUrl: './add-vehicle-by-vin.page.html',
@@ -25,7 +26,7 @@ export class AddVehicleByVinPage implements OnInit {
 
   public singleCarObj;
 
-  public url = 'https://www.admin.veronicasquote.com/api/vin/decode';
+  public url = url.baseurl+'/api/analyze/vin';
   constructor(private obj: JsonCommanObjectService,
               public loadingController: LoadingController,
               private http: HttpClient,

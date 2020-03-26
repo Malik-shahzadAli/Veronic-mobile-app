@@ -115,10 +115,10 @@ export class PwaScanPage implements OnInit {
       this.finalObj.customer.customerData.firstName = firstName.slice(3);
       this.finalObj.customer.customerData.lastName = lastName.slice(3);
       this.finalObj.customer.customerData.dob =  month + '-' + day + '-' + year;
-      this.finalObj.customer.customerData.zipCode = zipCode.slice(3, 8);
-      this.finalObj.customer.customerData.streetAddress = streetAddress.slice(3);
-      this.finalObj.customer.customerData.city = city.slice(3);
-      this.finalObj.customer.customerData.state = state.slice(3);
+      this.finalObj.customer.customerData.postalAddress.zipCode = zipCode.slice(3, 8);
+      this.finalObj.customer.customerData.postalAddress.street = streetAddress.slice(3);
+      this.finalObj.customer.customerData.postalAddress.city = city.slice(3);
+      this.finalObj.customer.customerData.postalAddress.state = state.slice(3);
       this.router.navigate(['/primary-name'], { replaceUrl: true});
     }
   }

@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { LoadingController } from '@ionic/angular';
 import { TranslateService } from '@ngx-translate/core';
 import { AlertController } from '@ionic/angular';
-
+import { url } from 'src/commonurl/commonurl';
 @Component({
   selector: 'app-get-a-quote',
   templateUrl: './get-a-quote.page.html',
@@ -12,7 +12,7 @@ import { AlertController } from '@ionic/angular';
 })
 export class GetAQuotePage implements OnInit {
 
-  public url = 'https://www.admin.veronicasquote.com/api/quote/email';
+  public url = url.baseurl+'/api/quote/email';
 
   public quotes;
   public price: any[];

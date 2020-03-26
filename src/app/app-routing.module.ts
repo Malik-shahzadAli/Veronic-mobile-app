@@ -104,6 +104,24 @@ const routes: Routes = [
     path: 'my-quotes',
     loadChildren: () => import('./my-quotes/my-quotes.module').then( m => m.MyQuotesPageModule)
   },
+  {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'login-otp',
+    loadChildren: () => import('./login-otp/login-otp.module').then( m => m.LoginOtpPageModule)
+  },  {
+    path: 'is-customer-employeed',
+    loadChildren: () => import('./is-customer-employeed/is-customer-employeed.module').then( m => m.IsCustomerEmployeedPageModule)
+  },
+  {
+    path: 'gender',
+    loadChildren: () => import('./gender/gender.module').then( m => m.GenderPageModule)
+  },
+
+
+
 ];
 
 @NgModule({

@@ -12,13 +12,18 @@ export class JsonCommanObjectService {
         "customerData": {
             "firstName": "",
             "lastName": "",
+            "gender": "M",
+            "dob": "",
             "maritalStatus": "",
             "homeOwner": "",
-            "zipCode": "",
-            "streetAddress": "",
-            "dob": "",
-            "edu": "",
+            "education": "",
             "isEmployed": "",
+            "postalAddress":{
+              "street":"",
+              "city":"",
+              "state": "",
+              "zip": ""
+            },
             "email": "",
             "phone" : ""
         },
@@ -27,16 +32,17 @@ export class JsonCommanObjectService {
     "cars": [],
     "drivers": [],
     "ref" : {"fullName": '', "phoneNo" : ''},
-    "source": 'APP'
+    "quoteSource": 'PWA'
 };
 
 public driverObjTemplate = {
   "driverData": {
-      "dRelation": "",
-      "dName": "",
-      "dEdu": "",
-      "isDEmployed": "",
-      "dDob": ""
+    "dFullName": "",
+    "dGender":"M",
+    "dDob": "",
+    "dEducation": "",
+    "isDEmployed": "",
+    "dRelation": "",
   },
   "driverIncidents": []
 };

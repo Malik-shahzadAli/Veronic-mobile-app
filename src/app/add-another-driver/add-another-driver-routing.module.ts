@@ -37,7 +37,12 @@ const routes: Routes = [
   {
     path: 'is-employed',
     component: IsEmployedComponent
+  },
+  {
+    path: 'dgender',
+    loadChildren: () => import('./dgender/dgender.module').then( m => m.DgenderPageModule)
   }
+
 
 ];
 

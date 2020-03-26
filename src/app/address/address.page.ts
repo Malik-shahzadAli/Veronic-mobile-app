@@ -6,13 +6,14 @@ import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { ToastController } from '@ionic/angular';
 import { LoadingController } from '@ionic/angular';
+import { url } from 'src/commonurl/commonurl';
 @Component({
   selector: 'app-address',
   templateUrl: './address.page.html',
   styleUrls: ['./address.page.scss'],
 })
 export class AddressPage implements OnInit {
-  public url = 'https://www.admin.veronicasquote.com/api';
+  public url = url.baseurl;
   private finalObj;
   public spinnerShowHide = true; // SPINNER HIDE/SHOW
   public addressError = true; // MEANS, ADDRESS IS REQUIRED
@@ -77,7 +78,7 @@ export class AddressPage implements OnInit {
     if (result) {
       this.presentAlert();
       this.invalidZip = false;
-      this.http.post(this.url + '/zip/validate', {"zipCode" : userEnteredZip})
+      this.http.post(this.url + '/api/validate/zipcode', {"zipCode" : userEnteredZip})
       .subscribe((response) => {
         this.validZip = true;
         console.log('Server Response, after validating ZIP');
@@ -133,15 +134,15 @@ export class AddressPage implements OnInit {
     const state = this.state.value;
     const address = streetAddress + ', ' + city + ' ' + state + ' ' + zipCode;
     console.log('Entered Address : ', address);
-    this.http.post(this.url + '/address/validate', {"streetAddress" : address})
+    this.http.post(this.url + '/api/validate/address', {"streetAddress" : address})
       .subscribe((response) => {
         this.loadingController.dismiss('login');
         this.spinnerShowHide = true;
         console.log(response);
-        this.finalObj.customer.customerData.streetAddress = streetAddress;
-        this.finalObj.customer.customerData.zipCode = zipCode;
-        this.finalObj.customer.customerData.city = city;
-        this.finalObj.customer.customerData.state = state;
+        this.finalObj.customer.customerData.postalAddress.street = streetAddress;
+        this.finalObj.customer.customerData.postalAddress.zip = zipCode;
+        this.finalObj.customer.customerData.postalAddress.city = city;
+        this.finalObj.customer.customerData.postalAddress.state = state;
         this.router.navigate(['/contact-info']);
       },
       (error) => {
@@ -164,8 +165,7 @@ export class AddressPage implements OnInit {
     }
   }
   ngOnInit() {
-    window.localStorage.setItem('jwt', 'abcd');
-    if(((this.finalObj.customer.customerData.streetAddress) !== "") && ((this.finalObj.customer.customerData.zipCode) !== "") && ((this.finalObj.customer.customerData.city) !== "") && ((this.finalObj.customer.customerData.city) !== "")){
+    if(((this.finalObj.customer.customerData.postalAddress.street) !== "") && ((this.finalObj.customer.customerData.postalAddress.zip) !== "") && ((this.finalObj.customer.customerData.postalAddress.city) !== "") && ((this.finalObj.customer.customerData.postalAddress.city) !== "")){
       console.log("*********** Here **********");
       // this.addressInputFieldDisabled = false;
       this.scan = true;
@@ -176,10 +176,10 @@ export class AddressPage implements OnInit {
       this.addressValidationError = false;
       this.nextBtnEnableDisabled = false;
       this.driverAddress.setValue({
-        street : this.finalObj.customer.customerData.streetAddress,
-        zipCode : this.finalObj.customer.customerData.zipCode,
-        city : this.finalObj.customer.customerData.city,
-        state : this.finalObj.customer.customerData.state
+        street : this.finalObj.customer.customerData.postalAddress.street,
+        zipCode : this.finalObj.customer.customerData.postalAddress.zip,
+        city : this.finalObj.customer.customerData.postalAddress.city,
+        state : this.finalObj.customer.customerData.postalAddress.state
       });
 
     }

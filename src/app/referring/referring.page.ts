@@ -6,7 +6,7 @@ import { JsonCommanObjectService } from 'src/services/json-comman-object.service
 import { TranslateService } from '@ngx-translate/core';
 import { ToastController } from '@ionic/angular';
 import { LoadingController } from '@ionic/angular';
-
+import { url } from 'src/commonurl/commonurl';
 @Component({
   selector: 'app-referring',
   templateUrl: './referring.page.html',
@@ -15,7 +15,7 @@ import { LoadingController } from '@ionic/angular';
 export class ReferringPage implements OnInit {
 
   public finalObjectSendToServer;
-  public url = 'https://www.admin.veronicasquote.com/api/quote/generate';
+  public url = url.baseurl+'/api/quotes/generate';
   public nextBtnEnableDisable = true;
   public select = false;
   public value;

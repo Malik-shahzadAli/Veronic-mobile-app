@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { LoadingController } from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
-import { environment } from 'src/environments/environment';
+import { url } from 'src/commonurl/commonurl';
 // environment
 @Component({
   selector: 'app-otp',
@@ -117,7 +117,7 @@ otp: string;
   resendOTP() {
     if (this.counter < 3) {
     this.presentAlert();
-    this.http.post(environment.baseUrl + '/api/otp/generate',{"phoneNo" : this.finalObj.customer.customerData.phone})
+    this.http.post(url.baseurl + '/api/otp/generate',{"phoneNo" : this.finalObj.customer.customerData.phone})
       .subscribe((response) => {
         console.log(response);
         this.countdown.restart();
@@ -140,10 +140,10 @@ otp: string;
   validateOTP() {
     console.log(this.otpForm.value.otp);
     console.log('NUMBER----' + this.finalObj.customer.customerData.phone);
-    // const pNumber = '+1' + this.finalObj.customer.customerData.phone;
-    const pNumber = '+923338190934';
+    const pNumber = '+1' + this.finalObj.customer.customerData.phone;
+    // const pNumber = '+923086111049';
     this.presentAlert();
-    this.http.post(environment.baseUrl + '/api/validate/otp',
+    this.http.post(url.baseurl + '/api/validate/otp',
    {"phoneNo" : pNumber, "otp" : this.otpForm.value.otp})
     .subscribe((response) => {
     console.log(response);
@@ -236,7 +236,7 @@ otp: string;
       })
     };
 
-    this.http.get(environment.baseUrl + '/api/auth/decode', httpOptions).subscribe(
+    this.http.get(url.baseurl + '/api/auth/decode', httpOptions).subscribe(
       (response) => {
         // console.log(response['decodedTokenData']['phoneNo']);
         const phoneNo = response['decodedTokenData']['phoneNo'];

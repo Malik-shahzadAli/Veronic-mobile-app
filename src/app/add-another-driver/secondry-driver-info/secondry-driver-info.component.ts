@@ -43,16 +43,16 @@ export class SecondryDriverInfoComponent implements OnInit {
   getUserNameNextClick() {
     const _firstName = this.firstname.value;
     // this.singleDriverObj.drivers.push({driverData : {dName : _firstName}})
-    this.singleDriverObj.driverData.dName = _firstName;
+    this.singleDriverObj.driverData.dFullName = _firstName;
     console.log('Add another driver, NEXT on button click');
     console.log(this.singleDriverObj);
   }
   ngOnInit() {
-    if (this.singleDriverObj.driverData.dName) {
+    if (this.singleDriverObj.driverData.dFullName) {
       this.driverNameError = false;
       this.nextBtnEnableDisable = false;
       this.primaryName.setValue({
-        firstName : this.singleDriverObj.driverData.dName,
+        firstName : this.singleDriverObj.driverData.dFullName,
       });
     }
   }

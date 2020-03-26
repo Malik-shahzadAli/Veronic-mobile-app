@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { environment } from 'src/environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { LoadingController } from '@ionic/angular';
 import * as moment from 'moment';
-// environment
+import { url } from 'src/commonurl/commonurl';
+import { ToastController } from '@ionic/angular';
 @Component({
   selector: 'app-my-quotes',
   templateUrl: './my-quotes.page.html',
@@ -14,66 +14,48 @@ export class MyQuotesPage implements OnInit {
   public quotesArray;
   public createdAtArray=[] ;
   public status;
-  constructor( private http: HttpClient,  public loadingController: LoadingController) { }
-
+  constructor( private http: HttpClient, public loadingController: LoadingController, public toastController: ToastController) { }
   ngOnInit() {
-    // this.presentAlert();
-   
-    // console.log(now);
     const Jwt = localStorage.getItem('jwt');
+    this.fetchQuotes(Jwt);
+
+  }
+
+  fetchQuotes(Jwt){
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json',
         Authorization: Jwt
       })
     };
-    this.http.get(environment.baseUrl + '/api/subscribers/quotes', httpOptions).subscribe(
+    // this.presentAlert();
+    this.http.get(url.baseurl + '/api/subscribers/quotes', httpOptions).subscribe(
       (response) => {
-        // this.loadingController.dismiss();
         this.totalQuotes = response['totalAssociatedQuotes'];
         this.quotesArray = response['associatedQuotes'];
-        // this.createdAt = response['associatedQuotes']['createdAt'];
-        // this.createdAt = new Date();
         console.log(response);
         for(let i = 0; i < this.quotesArray.length; i++) {
           const now = moment().toISOString();
           const nowDay = parseInt( now.slice(8, 10));
           console.log(this.quotesArray[i]['createdAt']);
           const createdAt = this.quotesArray[i]['createdAt'];
-          // this.createdAtArray.push(createdAt);
-          // var duration = moment.duration(now.diff());
           const createdAtDay = parseInt(createdAt.slice(8, 10));
-          // console.log(',,,,,' + nowDay);
           if ( (nowDay - createdAtDay) > 1  ) {
             this.createdAtArray.push('expire');
+            this.quotesArray[i]['createdAt'] = 'expire'
           } else {
             this.createdAtArray.push('active');
+            this.quotesArray[i]['createdAt'] = 'active'
           }
         }
-        // console.log(this.createdAt);
-        // const date = moment(this.createdAt);
-        // console.log('Date '+ date)
-        // var now = moment(new Date());
-        // console.log('now '+ now)
-        // console.log(compare("11/07/2015", "10/07/2015"));
-        // console.log(moment().diff(this.createdAt, 'minutes'));
-        // var duration = moment.duration(now.diff(date));
-        // var hours = duration.asHours();
-        // console.log(hours);
-        // const dateObj = new Date();
-        // dateObj.setDate(dateObj.getDate() - 1);
-        // console.log(dateObj);
-        // const diffTime = Math.abs(this.createdAt - dateObj);
-        // console.log('-----------')
-        // const day = new Date();
-        // console.log(day.getDate() - 1);
-        // console.log(this.createdAt.get)
-        // this.loadingController.dismiss('login');
+        console.log(this.quotesArray)
       }, (err) => {
         console.log(err);
         // this.loadingController.dismiss();
+        this.getErrorTost();
     });
   }
+
 
   async presentAlert() {
     const loading = await this.loadingController.create({
@@ -84,4 +66,13 @@ export class MyQuotesPage implements OnInit {
     console.log('Loading dismissed!');
   }
 
+  
+  // Toast Error .......
+  async getErrorTost() {
+    const toast = await this.toastController.create({
+      message: 'Sorry quotes not found!',
+      duration: 2000
+    });
+    toast.present();
+  }
 }

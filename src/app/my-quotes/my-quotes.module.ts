@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { MyQuotesPageRoutingModule } from './my-quotes-routing.module';
 
 import { MyQuotesPage } from './my-quotes.page';
+// import { PopoverPage } from './popOver.page';
 
 @NgModule({
   imports: [
@@ -15,6 +16,7 @@ import { MyQuotesPage } from './my-quotes.page';
     IonicModule,
     MyQuotesPageRoutingModule
   ],
-  declarations: [MyQuotesPage]
+  declarations: [MyQuotesPage],
+
 })
 export class MyQuotesPageModule {}

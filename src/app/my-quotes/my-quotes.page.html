@@ -4,40 +4,21 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-<!-- My Quotes  -->
-<!-- <div *ngFor="let i of quotesArray">
-{{i.itcQuoteId}}
-{{i.createdAt}}
-<div *ngFor='let single of i.quoteOffers'>
-{{single}}
-</div>
-</div> -->
-<ion-card *ngFor="let i of quotesArray">
-  <!-- <ion-card-header>
-    <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-    <ion-card-title>Card Title</ion-card-title>
-  </ion-card-header> -->
-  <ion-card-content>
-    <ion-row>
-      <ion-col>{{i.itcQuoteId}}</ion-col>
-      <ion-col>
-        <ion-row>
-          <ion-col *ngFor='let single of i.quoteOffers'>{{single}}</ion-col>
-        </ion-row>
-      </ion-col>
-    </ion-row>
-    <ion-row *ngFor='let status of createdAtArray' style="text-align: center;">
-      <ion-col></ion-col>
-      <ion-col></ion-col>
-      <ion-col>
-        <ion-badge *ngIf= 'status === "active"' color="success">active</ion-badge>
-      <ion-badge *ngIf= 'status === "expire"' color="danger">expire</ion-badge>
-      </ion-col>
-      <ion-col></ion-col>
-      
-      <!-- <p *ngIf= 'status === "active"'>active</p> -->
-    </ion-row>
-  </ion-card-content>
-</ion-card>
+<ion-content style="--ion-background-color: #DCDCDC; padding-left: 0 !important; padding-right: 0 !important;">
+    <ion-card  style="background:white;"  *ngFor="let i of quotesArray" >             
+      <ion-card-content>
+        <div class="ion-text-center">
+            <ion-row style="display: flex;">
+              <ion-col size="3" >
+                <ion-img src='assets/icon/insuranceCar.svg' style="width: 100% !important; padding-right: 16px !important; padding-top: 10px !important;"></ion-img>
+              </ion-col>
+              <ion-col style="text-align: left; margin-top: 5px;">
+                <p style="font-size: 1.2rem;"><b>{{i.itcQuoteId}}</b></p>
+                <ion-badge color="danger" *ngFor='let single of i.quoteOffers'  style="margin-right: 2px; font-size: 1rem;">${{single}}</ion-badge>
+                <P style="font-size: 1rem;"><span  *ngFor='let car of i.cars let in = index'> <span *ngIf='in !== 0' > <b>,</b></span> <b>{{car.model}} </b> </span></P>
+              </ion-col>
+            </ion-row>
+        </div>
+      </ion-card-content>
+    </ion-card>
 </ion-content>

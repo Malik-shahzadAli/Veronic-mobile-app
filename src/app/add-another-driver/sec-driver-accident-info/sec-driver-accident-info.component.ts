@@ -36,7 +36,7 @@ export class SecDriverAccidentInfoComponent implements OnInit {
 
   constructor(private obj: JsonCommanObjectService,  private toastController: ToastController, private translate: TranslateService) {
     this.singleDriverObj = this.obj.driverObjTemplate;
-    this.driverName = this.singleDriverObj.driverData.dName;
+    this.driverName = this.singleDriverObj.driverData.dFullName;
 
     this.customerObject = this.obj.customerDetails();
 
@@ -72,10 +72,11 @@ export class SecDriverAccidentInfoComponent implements OnInit {
     this.obj.driverObjTemplate = {
       driverData: {
           dRelation: '',
-          dName: '',
-          dEdu: '',
+          dFullName: '',
+          dEducation: '',
           isDEmployed: '',
-          dDob: ''
+          dDob: '',
+          dGender: ''
       },
       driverIncidents: []
     };

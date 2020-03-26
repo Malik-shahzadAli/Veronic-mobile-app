@@ -6,6 +6,7 @@ import { JsonCommanObjectService } from 'src/services/json-comman-object.service
 // import * as jquery from 'jquery';
 import { TranslateService } from '@ngx-translate/core';
 import { ToastController, IonContent } from '@ionic/angular';
+import { url } from 'src/commonurl/commonurl';
 
 @Component({
   selector: 'app-add-vehicle-by-year-make-model',
@@ -14,7 +15,7 @@ import { ToastController, IonContent } from '@ionic/angular';
 })
 export class AddVehicleByYearMakeModelPage implements OnInit {
 
-  public url = 'https://www.admin.veronicasquote.com/api/get';
+  public url = url.baseurl+'/api/get';
   public listOfModelyears;
   public listOfVehicleCompanies;
   public listOfVehicleModels;

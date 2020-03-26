@@ -44,15 +44,15 @@ export class DriverEducationPage implements OnInit {
   getUserEducationNextClick() {
     // const driverEducation = this.educationStatus.value;
     // console.log('Driver Education selected value : ', driverEducation);
-    this.finalObj.customer.customerData.edu = this.selectedValue;
+    this.finalObj.customer.customerData.education = this.selectedValue;
     console.log('getUserEducationNextClick Function calle');
     console.log(this.finalObj);
   }
   ngOnInit() {
-    if ((this.finalObj.customer.customerData.edu !== undefined) && (this.finalObj.customer.customerData.edu !== '')) {
+    if ((this.finalObj.customer.customerData.education !== undefined) && (this.finalObj.customer.customerData.education !== '')) {
 
       this.driverEducation.patchValue({
-        education : this.finalObj.customer.customerData.edu,
+        education : this.finalObj.customer.customerData.education,
       });
       this.dropDownSelected = false;
 

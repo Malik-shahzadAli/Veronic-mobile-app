@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { ToastController } from '@ionic/angular';
 import { LoadingController } from '@ionic/angular';
-
+import { url } from 'src/commonurl/commonurl';
 @Component({
   selector: 'app-referred-person',
   templateUrl: './referred-person.page.html',
@@ -15,7 +15,7 @@ import { LoadingController } from '@ionic/angular';
 })
 export class ReferredPersonPage {
   public finalObjectSendToServer;
-  public url = 'https://www.admin.veronicasquote.com/api/quote/generate';
+  public url = url.baseurl+'/api/quotes/generate';
   public isNameRequired = true;
   public isPhoneRequired = true;
   public NameValidate = false;
@@ -71,7 +71,7 @@ export class ReferredPersonPage {
       const result =  regex.test(String(userEnteredPhone));
       if (result) {
         this.presentAlert();
-        this.http.post('https://www.admin.veronicasquote.com/api/ref/validate', {"phoneNo" : '+1 '+userEnteredPhone})
+        this.http.post(url.baseurl+'/api/validate/ref', {"phoneNo" : '+1 '+userEnteredPhone})
         .subscribe((response) => {
           console.log('Response from the server : ');
           this.loadingController.dismiss('login');
@@ -101,7 +101,7 @@ export class ReferredPersonPage {
     const referredPhone = this.formatPhoneNumber(this.phoneNumber.value);
     console.log('Refered Phone No : ', referredPhone);
     this.finalObjectSendToServer.ref.fullName = referredName;
-    this.finalObjectSendToServer.ref.phoneNo = '+1' + referredPhone;
+    this.finalObjectSendToServer.ref.phone = '+1' + referredPhone;
     // REMOVING STATE AND CITY FROM FINAL OBJECT
     delete this.finalObjectSendToServer.customer.customerData.city;
     delete this.finalObjectSendToServer.customer.customerData.state;

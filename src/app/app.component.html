@@ -17,7 +17,9 @@
       <ion-avatar  style="display: block; height: 100px; width: 90px; margin-left: auto; margin-right: auto; margin-top: 6vh;">
         <img src="assets/icon/avatar.svg" style='height:13vh' >
       </ion-avatar>
-      <h3 style="color: white; margin-top: 0px; font-family: 'Open Sans', sans-serif !important">{{userNumber}} </h3>
+
+      <h3 *ngIf="userNumber === 'Login'" style="color: white; margin-top: 0px; font-family: 'Open Sans', sans-serif !important"  routerLink='/login'>{{userNumber}} </h3>
+      <h3 *ngIf="userNumber !== 'Login'" style="color: white; margin-top: 0px; font-family: 'Open Sans', sans-serif !important">{{userNumber}} </h3>
       <!-- <p style="color: white;">03086111049</p> -->
     </ion-header >
     <ion-content style="--ion-background-color: transparent;">

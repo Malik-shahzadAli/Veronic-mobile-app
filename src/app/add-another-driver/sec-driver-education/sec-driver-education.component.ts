@@ -38,7 +38,7 @@ export class SecDriverEducationComponent implements OnInit {
 
   constructor(private obj: JsonCommanObjectService, private toastController: ToastController, private translate: TranslateService ) {
     this.singleDriverObj = this.obj.driverObjTemplate;
-    this.gettingDriverEducationFromSingleDriverObj = this.singleDriverObj.driverData.dEdu;
+    this.gettingDriverEducationFromSingleDriverObj = this.singleDriverObj.driverData.dEducation;
     this.driverName = this.singleDriverObj.driverData.dName;
     console.log('Inside Add another driver Education Component : ', this.singleDriverObj);
    }
@@ -53,16 +53,16 @@ export class SecDriverEducationComponent implements OnInit {
   getUserEducationNextClick() {
     // const driverEducation = this.educationStatus.value;
     // console.log('New Driver Education selected value : ', driverEducation);
-    this.singleDriverObj.driverData.dEdu = this.selectedValue;
+    this.singleDriverObj.driverData.dEducation = this.selectedValue;
     console.log('getUserEducationNextClick Function called');
     console.log(this.singleDriverObj);
   }
 
   ngOnInit() {
     console.log(this.driverName);
-    if (this.singleDriverObj.driverData.dEdu) {
+    if (this.singleDriverObj.driverData.dEducation) {
       this.driverEducation.patchValue({
-        education : this.singleDriverObj.driverData.dEdu
+        education : this.singleDriverObj.driverData.dEducation
       });
       this.dropDownSelected = false;
     }

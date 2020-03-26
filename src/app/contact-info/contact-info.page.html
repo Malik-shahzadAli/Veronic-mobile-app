@@ -57,7 +57,7 @@
 </ion-header>
 <ion-content >
   <div>
-  <ion-card style="align-self: center !important; width:99%;box-shadow:rgba(0, 0, 0, 0.0) 0px 4px 16px;">
+  <ion-card style="align-self: center !important;box-shadow:rgba(0, 0, 0, 0.0) 0px 4px 16px;">
     <div class="ion-text-center">
       <ion-progress-bar color='danger' value="0.3" style="margin-bottom: 3vh;"></ion-progress-bar>
     </div>
@@ -78,7 +78,7 @@
         type="text"
         [brmasker]="{mask:'(000) 000-0000', len:14, type:'num'}"
         formControlName='phone'
-         (keyup) = "validatePhone($event)" class="roundedInput"  placeholder="{{ 'ContactInfo.phoneNo' | translate }}"></ion-input>
+        (keyup) = "validatePhone($event)" class="roundedInput"  placeholder="{{ 'ContactInfo.phoneNo' | translate }}"></ion-input>
       </form>
     </ion-card-content>
     <ion-card-header>

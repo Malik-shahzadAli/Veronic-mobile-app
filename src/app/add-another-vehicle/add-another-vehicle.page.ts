@@ -6,6 +6,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { JsonCommanObjectService } from 'src/services/json-comman-object.service.service';
+import { url } from 'src/commonurl/commonurl';
 @Component({
   selector: 'app-add-another-vehicle',
   templateUrl: './add-another-vehicle.page.html',
@@ -15,7 +16,7 @@ export class AddAnotherVehiclePage implements OnInit {
   // abc = popup.title;
   public finalObjectSendToServer;
   modelText = '';
-  public url = 'https://www.admin.veronicasquote.com/api/quote/generate';
+  public url = url.baseurl+'/api/quotes/generate';
   public stringifyFinalObject;
   public quoteData = {};
   public existingListOfCars;
