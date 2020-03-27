@@ -16,6 +16,7 @@ export class GenderPage implements OnInit {
   public dropDownSelected = true;
   public select = false;
   modelText = '';
+  public g = '';
   homeOwnerStatusArray = [
     {status : 'MALE', value : 'M'},
     {status: 'FEMALE', value : 'F'}
@@ -49,6 +50,8 @@ export class GenderPage implements OnInit {
     console.log(this.finalObj);
   }
   ngOnInit() {
+    // this.finalObj.customer.customerData.gender = 'F';
+    this.g = this.finalObj.customer.customerData.gender;
     if ((this.finalObj.customer.customerData.homeOwner !== undefined) && (this.finalObj.customer.customerData.homeOwner !== '')) {
       this.gender.patchValue({
         owner : this.finalObj.customer.customerData.gender,

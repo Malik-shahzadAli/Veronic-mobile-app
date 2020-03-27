@@ -21,7 +21,7 @@ export class OTPPage implements OnInit {
   public isNextBtnDisabled = true;
   public validOTP;
   public spinnerShowHide = true;
-  public maxtime: any = 10;
+  public maxtime: any = 25;
   public timer;
   // public first = true;
   public sec = true;
@@ -90,7 +90,7 @@ otp: string;
           if (this.maxtime <= 0) { }
           this.maxtime -= 1;
           if (this.maxtime > 0) {
-            console.log(this.maxtime);
+            // console.log(this.maxtime);
             this.StartTimer();
           } else {
               console.log('complete');
@@ -148,8 +148,8 @@ otp: string;
     .subscribe((response) => {
     console.log(response);
     // console.log(response['authToken']);
-    // window.localStorage.setItem('jwt', response['authToken']);
-    // window.localStorage.setItem('userNumber',)
+    window.localStorage.setItem('jwt', response['authToken']);
+    // window.localStorage.setItem('userNumber',pNumber)
     // console.log('Server Response, validate OTP');
     this.validateJwt(response['authToken']);
     // this.spinnerShowHide = true;
@@ -239,19 +239,22 @@ otp: string;
     this.http.get(url.baseurl + '/api/auth/decode', httpOptions).subscribe(
       (response) => {
         // console.log(response['decodedTokenData']['phoneNo']);
+        console.log('Response here')
         const phoneNo = response['decodedTokenData']['phoneNo'];
+        console.log(phoneNo)
         window.localStorage.setItem('userNumber', phoneNo);
         window.localStorage.setItem('jwt', Jwt);
         //  this.spinnerShowHide = true;
         this.loadingController.dismiss('login');
         this.router.navigate(['/driver-splash']);
       }, (err) => {
-        console.log(err);
+        // console.log(err);
         this.loadingController.dismiss('login');
-        if (err.error.message) {
-          console.log(err.error.message);
-          this.getErrorTost(err.error.message);
-        }
+        console.log(err)
+        // if (err.error.message) {
+        //   console.log(err.error.message);
+        //   this.getErrorTost(err.error.message);
+        // }
     });
   }
 }

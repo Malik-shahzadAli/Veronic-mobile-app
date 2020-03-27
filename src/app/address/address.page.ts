@@ -143,7 +143,7 @@ export class AddressPage implements OnInit {
         this.finalObj.customer.customerData.postalAddress.zip = zipCode;
         this.finalObj.customer.customerData.postalAddress.city = city;
         this.finalObj.customer.customerData.postalAddress.state = state;
-        this.router.navigate(['/contact-info']);
+        this.router.navigate(['/gender']);
       },
       (error) => {
         this.loadingController.dismiss('login');
@@ -165,7 +165,13 @@ export class AddressPage implements OnInit {
     }
   }
   ngOnInit() {
-    if(((this.finalObj.customer.customerData.postalAddress.street) !== "") && ((this.finalObj.customer.customerData.postalAddress.zip) !== "") && ((this.finalObj.customer.customerData.postalAddress.city) !== "") && ((this.finalObj.customer.customerData.postalAddress.city) !== "")){
+    // this.finalObj.customer.customerData.postalAddress.zip = "94043";
+    // this.finalObj.customer.customerData.postalAddress.street = "abc";
+    // this.finalObj.customer.customerData.postalAddress.city = "abcd";
+    // this.finalObj.customer.customerData.postalAddress.state = "abcd"
+    // this.zipcode  = "94043";
+    
+    if(((this.finalObj.customer.customerData.postalAddress.street) !== "") && ((this.finalObj.customer.customerData.postalAddress.zip) !== "") && ((this.finalObj.customer.customerData.postalAddress.city) !== "") && ((this.finalObj.customer.customerData.postalAddress.state) !== "")){
       console.log("*********** Here **********");
       // this.addressInputFieldDisabled = false;
       this.scan = true;

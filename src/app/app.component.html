@@ -13,12 +13,15 @@
     </ion-toolbar>
   </ion-content>
   <ion-menu side="start"  menuId="custom" (ionDidOpen)="menuOpened()"  contentId="main"  class="my-custom-menu">
-    <ion-header  style="height: 32vh; background:linear-gradient(to bottom, #d70020, #c52938, #af3d49, #c52938,  #d70020);; text-align: center; border-bottom: solid rgba(0,0,0,0.04);"  >
+    <ion-header  style="height: 32vh; background: linear-gradient(to bottom, #E35D5B, #E53935);  text-align: center; border-bottom: solid rgba(0,0,0,0.04);"  >
       <ion-avatar  style="display: block; height: 100px; width: 90px; margin-left: auto; margin-right: auto; margin-top: 6vh;">
-        <img src="assets/icon/avatar.svg" style='height:13vh' >
+        <img src="assets/icon/avatar.svg" style='width:100px; height:91px;' >
       </ion-avatar>
-
-      <h3 *ngIf="userNumber === 'Login'" style="color: white; margin-top: 0px; font-family: 'Open Sans', sans-serif !important"  routerLink='/login'>{{userNumber}} </h3>
+      <ion-chip outline color="warning" *ngIf="userNumber === 'Login'"  routerLink='/login' (click)='toggleMenu()'>
+        <ion-label style="color: white;">LOGIN</ion-label>
+      </ion-chip>
+      <!-- <ion-badge  *ngIf="userNumber === 'Login'" style=" margin-top: 10px; font-family: 'Open Sans', sans-serif !important" routerLink='/login' (click)='toggleMenu()' color="danger">{{userNumber}}</ion-badge> -->
+      <!-- <h3 *ngIf="userNumber === 'Login'" style="color: white; margin-top: 0px; font-family: 'Open Sans', sans-serif !important"  routerLink='/login' (click)='toggleMenu()'>{{userNumber}} </h3> -->
       <h3 *ngIf="userNumber !== 'Login'" style="color: white; margin-top: 0px; font-family: 'Open Sans', sans-serif !important">{{userNumber}} </h3>
       <!-- <p style="color: white;">03086111049</p> -->
     </ion-header >
@@ -28,12 +31,12 @@
           <ion-icon slot="start" style=" zoom: 1.2;" color='white' name="cash-outline"></ion-icon>
           Get a Quote
         </ion-item>
-        <ion-item style="--ion-background-color: transparent;" *ngIf='jwt' routerLink='/my-quotes'>
+        <ion-item style="--ion-background-color: transparent;" *ngIf='jwt' routerLink='/my-quotes' (click)='toggleMenu()'>
           <ion-icon slot="start" style=" zoom: 1.2;" color='white' name="document-outline"></ion-icon>
           My Quotes
         </ion-item>
-        <ion-item >
-          <ion-icon slot="start" style=" zoom: 1.2" color='white' name="help-circle-outline"></ion-icon>
+        <ion-item (click)='helpCenter()'>
+          <ion-icon slot="start" style=" zoom: 1.2" color='white' name="help-circle-outline" ></ion-icon>
           Help Center
         </ion-item>
       </ion-list>
@@ -43,7 +46,7 @@
         <ion-list  style="--ion-background-color: transparent;" >
           <ion-item  style="--ion-background-color: transparent;">
             <ion-icon slot="start" style=" zoom: 1.2;" color='white' name="person-add-outline"></ion-icon>
-            Invite Frinds
+            Invite Friends
           </ion-item>
           <ion-item >
             <ion-icon slot="start" style=" zoom: 1.2" color='white' name="cog-outline"></ion-icon>

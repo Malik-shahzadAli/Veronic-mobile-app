@@ -112,10 +112,17 @@ export class PwaScanPage implements OnInit {
       const month = d.slice(0, 2);
       const day = d.slice(2, 4);
       const year = d.slice(4);
+      const gen= gender.slice(3);
+      if(gen === 1){
+        this.finalObj.customer.customerData.gender = 'M';
+      }
+      else{
+        this.finalObj.customer.customerData.gender = 'F';
+      }
       this.finalObj.customer.customerData.firstName = firstName.slice(3);
       this.finalObj.customer.customerData.lastName = lastName.slice(3);
       this.finalObj.customer.customerData.dob =  month + '-' + day + '-' + year;
-      this.finalObj.customer.customerData.postalAddress.zipCode = zipCode.slice(3, 8);
+      this.finalObj.customer.customerData.postalAddress.zip = zipCode.slice(3, 8);
       this.finalObj.customer.customerData.postalAddress.street = streetAddress.slice(3);
       this.finalObj.customer.customerData.postalAddress.city = city.slice(3);
       this.finalObj.customer.customerData.postalAddress.state = state.slice(3);

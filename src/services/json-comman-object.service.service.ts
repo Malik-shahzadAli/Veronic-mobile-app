@@ -12,7 +12,7 @@ export class JsonCommanObjectService {
         "customerData": {
             "firstName": "",
             "lastName": "",
-            "gender": "M",
+            "gender": "",
             "dob": "",
             "maritalStatus": "",
             "homeOwner": "",
@@ -38,7 +38,7 @@ export class JsonCommanObjectService {
 public driverObjTemplate = {
   "driverData": {
     "dFullName": "",
-    "dGender":"M",
+    "dGender":"",
     "dDob": "",
     "dEducation": "",
     "isDEmployed": "",

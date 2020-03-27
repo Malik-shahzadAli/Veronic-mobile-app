@@ -89,6 +89,7 @@ export class ContactInfoPage implements OnInit {
       const phone = this.formatPhoneNumber(phoneNumber);
       // const newPhone = '+923338190934';
       const newPhone = '+1' + phone;
+      console.log(newPhone);
       this.http.post(url.baseurl + '/api/get/otp', {"phoneNo" : newPhone})
         .subscribe((response) => {
           this.loadingController.dismiss('login');

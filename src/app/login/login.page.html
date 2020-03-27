@@ -4,19 +4,15 @@
   </ion-toolbar>
 </ion-header>
 <ion-content >
-  <div>
-  <ion-card style="align-self: center !important;box-shadow:rgba(0, 0, 0, 0.0) 0px 4px 16px;">
+  <div class="flex" >
+  <ion-card style="align-self: center !important; box-shadow:rgba(0, 0, 0, 0.0) 0px 4px 16px;">
     <div class="ion-text-center">
       <ion-progress-bar color='danger' value="0.5" style="margin-bottom: 3vh;"></ion-progress-bar>
-    </div>
-    <div style="align-self: flex-start !important; align-items: start;display: table-cell !important;">
-      <ion-back-button defaultHref='/home' slot="start"></ion-back-button>
     </div>
     <div class="ion-text-center">
       <img src="assets/icon/mobile.svg" />
     </div>
     <ion-card-header>
-      <!-- <ion-card-subtitle class="ion-text-center">Login Info</ion-card-subtitle> -->
       <ion-card-title class="ion-text-center">Please enter your phone number</ion-card-title>
     </ion-card-header>
     <ion-card-content>
@@ -32,13 +28,12 @@
       <ion-chip *ngIf='validPhoneEnableDisabled' class="disableNext" size="large" color="danger" (click)="getErrorTost()" > 
         <ion-label class="next">NEXT</ion-label>
        </ion-chip>
-      <!-- Enable Button -->
       <ion-chip *ngIf='!validPhoneEnableDisabled' class="enableNext" size="large"  (click)="nextButtonClick()" > 
         <ion-label class="next">NEXT</ion-label>
        </ion-chip>
-      <!--  -->
     </ion-card-header>
     <ion-progress-bar color='danger' value="0.5"></ion-progress-bar>
   </ion-card>
+ 
 </div>
 </ion-content>

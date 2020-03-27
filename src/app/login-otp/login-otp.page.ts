@@ -21,7 +21,7 @@ export class LoginOtpPage implements OnInit {
   public isNextBtnDisabled = true;
   public validOTP;
   public spinnerShowHide = true;
-  public maxtime: any = 10;
+  public maxtime: any = 25;
   public timer;
   // public first = true;
   public sec = true;

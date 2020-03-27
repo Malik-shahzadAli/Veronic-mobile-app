@@ -1,0 +1,339 @@
+
+{
+  "header": {
+    "reportVersion": 1,
+    "event": "Allocation failed - JavaScript heap out of memory",
+    "trigger": "FatalError",
+    "filename": "report.20200327.165303.5248.0.001.json",
+    "dumpEventTime": "2020-03-27T16:53:03Z",
+    "dumpEventTimeStamp": "1585309983145",
+    "processId": 5248,
+    "cwd": "C:\\Users\\Ahmed Cheema\\Desktop\\veronica\\Veronic-mobile-app",
+    "commandLine": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\Ahmed Cheema\\Desktop\\veronica\\Veronic-mobile-app\\node_modules\\worker-farm\\lib\\child\\index.js",
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\Ahmed Cheema\\Desktop\\veronica\\Veronic-mobile-app\\node_modules\\@angular\\cli\\bin\\ng",
+      "run",
+      "app:build:production"
+    ],
+    "nodejsVersion": "v12.16.1",
+    "wordSize": 64,
+    "arch": "x64",
+    "platform": "win32",
+    "componentVersions": {
+      "node": "12.16.1",
+      "v8": "7.8.279.23-node.31",
+      "uv": "1.34.0",
+      "zlib": "1.2.11",
+      "brotli": "1.0.7",
+      "ares": "1.15.0",
+      "modules": "72",
+      "nghttp2": "1.40.0",
+      "napi": "5",
+      "llhttp": "2.0.4",
+      "http_parser": "2.9.3",
+      "openssl": "1.1.1d",
+      "cldr": "35.1",
+      "icu": "64.2",
+      "tz": "2019c",
+      "unicode": "12.1"
+    },
+    "release": {
+      "name": "node",
+      "lts": "Erbium",
+      "headersUrl": "https://nodejs.org/download/release/v12.16.1/node-v12.16.1-headers.tar.gz",
+      "sourceUrl": "https://nodejs.org/download/release/v12.16.1/node-v12.16.1.tar.gz",
+      "libUrl": "https://nodejs.org/download/release/v12.16.1/win-x64/node.lib"
+    },
+    "osName": "Windows_NT",
+    "osRelease": "10.0.14393",
+    "osVersion": "Windows 10 Enterprise",
+    "osMachine": "x86_64",
+    "cpus": [
+      {
+        "model": "Intel(R) Core(TM) M-5Y10c CPU @ 0.80GHz",
+        "speed": 998,
+        "user": 7299656,
+        "nice": 0,
+        "sys": 4483093,
+        "idle": 59383640,
+        "irq": 477906
+      },
+      {
+        "model": "Intel(R) Core(TM) M-5Y10c CPU @ 0.80GHz",
+        "speed": 998,
+        "user": 7014906,
+        "nice": 0,
+        "sys": 3205515,
+        "idle": 60945718,
+        "irq": 114171
+      },
+      {
+        "model": "Intel(R) Core(TM) M-5Y10c CPU @ 0.80GHz",
+        "speed": 998,
+        "user": 7773375,
+        "nice": 0,
+        "sys": 3525156,
+        "idle": 59867609,
+        "irq": 51609
+      },
+      {
+        "model": "Intel(R) Core(TM) M-5Y10c CPU @ 0.80GHz",
+        "speed": 998,
+        "user": 8475734,
+        "nice": 0,
+        "sys": 3044593,
+        "idle": 59645812,
+        "irq": 42078
+      }
+    ],
+    "host": "DESKTOP-JOP36KH"
+  },
+  "javascriptStack": {
+    "message": "No stack.",
+    "stack": [
+      "Unavailable."
+    ]
+  },
+  "nativeStack": [
+    {
+      "pc": "0x00007ff683ed19f9",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff683ed5e1c",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff683ed4dd8",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff683fd34cb",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff6847e9f4e",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff6847d2021",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff68469e57c",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff68467a4d3",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff6846787db",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff6846a3d5d",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff6846a5a94",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff68469bb13",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff68469a184",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff6846bb36d",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff684420adf",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00007ff684c34ddd",
+      "symbol": ""
+    },
+    {
+      "pc": "0x00000210b0e50033",
+      "symbol": ""
+    }
+  ],
+  "javascriptHeap": {
+    "totalMemory": 140345344,
+    "totalCommittedMemory": 140345344,
+    "usedMemory": 96001176,
+    "availableMemory": 2055552720,
+    "memoryLimit": 2153775104,
+    "heapSpaces": {
+      "read_only_space": {
+        "memorySize": 262144,
+        "committedMemory": 262144,
+        "capacity": 32808,
+        "used": 32808,
+        "available": 0
+      },
+      "new_space": {
+        "memorySize": 33554432,
+        "committedMemory": 33554432,
+        "capacity": 16759296,
+        "used": 965464,
+        "available": 15793832
+      },
+      "old_space": {
+        "memorySize": 81936384,
+        "committedMemory": 81936384,
+        "capacity": 71773760,
+        "used": 71641112,
+        "available": 132648
+      },
+      "code_space": {
+        "memorySize": 954368,
+        "committedMemory": 954368,
+        "capacity": 531200,
+        "used": 531200,
+        "available": 0
+      },
+      "map_space": {
+        "memorySize": 1052672,
+        "committedMemory": 1052672,
+        "capacity": 315360,
+        "used": 315360,
+        "available": 0
+      },
+      "large_object_space": {
+        "memorySize": 22536192,
+        "committedMemory": 22536192,
+        "capacity": 22512448,
+        "used": 22512448,
+        "available": 0
+      },
+      "code_large_object_space": {
+        "memorySize": 49152,
+        "committedMemory": 49152,
+        "capacity": 2784,
+        "used": 2784,
+        "available": 0
+      },
+      "new_large_object_space": {
+        "memorySize": 0,
+        "committedMemory": 0,
+        "capacity": 16759296,
+        "used": 0,
+        "available": 16759296
+      }
+    }
+  },
+  "resourceUsage": {
+    "userCpuSeconds": 14.171,
+    "kernelCpuSeconds": 1.609,
+    "cpuConsumptionPercent": 225.429,
+    "maxRss": 156942336,
+    "pageFaults": {
+      "IORequired": 97847,
+      "IONotRequired": 0
+    },
+    "fsActivity": {
+      "reads": 30,
+      "writes": 7
+    }
+  },
+  "libuv": [
+  ],
+  "environmentVariables": {
+    "allusersprofile": "C:\\ProgramData",
+    "appdata": "C:\\Users\\Ahmed Cheema\\AppData\\Roaming",
+    "BROWSERSLIST_IGNORE_OLD_DATA": "1",
+    "commonprogramfiles": "C:\\Program Files\\Common Files",
+    "commonprogramfiles(x86)": "C:\\Program Files (x86)\\Common Files",
+    "commonprogramw6432": "C:\\Program Files\\Common Files",
+    "computername": "DESKTOP-JOP36KH",
+    "comspec": "C:\\Windows\\system32\\cmd.exe",
+    "cygwin": "tty",
+    "dp0": "C:\\Users\\Ahmed Cheema\\Desktop\\veronica\\Veronic-mobile-app\\node_modules\\.bin\\",
+    "force_color": "1",
+    "fps_browser_app_profile_string": "Internet Explorer",
+    "fps_browser_user_profile_string": "Default",
+    "homedrive": "C:",
+    "homepath": "\\Users\\Ahmed Cheema",
+    "ionic_cli_bin": "C:\\Users\\Ahmed Cheema\\AppData\\Roaming\\npm\\node_modules\\@ionic\\cli\\bin\\ionic",
+    "ionic_cli_lib": "C:\\Users\\Ahmed Cheema\\AppData\\Roaming\\npm\\node_modules\\@ionic\\cli",
+    "ionic_cli_local_error": "LOCAL_CLI_NOT_FOUND",
+    "localappdata": "C:\\Users\\Ahmed Cheema\\AppData\\Local",
+    "logonserver": "\\\\DESKTOP-JOP36KH",
+    "number_of_processors": "4",
+    "onedrive": "C:\\Users\\Ahmed Cheema\\OneDrive",
+    "onedriveconsumer": "C:\\Users\\Ahmed Cheema\\OneDrive",
+    "os": "Windows_NT",
+    "path": "C:\\Users\\Ahmed Cheema\\Desktop\\veronica\\Veronic-mobile-app\\node_modules\\.bin;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\nodejs\\;C:\\Program Files\\Git\\cmd;C:\\Program Files (x86)\\OpenSSH\\bin;C:\\Users\\Ahmed Cheema\\AppData\\Local\\Microsoft\\WindowsApps;;C:\\Users\\Ahmed Cheema\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Users\\Ahmed Cheema\\AppData\\Roaming\\npm",
+    "pathext": ".COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JSE;.WSF;.WSH;.MSC",
+    "processor_architecture": "AMD64",
+    "processor_identifier": "Intel64 Family 6 Model 61 Stepping 4, GenuineIntel",
+    "processor_level": "6",
+    "processor_revision": "3d04",
+    "programdata": "C:\\ProgramData",
+    "programfiles": "C:\\Program Files",
+    "programfiles(x86)": "C:\\Program Files (x86)",
+    "programw6432": "C:\\Program Files",
+    "prompt": "$P$G",
+    "psmodulepath": "C:\\Program Files\\WindowsPowerShell\\Modules;C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules",
+    "public": "C:\\Users\\Public",
+    "sessionname": "Console",
+    "systemdrive": "C:",
+    "systemroot": "C:\\Windows",
+    "temp": "C:\\Users\\AHMEDC~1\\AppData\\Local\\Temp",
+    "tmp": "C:\\Users\\AHMEDC~1\\AppData\\Local\\Temp",
+    "userdomain": "DESKTOP-JOP36KH",
+    "userdomain_roamingprofile": "DESKTOP-JOP36KH",
+    "username": "Ahmed Cheema",
+    "userprofile": "C:\\Users\\Ahmed Cheema",
+    "WEBPACK_DEV_SERVER": "true",
+    "windir": "C:\\Windows",
+    "_prog": "node"
+  },
+  "sharedObjects": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "C:\\Windows\\SYSTEM32\\ntdll.dll",
+    "C:\\Windows\\System32\\KERNEL32.DLL",
+    "C:\\Windows\\System32\\KERNELBASE.dll",
+    "C:\\Windows\\System32\\WS2_32.dll",
+    "C:\\Windows\\System32\\sechost.dll",
+    "C:\\Windows\\System32\\RPCRT4.dll",
+    "C:\\Windows\\SYSTEM32\\dbghelp.dll",
+    "C:\\Windows\\System32\\PSAPI.DLL",
+    "C:\\Windows\\System32\\ADVAPI32.dll",
+    "C:\\Windows\\System32\\ucrtbase.dll",
+    "C:\\Windows\\System32\\msvcrt.dll",
+    "C:\\Windows\\System32\\USER32.dll",
+    "C:\\Windows\\System32\\win32u.dll",
+    "C:\\Windows\\System32\\GDI32.dll",
+    "C:\\Windows\\SYSTEM32\\IPHLPAPI.DLL",
+    "C:\\Windows\\System32\\gdi32full.dll",
+    "C:\\Windows\\System32\\CRYPT32.dll",
+    "C:\\Windows\\SYSTEM32\\USERENV.dll",
+    "C:\\Windows\\System32\\MSASN1.dll",
+    "C:\\Windows\\System32\\profapi.dll",
+    "C:\\Windows\\SYSTEM32\\bcrypt.dll",
+    "C:\\Windows\\SYSTEM32\\WINMM.dll",
+    "C:\\Windows\\SYSTEM32\\winmmbase.dll",
+    "C:\\Windows\\System32\\cfgmgr32.dll",
+    "C:\\Windows\\System32\\IMM32.DLL",
+    "C:\\Windows\\System32\\powrprof.dll",
+    "C:\\Windows\\SYSTEM32\\CRYPTBASE.DLL",
+    "C:\\Windows\\System32\\bcryptPrimitives.dll",
+    "C:\\Windows\\system32\\uxtheme.dll",
+    "C:\\Windows\\System32\\combase.dll",
+    "C:\\Windows\\system32\\mswsock.dll",
+    "C:\\Windows\\System32\\kernel.appcore.dll",
+    "C:\\Windows\\System32\\NSI.dll",
+    "C:\\Windows\\system32\\napinsp.dll",
+    "C:\\Windows\\system32\\pnrpnsp.dll"
+  ]
+}

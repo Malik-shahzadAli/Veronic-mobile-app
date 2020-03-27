@@ -85,7 +85,17 @@ export class AppComponent implements OnInit {
       this.router.navigateByUrl('/first-splash');
       window.localStorage.setItem('firstRunFinished', 'true');
     }
+
+
    
+  }
+  
+  toggleMenu() {
+    this.menu.toggle(); //Add this method to your button click function
+  }
+  helpCenter(){
+    this.toggleMenu();
+    window.location.href="https://www.tidio.com/talk/fefv4irzl5mm0eropcqgncfpiiuj32mp";
   }
   // async presentAlertConfirm() {
   //   const alert = await this.alertController.create({
