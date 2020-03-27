@@ -12,7 +12,7 @@ import { url } from 'src/commonurl/commonurl';
 })
 export class GetAQuotePage implements OnInit {
 
-  public url = url.baseurl+'/api/quote/email';
+  public url = url.baseurl+'/api/quotes/email';
 
   public quotes;
   public price: any[];
