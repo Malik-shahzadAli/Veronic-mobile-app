@@ -97,7 +97,7 @@ export class ContactInfoPage implements OnInit {
           console.log(response);
           this.router.navigate(['/otp']);
           this.finalObj.customer.customerData.email = emailAddress;
-          this.finalObj.customer.customerData.phone = phone;
+          this.finalObj.customer.customerData.phone = '+1'+phone;
         },
         (error) => {
           this.loadingController.dismiss('login');

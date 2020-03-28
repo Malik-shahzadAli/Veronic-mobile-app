@@ -36,8 +36,8 @@ export class DgenderPage implements OnInit {
   constructor(private obj: JsonCommanObjectService, private toastController: ToastController, private translate: TranslateService) {
     this.singleDriverObj = this.obj.driverObjTemplate;
     this.gettingDriverEmployedStatusFromSingleDriverObj = this.singleDriverObj.driverData.dgender;
-    this.driverName = this.singleDriverObj.driverData.dgender;
-
+    this.driverName = this.singleDriverObj.driverData.dFullName;
+    console.log(this.driverName)
     console.log('Inside New driver Employment Component : ', this.singleDriverObj);
    }
 

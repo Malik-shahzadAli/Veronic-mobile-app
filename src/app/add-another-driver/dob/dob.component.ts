@@ -26,7 +26,7 @@ export class DobComponent implements OnInit {
   constructor(private obj: JsonCommanObjectService, public toastController: ToastController) {
     this.singleDriverObj = this.obj.driverObjTemplate;
     console.log('Service inside primary dob constructor : ', this.singleDriverObj);
-    this.driverName = this.singleDriverObj.driverData.dName;
+    this.driverName = this.singleDriverObj.driverData.dFullName;
   }
 
   getUserDobNextClick() {

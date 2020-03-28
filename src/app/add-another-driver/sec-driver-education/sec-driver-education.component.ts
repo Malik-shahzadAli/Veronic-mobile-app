@@ -39,7 +39,7 @@ export class SecDriverEducationComponent implements OnInit {
   constructor(private obj: JsonCommanObjectService, private toastController: ToastController, private translate: TranslateService ) {
     this.singleDriverObj = this.obj.driverObjTemplate;
     this.gettingDriverEducationFromSingleDriverObj = this.singleDriverObj.driverData.dEducation;
-    this.driverName = this.singleDriverObj.driverData.dName;
+    this.driverName = this.singleDriverObj.driverData.dFullName;
     console.log('Inside Add another driver Education Component : ', this.singleDriverObj);
    }
 

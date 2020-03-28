@@ -33,7 +33,7 @@ export class DriverRelationshipComponent implements OnInit {
 
   constructor(private obj: JsonCommanObjectService, private toastController: ToastController, private translate: TranslateService) {
     this.singleDriverObj = this.obj.driverObjTemplate;
-    this.gettingDriverNameFromSingleDriverObj = this.singleDriverObj.driverData.dName;
+    this.gettingDriverNameFromSingleDriverObj = this.singleDriverObj.driverData.dFullName;
 
     console.log('Inside Driver-relationship Component : ', this.singleDriverObj);
    }

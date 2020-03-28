@@ -21,7 +21,7 @@
         
     },
     "PRIMARY-NAME": {
-        "title": "To start, what’s your name?",
+        "title": "What is your name?",
         "next": "NEXT",
         "firstName": "First name",
         "lastName": "Last name",
@@ -35,7 +35,7 @@
         "dateError":"Date of birth is required."
     },
     "Address": {
-        "title": "Your Address",
+        "title": "Where do you reside ?",
         "streetAddress": "Street Address",
         "zipCode": "Zip Code",
         "next": "next",
@@ -44,7 +44,7 @@
         "error": "Invalid street address"
     },
     "ContactInfo":{
-        "title":"Contact Details",
+        "title":"How we can reach you ?",
         "email":"Email Address",
         "phoneNo":"Phone Number",
         "next": "next",
@@ -100,25 +100,25 @@
         "next": "next"
     },
     "AddVehical": {
-        "title": "Tell us about your vehicle.",
-        "vin": "Add by VIN",
+        "title": "How whould you tell us about your vehicle",
+        "vin": "VIN",
         "year":"Year | Make | Model",
         "next": "next"
     },
     "VIN": {
-        "title": "Please Enter Your VIN Number",
+        "title": "What is the VIN of your vehicle?",
         "next": "next",
         "invalid": "Invalid VIN"
     },
     "Year":{
-        "title":"Tell us about your vehicle",
+        "title":"What is the make year model of your car?",
         "year": "Year",
         "make": "Make",
         "model": "Model",
         "next": "next"
     },
     "MilesPerDay":{
-        "title": "How many miles driven in a day?",
+        "title": "How many miles it is driven in a day?",
         "miles": "Miles Per Day",
         "next": "next",
         "error": "Please enter the miles !"
@@ -136,8 +136,8 @@
         "getQuote": "GET QUOTE"
     },
     "popup": {
-        "title": "Please hold, while i get lowest prices for you.",
-        "title2": "Please wait a moment...",
+        "title": "Please hold, while we get lowest offers for you.",
+        "title2": "",
         "errorTitle": "Erro",
         "errorSubtitile": "Please try again later !"
     },

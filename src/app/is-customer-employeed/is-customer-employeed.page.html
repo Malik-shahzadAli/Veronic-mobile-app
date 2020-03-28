@@ -13,9 +13,9 @@
       </div>
       <img src="assets/icon/employee.svg" />
     </div>
-    <ion-card-header style="margin-bottom: 0px !important; padding-bottom: 0px !important; padding-top: 0px !important;">
-      <ion-card-subtitle class="ion-text-center">{{ 'DInfo.dInfo' | translate }}</ion-card-subtitle>
-      <ion-card-title class="ion-text-center">{{ 'isEmployed.title2' | translate }} {{driverName}} {{ 'isEmployed.title3' | translate }}</ion-card-title>
+    <ion-card-header>
+      <ion-card-subtitle class="ion-text-center">CUSTOMER INFO</ion-card-subtitle>
+      <ion-card-title class="ion-text-center">Are you currently employed ?</ion-card-title>
     </ion-card-header>
     <ion-card-content style="padding-bottom:0px !important">
       <form [formGroup]='driverIsEmployed'>
@@ -23,12 +23,12 @@
           <ion-list>
             <ion-radio-group  value="anchovies">
               <ion-item>
-                <label for="employed">{{ 'isEmployed.employ' | translate }}</label>
+                <label for="employed">Yes</label>
                 <ion-radio slot="end" formControlName="employmentStatus" value="E" id='employed' color="danger"></ion-radio>
               </ion-item>
     
               <ion-item>
-                <label for="unemployed">{{ 'isEmployed.other' | translate }}</label>
+                <label for="unemployed">No</label>
                 <ion-radio slot="end" formControlName="employmentStatus" value='U' id='unemployed' color="danger"></ion-radio>
               </ion-item>
             </ion-radio-group>

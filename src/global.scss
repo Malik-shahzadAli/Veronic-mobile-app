@@ -176,12 +176,20 @@ ion-button{
 .flex{
 	height: 100%;
 	display: flex;
-	justify-content:center
+	justify-content:center;
+// 	margin-top: 5vh;
+
 }
 .ion-card{
 	align-self: center !important;
 	box-shadow:rgba(0, 0, 0, 0.0) 0px 4px 16px;
 	width: 100vw;
+	// position: relative;
+	// height: 95%;
+	overflow: auto;
+	margin: auto;
+
+	
 }
 
 .disableNext{

@@ -36,7 +36,7 @@ export class IsEmployedComponent implements OnInit {
   constructor(private obj: JsonCommanObjectService, private toastController: ToastController, private translate: TranslateService) {
     this.singleDriverObj = this.obj.driverObjTemplate;
     this.gettingDriverEmployedStatusFromSingleDriverObj = this.singleDriverObj.driverData.isDEmployed;
-    this.driverName = this.singleDriverObj.driverData.dName;
+    this.driverName = this.singleDriverObj.driverData.dFullName;
 
     console.log('Inside New driver Employment Component : ', this.singleDriverObj);
    }

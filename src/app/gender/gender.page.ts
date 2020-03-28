@@ -47,7 +47,10 @@ export class GenderPage implements OnInit {
     // console.log('HomeOwner selected value : ', homeOwnerStatus);
     this.finalObj.customer.customerData.gender = this.selectedValue;
     console.log('getUserHomeOwnerStatusNextClick Function called');
-    console.log(this.finalObj);
+    // console.log(this.finalObj.customer.customerData.gender);
+
+    // this.g='M'
+    // console.log(this.gender.value)
   }
   ngOnInit() {
     // this.finalObj.customer.customerData.gender = 'F';
@@ -57,6 +60,10 @@ export class GenderPage implements OnInit {
         owner : this.finalObj.customer.customerData.gender,
       });
       this.dropDownSelected = false;
+    }
+    if(this.finalObj.customer.customerData.gender !== ''){
+      // console.log('HERERERER')
+      this.select = true;
     }
   }
   async getErrorTost() {

@@ -112,7 +112,8 @@ export class PwaScanPage implements OnInit {
       const month = d.slice(0, 2);
       const day = d.slice(2, 4);
       const year = d.slice(4);
-      const gen= gender.slice(3);
+      const gen= gender.slice(3,4);
+      // alert(gen)
       if(gen === 1){
         this.finalObj.customer.customerData.gender = 'M';
       }

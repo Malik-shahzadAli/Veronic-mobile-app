@@ -16,12 +16,12 @@
       <img src="assets/icon/user-cloud.svg" />
     </div>
     <ion-card-header>
-      <!-- <ion-card-subtitle class="ion-text-center">Customer Info</ion-card-subtitle> -->
-      <!-- <ion-card-title class="ion-text-center">{{ 'PRIMARY-NAME.title' | translate }}</ion-card-title> -->
+      <ion-card-subtitle class="ion-text-center">REFFER NFO</ion-card-subtitle>
+      <ion-card-title class="ion-text-center">Which person do you want to reffer?</ion-card-title>
     </ion-card-header>
     <ion-card-content>
       <form [formGroup]='referredPerson'>
-        <ion-input class="roundedInput input-lg capital" (input)="validateReferredName($event)" style="padding-left: 10px; " formControlName='name' placeholder="Name"></ion-input>
+        <ion-input class="roundedInput input-lg capital" (input)="validateReferredName($event)" style="padding-left: 10px; " formControlName='name' placeholder="Full Name"></ion-input>
         <ion-input class="roundedInput capital" [brmasker]="{mask:'(000) 000-0000', len:14, type:'num'}" (input) = "validatePhone($event)" formControlName='phone' placeholder="Phone"></ion-input>
       </form>
     </ion-card-content>
