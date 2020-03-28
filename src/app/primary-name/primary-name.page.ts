@@ -91,4 +91,5 @@ export class PrimaryNamePage implements OnInit {
     });
     toast.present();
   }
+  
 }

@@ -76,9 +76,8 @@ export class PwaScanPage implements OnInit {
   parseData(data) {
     const array = data.split('\n');
     console.log(array);
-    // alert(array);
-    let firstName, lastName, streetAddress, zipCode, state, city, dob, gender, country, licenseNo;
-    for (const line of array ) {
+    let firstName, lastName, streetAddress, zipCode, state, city, dob, gender, country;
+    for  (const line of array ) {
       if (line.startsWith('DCS')) {
         lastName = line;
       } else if (line.startsWith('DAC')) {
@@ -97,14 +96,11 @@ export class PwaScanPage implements OnInit {
         gender = line;
       } else if (line.startsWith('OCG')) {
         country = line;
-      } else if (line.startsWith('DAQ')) {
-        licenseNo = line;
-      }
+      } 
     }
-    if (licenseNo === '') {
-      alert('Please Scan a valid driving license.');
-      return;
-    } else if (state.slice(3) !== 'CA') {
+    if(!state || state.length<1){
+      alert('Please scan a valid driving license')
+    } else if (state.slice(3) !== 'CA' ) {
       alert('Sorry currently we only operate in California.');
       return;
     } else {
@@ -114,7 +110,7 @@ export class PwaScanPage implements OnInit {
       const year = d.slice(4);
       const gen= gender.slice(3,4);
       // alert(gen)
-      if(gen === 1){
+      if(gen === '1'){
         this.finalObj.customer.customerData.gender = 'M';
       }
       else{

@@ -140,7 +140,7 @@ otp: string;
   validateOTP() {
     console.log(this.otpForm.value.otp);
     console.log('NUMBER----' + this.finalObj.customer.customerData.phone);
-    const pNumber = '+1' + this.finalObj.customer.customerData.phone;
+    const pNumber = this.finalObj.customer.customerData.phone;
     // const pNumber = '+923086111049';
     this.presentAlert();
     this.http.post(url.baseurl + '/api/validate/otp',

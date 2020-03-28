@@ -17,6 +17,7 @@ export class GenderPage implements OnInit {
   public select = false;
   modelText = '';
   public g = '';
+  public a;
   homeOwnerStatusArray = [
     {status : 'MALE', value : 'M'},
     {status: 'FEMALE', value : 'F'}
@@ -53,6 +54,10 @@ export class GenderPage implements OnInit {
     // console.log(this.gender.value)
   }
   ngOnInit() {
+    // console.log(this.a)
+    // if(this.a == '' || this.a == undefined){
+    //   console.log('undefined')
+    // }
     // this.finalObj.customer.customerData.gender = 'F';
     this.g = this.finalObj.customer.customerData.gender;
     if ((this.finalObj.customer.customerData.homeOwner !== undefined) && (this.finalObj.customer.customerData.homeOwner !== '')) {
