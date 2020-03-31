@@ -13,7 +13,7 @@ import { url } from 'src/commonurl/commonurl';
   templateUrl: './referred-person.page.html',
   styleUrls: ['./referred-person.page.scss'],
 })
-export class ReferredPersonPage implements OnInit {
+export class ReferredPersonPage  implements OnInit{
   public finalObjectSendToServer;
   public url = url.baseurl+'/api/quotes/generate';
   public isNameRequired = true;
@@ -81,11 +81,17 @@ export class ReferredPersonPage implements OnInit {
           this.getQuoteBtnEnableDisabled();
         },
         (err) => {
-          // console.log('Login Number Error !!!')
           this.loadingController.dismiss('login');
-          this.getErrorTost(err.error.message);
-          console.log('Error : ', err);
-          // console.log(err.error.message)
+          let errorstatus=err['status']
+          if(errorstatus == 406){
+            this.getErrorTost("Please enter a valid number");
+          }else if(errorstatus == 409){
+            this.getErrorTost("This number is already used for reference");
+          }else{
+            this.getErrorTost("Please enter a valid number");
+          }
+          // console.log()
+          // this.getErrorTost(err.status);
           this.phoneValidate = true;
           this.isPhoneRequired = false;
           this.getQuoteBtnEnableDisabled();
@@ -153,18 +159,22 @@ export class ReferredPersonPage implements OnInit {
     console.log('Loading dismissed!');
   }
   async getErrorTost(error) {
-    // this.translate.get('Address.popUpError').
-    // subscribe((text: string) => {
-    //   this.modelText = text;
-    // });
+    // let mes = '';
+    // if(error == 406){
+    //   mes= "Please enter a valid number"
+    // }else if(error == 409){
+    //   mes= "This number is already used for reference"
+    // }
     const toast = await this.toastController.create({
       message: error,
       duration: 2000
     });
     toast.present();
   }
+
+
   ngOnInit() {
-    this.loading2();
+    // this.loading2();
   }
   ionViewDidEnter(){
     this.loadingController.dismiss('loading2');
