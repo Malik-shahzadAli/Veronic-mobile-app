@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { JsonCommanObjectService } from 'src/services/json-comman-object.service.service';
 import { ToastController } from '@ionic/angular';
+import { LoadingController } from '@ionic/angular';
 @Component({
   selector: 'app-dob',
   templateUrl: './dob.component.html',
@@ -23,7 +24,7 @@ export class DobComponent implements OnInit {
     return this.dateOfBirth.get('dob');
   }
 
-  constructor(private obj: JsonCommanObjectService, public toastController: ToastController) {
+  constructor(private obj: JsonCommanObjectService, public toastController: ToastController,public loadingController: LoadingController) {
     this.singleDriverObj = this.obj.driverObjTemplate;
     console.log('Service inside primary dob constructor : ', this.singleDriverObj);
     this.driverName = this.singleDriverObj.driverData.dFullName;
@@ -56,6 +57,7 @@ export class DobComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.loading2();
     if (this.singleDriverObj.driverData.dDob) {
 
       this.dateOfBirth.setValue({
@@ -84,5 +86,16 @@ export class DobComponent implements OnInit {
       this.dateError = false;
     }
   }
-
+  ionViewDidEnter(){
+    this.loadingController.dismiss('loading2');
+  }
+  async loading2() {
+    const loading = await this.loadingController.create({
+      message: '',
+      id: 'loading2'
+    });
+    await loading.present();
+    const { role, data } = await loading.onDidDismiss();
+    console.log('Loading dismissed!');
+  }
 }

@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
 import { JsonCommanObjectService } from 'src/services/json-comman-object.service.service';
 import { TranslateService } from '@ngx-translate/core';
 import { ToastController } from '@ionic/angular';
+import { LoadingController } from '@ionic/angular';
 @Component({
   selector: 'app-accident-info',
   templateUrl: './accident-info.page.html',
@@ -26,7 +27,10 @@ export class AccidentInfoPage implements OnInit {
   get accidentStatus() {
     return this.accidentAsk.get('accidentStatus');
   }
-  constructor(private obj: JsonCommanObjectService,  private translate: TranslateService, private toastController: ToastController) {
+  constructor(private obj: JsonCommanObjectService, 
+              private translate: TranslateService,
+              private toastController: ToastController,
+              public loadingController: LoadingController) {
     this.finalObj = this.obj.customerDetails();
     console.log('Inside Accident-Info Component : ', this.finalObj);
   }
@@ -47,6 +51,7 @@ export class AccidentInfoPage implements OnInit {
     console.log(this.finalObj);
   }
   ngOnInit() {
+    this.presentAlert();
     if (this.finalObj.customer.customerIncidents.length > 0) {
       this.accidentAsk.patchValue({
         accidentStatus : this.finalObj.customer.customerIncidents[0].isCGuilty,
@@ -65,6 +70,19 @@ export class AccidentInfoPage implements OnInit {
       duration: 2000
     });
     toast.present();
+  }
+  ionViewDidEnter(){
+    this.loadingController.dismiss('alert');
+  }
+  async presentAlert() {
+
+    const loading = await this.loadingController.create({
+      message: '',
+      id: 'alert'
+    });
+    await loading.present();
+    const { role, data } = await loading.onDidDismiss();
+    console.log('Loading dismissed!');
   }
 
 }

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { JsonCommanObjectService } from 'src/services/json-comman-object.service.service';
-
+import { LoadingController } from '@ionic/angular';
 @Component({
   selector: 'app-add-another-driver',
   templateUrl: './add-another-driver.page.html',
@@ -17,7 +17,7 @@ export class AddAnotherDriverPage implements OnInit {
   anotherDriver = new FormGroup({
     choose : new FormControl('')
   });
-  constructor(private router: Router, private obj: JsonCommanObjectService) {
+  constructor(private router: Router, private obj: JsonCommanObjectService,public loadingController: LoadingController) {
     this.finalObj = this.obj.customerDetails();
     console.log('Inside add-another-driver Component : ', this.finalObj);
     this.existingListOfDrivers = this.finalObj.drivers;
@@ -27,7 +27,20 @@ export class AddAnotherDriverPage implements OnInit {
     this.router.navigate(['/add-another-driver/secondry-driver-info']);
   }
   ngOnInit() {
+    this.loading2();
     this.customerFirstName = (this.finalObj.customer.customerData.firstName).toUpperCase();
 
+  }
+  ionViewDidEnter(){
+    this.loadingController.dismiss('loading2');
+  }
+  async loading2() {
+    const loading = await this.loadingController.create({
+      message: '',
+      id: 'loading2'
+    });
+    await loading.present();
+    const { role, data } = await loading.onDidDismiss();
+    console.log('Loading dismissed!');
   }
 }

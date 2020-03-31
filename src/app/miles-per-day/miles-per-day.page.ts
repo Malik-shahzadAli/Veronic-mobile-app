@@ -4,6 +4,7 @@ import { JsonCommanObjectService } from 'src/services/json-comman-object.service
 import { Location } from '@angular/common';
 import { TranslateService } from '@ngx-translate/core';
 import { ToastController } from '@ionic/angular';
+import { LoadingController } from '@ionic/angular';
 @Component({
   selector: 'app-miles-per-day',
   templateUrl: './miles-per-day.page.html',
@@ -29,7 +30,7 @@ export class MilesPerDayPage implements OnInit {
 
   constructor(private obj: JsonCommanObjectService ,
               private location: Location, private translate: TranslateService,
-              private toastController: ToastController) {
+              private toastController: ToastController,public loadingController: LoadingController) {
     this.singleCarObj = obj.carObjTemplate;
 
   }
@@ -44,6 +45,7 @@ export class MilesPerDayPage implements OnInit {
     this.location.back(); // <-- go back to previous location on cancel
   }
   ngOnInit() {
+    this.loading2();
     this.milesInfo.setValue({
       milesPerDay : this.singleCarObj.dailyMileage.amount,
     });
@@ -59,6 +61,18 @@ export class MilesPerDayPage implements OnInit {
       duration: 2000
     });
     toast.present();
+  }
+  ionViewDidEnter(){
+    this.loadingController.dismiss('loading2');
+  }
+  async loading2() {
+    const loading = await this.loadingController.create({
+      message: '',
+      id: 'loading2'
+    });
+    await loading.present();
+    const { role, data } = await loading.onDidDismiss();
+    console.log('Loading dismissed!');
   }
 
 }

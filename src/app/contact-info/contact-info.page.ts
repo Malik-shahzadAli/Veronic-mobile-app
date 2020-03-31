@@ -111,6 +111,7 @@ export class ContactInfoPage implements OnInit {
       console.log(this.finalObj);
   }
   ngOnInit() {
+    this.loading2();
   }
   formatPhoneNumber(phoneNumberString) {
     const cleaned = ('' + phoneNumberString).replace(/\D/g, '');
@@ -158,5 +159,17 @@ export class ContactInfoPage implements OnInit {
       duration: 2000
     });
     toast.present();
+  }
+  ionViewDidEnter(){
+    this.loadingController.dismiss('loading2');
+  }
+  async loading2() {
+    const loading = await this.loadingController.create({
+      message: '',
+      id: 'loading2'
+    });
+    await loading.present();
+    const { role, data } = await loading.onDidDismiss();
+    console.log('Loading dismissed!');
   }
 }

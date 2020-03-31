@@ -63,7 +63,7 @@
         "next": "next"
     },
     "MerriageStatus":{
-        "title":"What is your marital status ?",
+        "title":"What is your marital status?",
         "single": "Single",
         "married": "Married",
         "divorced": "Divorced",
@@ -142,7 +142,7 @@
         "errorSubtitile": "Please try again later !"
     },
     "SecoundaryDriverInformation":{
-        "title": "Tell name of the driver ?",
+        "title": "Tell name of the driver?",
         "name": "Name"
     },
     "SecoundaryDriverDOB":{
@@ -166,9 +166,9 @@
     "isEmployed": {
         "title": "Is Employed",
         "title2": "Is",
-        "title3": "employed?",
-        "employ": "Employed",
-        "other": "Other"
+        "title3": "currently employed?",
+        "employ": "Yes",
+        "other": "No"
     },
     "accident": {
         "title": "Have",
@@ -190,7 +190,7 @@
         "title":"Verification"
     },
     "wait":{
-        "title":"Please wait ..."
+        "title":""
     },
     "reffer":{
         "title": "Want to avail 10% off by reffering someone?"

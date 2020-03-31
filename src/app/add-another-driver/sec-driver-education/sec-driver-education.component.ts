@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
 import { JsonCommanObjectService } from 'src/services/json-comman-object.service.service';
 import { TranslateService } from '@ngx-translate/core';
 import { ToastController } from '@ionic/angular';
+import { LoadingController } from '@ionic/angular';
 @Component({
   selector: 'app-sec-driver-education',
   templateUrl: './sec-driver-education.component.html',
@@ -36,7 +37,10 @@ export class SecDriverEducationComponent implements OnInit {
     return this.driverEducation.get('education');
   }
 
-  constructor(private obj: JsonCommanObjectService, private toastController: ToastController, private translate: TranslateService ) {
+  constructor(private obj: JsonCommanObjectService,
+              private toastController: ToastController,
+              private translate: TranslateService,
+              public loadingController: LoadingController ) {
     this.singleDriverObj = this.obj.driverObjTemplate;
     this.gettingDriverEducationFromSingleDriverObj = this.singleDriverObj.driverData.dEducation;
     this.driverName = this.singleDriverObj.driverData.dFullName;
@@ -59,6 +63,7 @@ export class SecDriverEducationComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.loading2();
     console.log(this.driverName);
     if (this.singleDriverObj.driverData.dEducation) {
       this.driverEducation.patchValue({
@@ -78,5 +83,16 @@ export class SecDriverEducationComponent implements OnInit {
     });
     toast.present();
   }
-
+  ionViewDidEnter(){
+    this.loadingController.dismiss('loading2');
+  }
+  async loading2() {
+    const loading = await this.loadingController.create({
+      message: '',
+      id: 'loading2'
+    });
+    await loading.present();
+    const { role, data } = await loading.onDidDismiss();
+    console.log('Loading dismissed!');
+  }
 }

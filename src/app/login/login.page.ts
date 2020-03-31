@@ -22,6 +22,7 @@ export class LoginPage implements OnInit {
     phoneNo: new FormControl('')
   });
   ngOnInit() {
+    this.loading2();
   }
   get phoneNumber() {
     return this.loginNumber.get('phoneNo');
@@ -97,5 +98,17 @@ export class LoginPage implements OnInit {
       return [intlCode, '(', match[2], ') ', match[3], '-', match[4]].join('');
     }
     return null;
+  }
+  ionViewDidEnter(){
+    this.loadingController.dismiss('loading2');
+  }
+  async loading2() {
+    const loading = await this.loadingController.create({
+      message: '',
+      id: 'loading2'
+    });
+    await loading.present();
+    const { role, data } = await loading.onDidDismiss();
+    console.log('Loading dismissed!');
   }
 }

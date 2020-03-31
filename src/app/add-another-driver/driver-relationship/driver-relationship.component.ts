@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
 import { JsonCommanObjectService } from 'src/services/json-comman-object.service.service';
 import { TranslateService } from '@ngx-translate/core';
 import { ToastController } from '@ionic/angular';
+import { LoadingController } from '@ionic/angular';
 @Component({
   selector: 'app-driver-relationship',
   templateUrl: './driver-relationship.component.html',
@@ -31,7 +32,10 @@ export class DriverRelationshipComponent implements OnInit {
     return this.relationshipStatus.get('relationship');
   }
 
-  constructor(private obj: JsonCommanObjectService, private toastController: ToastController, private translate: TranslateService) {
+  constructor(private obj: JsonCommanObjectService,
+              private toastController: ToastController,
+              private translate: TranslateService,
+              public loadingController: LoadingController) {
     this.singleDriverObj = this.obj.driverObjTemplate;
     this.gettingDriverNameFromSingleDriverObj = this.singleDriverObj.driverData.dFullName;
 
@@ -53,6 +57,7 @@ export class DriverRelationshipComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.loading2();
     if (this.singleDriverObj.driverData.dRelation) {
       this.relationshipStatus.patchValue({
         relationship : this.singleDriverObj.driverData.dRelation
@@ -72,5 +77,16 @@ export class DriverRelationshipComponent implements OnInit {
     });
     toast.present();
   }
-
+  ionViewDidEnter(){
+    this.loadingController.dismiss('loading2');
+  }
+  async loading2() {
+    const loading = await this.loadingController.create({
+      message: '',
+      id: 'loading2'
+    });
+    await loading.present();
+    const { role, data } = await loading.onDidDismiss();
+    console.log('Loading dismissed!');
+  }
 }

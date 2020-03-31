@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
 import { JsonCommanObjectService } from 'src/services/json-comman-object.service.service';
 import { ToastController } from '@ionic/angular';
 import { TranslateService } from '@ngx-translate/core';
+import { LoadingController } from '@ionic/angular';
 @Component({
   selector: 'app-marriage-status',
   templateUrl: './marriage-status.page.html',
@@ -35,7 +36,7 @@ export class MarriageStatusPage implements OnInit {
   }
   constructor(private obj: JsonCommanObjectService,
               private toastController: ToastController,
-              private translate: TranslateService) {
+              private translate: TranslateService,public loadingController: LoadingController) {
     this.finalObj = this.obj.customerDetails();
     console.log('Inside MaritalStatus Component : ', this.finalObj);
     this.customerFirstName = this.finalObj.customer.customerData.firstName;
@@ -55,6 +56,7 @@ export class MarriageStatusPage implements OnInit {
   }
 
   ngOnInit() {
+    this.loading2();
     if ((this.finalObj.customer.customerData.maritalStatus !== undefined) && this.finalObj.customer.customerData.maritalStatus !== '') {
 
       this.genderAndMartialStatus.patchValue({
@@ -74,5 +76,17 @@ export class MarriageStatusPage implements OnInit {
       duration: 2000
     });
     toast.present();
+  }
+  ionViewDidEnter(){
+    this.loadingController.dismiss('loading2');
+  }
+  async loading2() {
+    const loading = await this.loadingController.create({
+      message: '',
+      id: 'loading2'
+    });
+    await loading.present();
+    const { role, data } = await loading.onDidDismiss();
+    console.log('Loading dismissed!');
   }
 }

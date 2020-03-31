@@ -91,6 +91,7 @@ export class AddVehicleByVinPage implements OnInit {
           // console.log("ERROR MSG:- ", error);
           this.loadingController.dismiss('login');
           this.invalidVIN();
+          this.gettingDetailsByVIN = false; 
           if (error.error.hasError) {
             this.hasError = true;
             this.isDisabled = false;
@@ -126,6 +127,7 @@ export class AddVehicleByVinPage implements OnInit {
   }
 
   ngOnInit() {
+    this.loading2();
     if ((this.singleCarObj.year) !== '' && (this.singleCarObj.make) !== '' && (this.singleCarObj.model) !== '') {
       this.showVINErrorMSG = false;
       this.gettingDetailsByVIN = true;
@@ -182,5 +184,17 @@ export class AddVehicleByVinPage implements OnInit {
       duration: 2000
     });
     toast.present();
+  }
+  ionViewDidEnter(){
+    this.loadingController.dismiss('loading2');
+  }
+  async loading2() {
+    const loading = await this.loadingController.create({
+      message: '',
+      id: 'loading2'
+    });
+    await loading.present();
+    const { role, data } = await loading.onDidDismiss();
+    console.log('Loading dismissed!');
   }
 }

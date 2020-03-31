@@ -41,6 +41,8 @@ export class AddAnotherVehiclePage implements OnInit {
 
 
   ngOnInit() {
+    this.loading();
+    // this.presentAlert();
   }
 
   async presentAlert() {
@@ -85,5 +87,17 @@ export class AddAnotherVehiclePage implements OnInit {
     });
 
     await alert.present();
+  }
+  ionViewDidEnter(){
+    this.loadingController.dismiss('loading');
+  }
+  async loading() {
+    const loading = await this.loadingController.create({
+      message: '',
+      id: 'loading'
+    });
+    await loading.present();
+    const { role, data } = await loading.onDidDismiss();
+    console.log('Loading dismissed!');
   }
 }

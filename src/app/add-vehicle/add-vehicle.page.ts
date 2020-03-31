@@ -4,6 +4,7 @@ import { JsonCommanObjectService } from 'src/services/json-comman-object.service
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { ToastController } from '@ionic/angular';
+import { LoadingController } from '@ionic/angular';
 
 @Component({
   selector: 'app-add-vehicle',
@@ -20,7 +21,9 @@ export class AddVehiclePage implements OnInit {
     entryVehicle: new FormControl('')
   });
   constructor(private obj: JsonCommanObjectService, private router: Router,
-              private translate: TranslateService, private toastController: ToastController) {
+              private translate: TranslateService,
+              private toastController: ToastController,
+              public loadingController: LoadingController) {
     this.singleCarObj = obj.carObjTemplate;
   }
   changeStatus(e) {
@@ -44,6 +47,7 @@ export class AddVehiclePage implements OnInit {
   }
 
   ngOnInit() {
+    this.loading();
   }
   async getErrorTost() {
     this.translate.get('select.dropdown').
@@ -55,5 +59,17 @@ export class AddVehiclePage implements OnInit {
       duration: 2000
     });
     toast.present();
+  }
+  ionViewDidEnter(){
+    this.loadingController.dismiss('loading');
+  }
+  async loading() {
+    const loading = await this.loadingController.create({
+      message: '',
+      id: 'loading'
+    });
+    await loading.present();
+    const { role, data } = await loading.onDidDismiss();
+    console.log('Loading dismissed!');
   }
 }

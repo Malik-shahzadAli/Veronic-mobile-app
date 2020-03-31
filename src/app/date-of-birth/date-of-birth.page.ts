@@ -3,6 +3,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { JsonCommanObjectService } from 'src/services/json-comman-object.service.service';
 import { ToastController } from '@ionic/angular';
+import { LoadingController } from '@ionic/angular';
 @Component({
   selector: 'app-date-of-birth',
   templateUrl: './date-of-birth.page.html',
@@ -13,7 +14,8 @@ export class DateOfBirthPage implements OnInit {
   public date;
   constructor(public translate: TranslateService,
               private obj: JsonCommanObjectService,
-              public toastController: ToastController) {
+              public toastController: ToastController,
+              public loadingController: LoadingController) {
     this.finalObj = this.obj.customerDetails();
     console.log('Inside Data-Of-Birth Constructor : ', this.finalObj);
 
@@ -31,6 +33,7 @@ export class DateOfBirthPage implements OnInit {
   });
 
   ngOnInit() {
+    this.loading2();
     // const d = '02161984';
     // const month = d.slice(0, 2);
     // const day = d.slice(2, 4);
@@ -71,6 +74,19 @@ export class DateOfBirthPage implements OnInit {
       duration: 2000
     });
     toast.present();
+  }
+
+  ionViewDidEnter(){
+    this.loadingController.dismiss('loading2');
+  }
+  async loading2() {
+    const loading = await this.loadingController.create({
+      message: '',
+      id: 'loading2'
+    });
+    await loading.present();
+    const { role, data } = await loading.onDidDismiss();
+    console.log('Loading dismissed!');
   }
 
 }

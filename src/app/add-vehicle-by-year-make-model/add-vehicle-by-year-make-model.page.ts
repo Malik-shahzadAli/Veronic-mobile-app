@@ -7,7 +7,7 @@ import { JsonCommanObjectService } from 'src/services/json-comman-object.service
 import { TranslateService } from '@ngx-translate/core';
 import { ToastController, IonContent } from '@ionic/angular';
 import { url } from 'src/commonurl/commonurl';
-
+import { LoadingController } from '@ionic/angular';
 @Component({
   selector: 'app-add-vehicle-by-year-make-model',
   templateUrl: './add-vehicle-by-year-make-model.page.html',
@@ -36,7 +36,9 @@ export class AddVehicleByYearMakeModelPage implements OnInit {
   public modelDisable = true;
 
   constructor(private http: HttpClient, private obj: JsonCommanObjectService,
-              private translate: TranslateService, private toastController: ToastController) {
+              private translate: TranslateService,
+              private toastController: ToastController,
+              public loadingController: LoadingController) {
     this.singleCarObj = obj.carObjTemplate;
 
   }
@@ -134,6 +136,7 @@ export class AddVehicleByYearMakeModelPage implements OnInit {
     console.log('Updated Object : ', this.singleCarObj);
   }
   ngOnInit() {
+    this.loading2();
     // this.removeSelectCaret('id');
     if ((this.singleCarObj.year) !== '' && (this.singleCarObj.make) !== '' && (this.singleCarObj.model) !== '') {
       console.log('Here is ....');
@@ -174,6 +177,18 @@ export class AddVehicleByYearMakeModelPage implements OnInit {
       duration: 2000
     });
     toast.present();
+  }
+  ionViewDidEnter(){
+    this.loadingController.dismiss('loading2');
+  }
+  async loading2() {
+    const loading = await this.loadingController.create({
+      message: '',
+      id: 'loading2'
+    });
+    await loading.present();
+    const { role, data } = await loading.onDidDismiss();
+    console.log('Loading dismissed!');
   }
 
   // async removeSelectCaret(id) {

@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
 import { JsonCommanObjectService } from 'src/services/json-comman-object.service.service';
 import { TranslateService } from '@ngx-translate/core';
 import { ToastController } from '@ionic/angular';
+import { LoadingController } from '@ionic/angular';
 @Component({
   selector: 'app-is-employed',
   templateUrl: './is-employed.component.html',
@@ -33,7 +34,10 @@ export class IsEmployedComponent implements OnInit {
     return this.driverIsEmployed.get('employmentStatus');
   }
 
-  constructor(private obj: JsonCommanObjectService, private toastController: ToastController, private translate: TranslateService) {
+  constructor(private obj: JsonCommanObjectService,
+              private toastController: ToastController,
+              private translate: TranslateService,
+              public loadingController: LoadingController) {
     this.singleDriverObj = this.obj.driverObjTemplate;
     this.gettingDriverEmployedStatusFromSingleDriverObj = this.singleDriverObj.driverData.isDEmployed;
     this.driverName = this.singleDriverObj.driverData.dFullName;
@@ -56,6 +60,7 @@ export class IsEmployedComponent implements OnInit {
       console.log(this.singleDriverObj);
     }
   ngOnInit() {
+    this.loading2();
     if (this.singleDriverObj.driverData.isDEmployed) {
       this.driverIsEmployed.patchValue({
         employmentStatus : this.singleDriverObj.driverData.isDEmployed
@@ -76,5 +81,16 @@ export class IsEmployedComponent implements OnInit {
     toast.present();
   }
 
-
+  ionViewDidEnter(){
+    this.loadingController.dismiss('loading2');
+  }
+  async loading2() {
+    const loading = await this.loadingController.create({
+      message: '',
+      id: 'loading2'
+    });
+    await loading.present();
+    const { role, data } = await loading.onDidDismiss();
+    console.log('Loading dismissed!');
+  }
 }

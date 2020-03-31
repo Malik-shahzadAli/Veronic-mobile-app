@@ -49,8 +49,8 @@
   </ion-toolbar>
 </ion-header>
 <ion-content >
-  <div>
-    <ion-card style="align-self: center !important; box-shadow:rgba(0, 0, 0, 0.0) 0px 4px 16px;">
+  <div class="flex">
+    <ion-card class="ion-card">
       <div class="ion-text-center">
         <ion-progress-bar color='danger' value="0.66" style="margin-bottom: 3vh;"></ion-progress-bar>
       </div>
@@ -75,7 +75,7 @@
                     <div class="ion-text-center">
                         <ion-row size='4'>
                           <ion-col >
-                            <ion-img src='assets/icon/car.svg' style="width: 100% !important;"></ion-img>
+                            <img src='assets/icon/car.svg' style="width: 100% !important;" />
                           </ion-col>
                           <ion-col style="display: flow-root;">
                             <p>{{c.make}} | {{c.year}}</p>

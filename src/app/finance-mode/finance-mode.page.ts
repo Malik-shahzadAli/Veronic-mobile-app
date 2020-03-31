@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
 import { JsonCommanObjectService } from 'src/services/json-comman-object.service.service';
 import { TranslateService } from '@ngx-translate/core';
 import { ToastController } from '@ionic/angular';
+import { LoadingController } from '@ionic/angular';
 @Component({
   selector: 'app-finance-mode',
   templateUrl: './finance-mode.page.html',
@@ -39,7 +40,8 @@ export class FinanceModePage implements OnInit {
 
   }
 
-  constructor(private obj: JsonCommanObjectService, private translate: TranslateService, private toastController: ToastController ) {
+  constructor(private obj: JsonCommanObjectService,
+    private translate: TranslateService, private toastController: ToastController,public loadingController: LoadingController ) {
     this.singleCarObj = obj.carObjTemplate;
     this.customerObject = obj.customerDetails();
     console.log('Hold Data : ', this.singleCarObj);
@@ -73,6 +75,7 @@ export class FinanceModePage implements OnInit {
   }
 
   ngOnInit() {
+    this.loading2();
     this.dropDownSelected = true;
   }
   async getErrorTost() {
@@ -85,6 +88,18 @@ export class FinanceModePage implements OnInit {
       duration: 2000
     });
     toast.present();
+  }
+  ionViewDidEnter(){
+    this.loadingController.dismiss('loading2');
+  }
+  async loading2() {
+    const loading = await this.loadingController.create({
+      message: '',
+      id: 'loading2'
+    });
+    await loading.present();
+    const { role, data } = await loading.onDidDismiss();
+    console.log('Loading dismissed!');
   }
 
 }

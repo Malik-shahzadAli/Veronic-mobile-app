@@ -3,6 +3,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { JsonCommanObjectService } from 'src/services/json-comman-object.service.service';
 import { ToastController } from '@ionic/angular';
+import { LoadingController } from '@ionic/angular';
 @Component({
   selector: 'app-primary-name',
   templateUrl: './primary-name.page.html',
@@ -18,7 +19,8 @@ export class PrimaryNamePage implements OnInit {
   public nextBtnEnableDisable = true;
   constructor( public translate: TranslateService,
                private obj: JsonCommanObjectService,
-               public toastController: ToastController) {
+               public toastController: ToastController,
+               public loadingController: LoadingController) {
     this.finalObj = this.obj.customerDetails();
     console.log('Service inside primary  constructor : ', this.finalObj);
    }
@@ -33,6 +35,8 @@ export class PrimaryNamePage implements OnInit {
     return this.primaryName.get('lastName');
   }
   ngOnInit() {
+    // console.log('ion view start');
+    this.presentAlert();
     console.log(this.primaryName);
     if (((this.finalObj.customer.customerData.firstName) !== '') &&  ((this.finalObj.customer.customerData.firstName) !== '')) {
 
@@ -90,6 +94,20 @@ export class PrimaryNamePage implements OnInit {
       duration: 2000
     });
     toast.present();
+  }
+  ionViewDidEnter(){
+    // console.log('loaded completely')
+    this.loadingController.dismiss('alert');
+  }
+  async presentAlert() {
+
+    const loading = await this.loadingController.create({
+      message: '',
+      id: 'alert'
+    });
+    await loading.present();
+    const { role, data } = await loading.onDidDismiss();
+    console.log('Loading dismissed!');
   }
   
 }

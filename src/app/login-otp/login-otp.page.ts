@@ -8,7 +8,6 @@ import { ToastController } from '@ionic/angular';
 import { LoadingController } from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
 import { url } from 'src/commonurl/commonurl';
-
 @Component({
   selector: 'app-login-otp',
   templateUrl: './login-otp.page.html',
@@ -169,6 +168,7 @@ otp: string;
   });
   }
   ngOnInit() {
+    this.loading2();
     // const url = this.http.get("src/url/config.json");
     // console.log(environment.baseUrl);
     // console.log(this.successToken.decodedTokenData.phoneNo);
@@ -254,6 +254,18 @@ otp: string;
           this.getErrorTost(err.error.message);
         }
     });
+  }
+  ionViewDidEnter(){
+    this.loadingController.dismiss('loading2');
+  }
+  async loading2() {
+    const loading = await this.loadingController.create({
+      message: '',
+      id: 'loading2'
+    });
+    await loading.present();
+    const { role, data } = await loading.onDidDismiss();
+    console.log('Loading dismissed!');
   }
 
 }

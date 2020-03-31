@@ -13,7 +13,7 @@ import { url } from 'src/commonurl/commonurl';
   templateUrl: './referred-person.page.html',
   styleUrls: ['./referred-person.page.scss'],
 })
-export class ReferredPersonPage {
+export class ReferredPersonPage implements OnInit {
   public finalObjectSendToServer;
   public url = url.baseurl+'/api/quotes/generate';
   public isNameRequired = true;
@@ -81,9 +81,11 @@ export class ReferredPersonPage {
           this.getQuoteBtnEnableDisabled();
         },
         (err) => {
+          // console.log('Login Number Error !!!')
           this.loadingController.dismiss('login');
-          this.getErrorTost();
+          this.getErrorTost(err.error.message);
           console.log('Error : ', err);
+          // console.log(err.error.message)
           this.phoneValidate = true;
           this.isPhoneRequired = false;
           this.getQuoteBtnEnableDisabled();
@@ -150,16 +152,31 @@ export class ReferredPersonPage {
     const { role, data } = await loading.onDidDismiss();
     console.log('Loading dismissed!');
   }
-  async getErrorTost() {
-    this.translate.get('Address.popUpError').
-    subscribe((text: string) => {
-      this.modelText = text;
-    });
+  async getErrorTost(error) {
+    // this.translate.get('Address.popUpError').
+    // subscribe((text: string) => {
+    //   this.modelText = text;
+    // });
     const toast = await this.toastController.create({
-      message: this.modelText,
+      message: error,
       duration: 2000
     });
     toast.present();
+  }
+  ngOnInit() {
+    this.loading2();
+  }
+  ionViewDidEnter(){
+    this.loadingController.dismiss('loading2');
+  }
+  async loading2() {
+    const loading = await this.loadingController.create({
+      message: '',
+      id: 'loading2'
+    });
+    await loading.present();
+    const { role, data } = await loading.onDidDismiss();
+    console.log('Loading dismissed!');
   }
 }
 

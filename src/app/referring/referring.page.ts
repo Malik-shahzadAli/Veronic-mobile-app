@@ -69,7 +69,9 @@ export class ReferringPage implements OnInit {
       this.router.navigate(['/referred-person']);
     }
   }
-  ngOnInit() {}
+  ngOnInit() {
+    this.loading2();
+  }
 
   async presentAlert() {
     this.translate.get('popup.title').
@@ -79,6 +81,18 @@ export class ReferringPage implements OnInit {
     const loading = await this.loadingController.create({
       message: this.modalText,
       id: 'alert'
+    });
+    await loading.present();
+    const { role, data } = await loading.onDidDismiss();
+    console.log('Loading dismissed!');
+  }
+  ionViewDidEnter(){
+    this.loadingController.dismiss('loading2');
+  }
+  async loading2() {
+    const loading = await this.loadingController.create({
+      message: '',
+      id: 'loading2'
     });
     await loading.present();
     const { role, data } = await loading.onDidDismiss();

@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
 import { JsonCommanObjectService } from 'src/services/json-comman-object.service.service';
 import { TranslateService } from '@ngx-translate/core';
 import { ToastController } from '@ionic/angular';
+import { LoadingController } from '@ionic/angular';
 // import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-dgender',
@@ -33,7 +34,9 @@ export class DgenderPage implements OnInit {
     return this.gender.get('employmentStatus');
   }
 
-  constructor(private obj: JsonCommanObjectService, private toastController: ToastController, private translate: TranslateService) {
+  constructor(private obj: JsonCommanObjectService,
+              private toastController: ToastController,
+              private translate: TranslateService,public loadingController: LoadingController) {
     this.singleDriverObj = this.obj.driverObjTemplate;
     this.gettingDriverEmployedStatusFromSingleDriverObj = this.singleDriverObj.driverData.dgender;
     this.driverName = this.singleDriverObj.driverData.dFullName;
@@ -56,6 +59,7 @@ export class DgenderPage implements OnInit {
       console.log(this.singleDriverObj);
     }
   ngOnInit() {
+    this.loading2();
     if (this.singleDriverObj.driverData.dgender) {
       this.gender.patchValue({
         employmentStatus : this.singleDriverObj.driverData.dgender
@@ -74,6 +78,18 @@ export class DgenderPage implements OnInit {
       duration: 2000
     });
     toast.present();
+  }
+  ionViewDidEnter(){
+    this.loadingController.dismiss('loading2');
+  }
+  async loading2() {
+    const loading = await this.loadingController.create({
+      message: '',
+      id: 'loading2'
+    });
+    await loading.present();
+    const { role, data } = await loading.onDidDismiss();
+    console.log('Loading dismissed!');
   }
 
 }
