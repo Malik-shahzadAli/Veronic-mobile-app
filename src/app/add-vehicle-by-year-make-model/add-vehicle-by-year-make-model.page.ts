@@ -136,7 +136,6 @@ export class AddVehicleByYearMakeModelPage implements OnInit {
     console.log('Updated Object : ', this.singleCarObj);
   }
   ngOnInit() {
-    this.loading2();
     // this.removeSelectCaret('id');
     if ((this.singleCarObj.year) !== '' && (this.singleCarObj.make) !== '' && (this.singleCarObj.model) !== '') {
       console.log('Here is ....');
@@ -179,7 +178,6 @@ export class AddVehicleByYearMakeModelPage implements OnInit {
     toast.present();
   }
   ionViewDidEnter(){
-    this.loadingController.dismiss('loading2');
   }
   async loading2() {
     const loading = await this.loadingController.create({

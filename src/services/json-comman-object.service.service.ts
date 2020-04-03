@@ -35,6 +35,27 @@ export class JsonCommanObjectService {
     "quoteSource": 'PWA'
 };
 
+public customerObj2 = {
+  "quoteData": {
+      "customer": {
+          "customerData": {
+              "firstName": "",
+              "lastName": "",
+              "postalAddress": {
+                  "street": "",
+                  "city": "",
+                  "state": "",
+                  "zip": ""
+              },
+              "email": "",
+              "phone": ""
+          }
+      },
+      "quoteSource": "PWA",
+      "quoteType": ""
+  }
+};
+
 public driverObjTemplate = {
   "driverData": {
     "dFullName": "",
@@ -71,5 +92,9 @@ public quotes = {};
   singleCarData() {
     return this.carObjTemplate;
   }
+  quteData(){
+    return this.customerObj2;
+  }
 }
+
 

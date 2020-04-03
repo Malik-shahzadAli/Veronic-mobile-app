@@ -56,7 +56,6 @@ export class MarriageStatusPage implements OnInit {
   }
 
   ngOnInit() {
-    this.loading2();
     if ((this.finalObj.customer.customerData.maritalStatus !== undefined) && this.finalObj.customer.customerData.maritalStatus !== '') {
 
       this.genderAndMartialStatus.patchValue({
@@ -78,7 +77,6 @@ export class MarriageStatusPage implements OnInit {
     toast.present();
   }
   ionViewDidEnter(){
-    this.loadingController.dismiss('loading2');
   }
   async loading2() {
     const loading = await this.loadingController.create({

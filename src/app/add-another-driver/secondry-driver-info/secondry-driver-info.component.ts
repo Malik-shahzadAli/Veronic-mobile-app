@@ -52,7 +52,6 @@ export class SecondryDriverInfoComponent implements OnInit {
     console.log(this.singleDriverObj);
   }
   ngOnInit() {
-    this.loading2();
     if (this.singleDriverObj.driverData.dFullName) {
       this.driverNameError = false;
       this.nextBtnEnableDisable = false;
@@ -73,7 +72,6 @@ export class SecondryDriverInfoComponent implements OnInit {
     toast.present();
   }
   ionViewDidEnter(){
-    this.loadingController.dismiss('loading2');
   }
   async loading2() {
     const loading = await this.loadingController.create({

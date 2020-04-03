@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
 import { JsonCommanObjectService } from 'src/services/json-comman-object.service.service';
 import { ToastController } from '@ionic/angular';
 import { LoadingController } from '@ionic/angular';
+import * as moment from 'moment';
 @Component({
   selector: 'app-date-of-birth',
   templateUrl: './date-of-birth.page.html',
@@ -33,7 +34,6 @@ export class DateOfBirthPage implements OnInit {
   });
 
   ngOnInit() {
-    this.loading2();
     // const d = '02161984';
     // const month = d.slice(0, 2);
     // const day = d.slice(2, 4);
@@ -50,13 +50,15 @@ export class DateOfBirthPage implements OnInit {
   getUserDobNextClick() {
     const dateOfBirth = this.birth.value;
     console.log( typeof dateOfBirth);
-
+    const date = moment(dateOfBirth);
+    const a=date.format('DD/MM/YYYY');
+    console.log(a)
 
     // let formattedDate = dateOfBirth.slice(0, 2) + "/" + dateOfBirth.slice(2, 4) + "/" + dateOfBirth.slice(4, 8);
     // console.log(formattedDate)
 
 
-    this.finalObj.customer.customerData.dob = dateOfBirth;
+    this.finalObj.customer.customerData.dob = a;
     // this.finalObj.customer.customerData.dob = this.userEnterDate; 
     // console.log("Click getUserDOBNextClick Function");
     console.log(this.finalObj);
@@ -77,7 +79,6 @@ export class DateOfBirthPage implements OnInit {
   }
 
   ionViewDidEnter(){
-    this.loadingController.dismiss('loading2');
   }
   async loading2() {
     const loading = await this.loadingController.create({

@@ -87,7 +87,6 @@ export class GenderPage implements OnInit {
     toast.present();
   }
   ionViewDidEnter(){
-    this.loadingController.dismiss('loading2');
   }
   async loading2() {
     const loading = await this.loadingController.create({

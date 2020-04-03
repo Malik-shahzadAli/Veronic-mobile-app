@@ -119,6 +119,38 @@ const routes: Routes = [
     path: 'gender',
     loadChildren: () => import('./gender/gender.module').then( m => m.GenderPageModule)
   },
+  {
+    path: 'setting',
+    loadChildren: () => import('./setting/setting.module').then( m => m.SettingPageModule)
+  },
+  {
+    path: 'insurance-type',
+    loadChildren: () => import('./insurance-type/insurance-type.module').then( m => m.InsuranceTypePageModule)
+  },
+  {
+    path: 'other-primary-name',
+    loadChildren: () => import('./other-primary-name/other-primary-name.module').then( m => m.OtherPrimaryNamePageModule)
+  },
+  {
+    path: 'other-address',
+    loadChildren: () => import('./other-address/other-address.module').then( m => m.OtherAddressPageModule)
+  },
+  {
+    path: 'other-contect-info',
+    loadChildren: () => import('./other-contect-info/other-contect-info.module').then( m => m.OtherContectInfoPageModule)
+  },
+  {
+    path: 'other-otp',
+    loadChildren: () => import('./other-otp/other-otp.module').then( m => m.OtherOtpPageModule)
+  },
+  {
+    path: 'other-otp-type',
+    loadChildren: () => import('./other-otp-type/other-otp-type.module').then( m => m.OtherOtpTypePageModule)
+  },
+  {
+    path: 'other-quotes',
+    loadChildren: () => import('./other-quotes/other-quotes.module').then( m => m.OtherQuotesPageModule)
+  },
 
 
 

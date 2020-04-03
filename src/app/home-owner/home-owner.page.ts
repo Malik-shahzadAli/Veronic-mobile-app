@@ -52,7 +52,6 @@ export class HomeOwnerPage implements OnInit {
     console.log(this.finalObj);
   }
   ngOnInit() {
-    this.loading2();
     if ((this.finalObj.customer.customerData.homeOwner !== undefined) && (this.finalObj.customer.customerData.homeOwner !== '')) {
       this.houseOwner.patchValue({
         owner : this.finalObj.customer.customerData.homeOwner,
@@ -72,7 +71,6 @@ export class HomeOwnerPage implements OnInit {
     toast.present();
   }
   ionViewDidEnter(){
-    this.loadingController.dismiss('loading2');
   }
   async loading2() {
     const loading = await this.loadingController.create({

@@ -165,7 +165,6 @@ export class AddressPage implements OnInit {
     }
   }
   ngOnInit() {
-    this.loading2();
     // this.finalObj.customer.customerData.postalAddress.zip = "94043";
     // this.finalObj.customer.customerData.postalAddress.street = "abc";
     // this.finalObj.customer.customerData.postalAddress.city = "abcd";
@@ -241,7 +240,6 @@ export class AddressPage implements OnInit {
     console.log('Loading dismissed!');
   }
   ionViewDidEnter(){
-    this.loadingController.dismiss('loading2');
   }
   async loading2() {
     const loading = await this.loadingController.create({

@@ -194,5 +194,15 @@
     "scan": {
         "title":"¿Quieres escanear tu licencia de conducir?",
         "scan":"Escanear"
+    },
+    "sideMenu": {
+        "getAQuote": "Consigue una cotización",
+        "myQuotes": "Mis citas",
+        "help": "Centro de ayuda",
+        "invite": "Invitar a amigas",
+        "setting": "Ajuste"
+    },
+    "otpType": {
+        "title":"¿Cómo quieres confirmar tu número de teléfono?"
     }
 }

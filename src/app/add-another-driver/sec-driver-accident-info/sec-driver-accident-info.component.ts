@@ -87,7 +87,6 @@ export class SecDriverAccidentInfoComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.loading2();
     this.dropDownSelected = true;
   }
   async getErrorTost() {
@@ -102,7 +101,6 @@ export class SecDriverAccidentInfoComponent implements OnInit {
     toast.present();
   }
   ionViewDidEnter(){
-    this.loadingController.dismiss('loading2');
   }
   async loading2() {
     const loading = await this.loadingController.create({

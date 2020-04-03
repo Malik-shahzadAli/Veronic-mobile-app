@@ -1,6 +1,6 @@
 <ion-app>
   <ion-content>
-    <ion-toolbar color="danger">
+    <ion-toolbar style="--background: linear-gradient(360deg, rgba(215,0,0,1) 0%, rgba(215,0,57,1) 35%, rgba(255,0,71,1) 100%);border: 1px solid rgba(255,0,71,1);--color:white;">
       <ion-buttons slot="primary">
         <ion-back-button></ion-back-button>
       </ion-buttons>
@@ -27,34 +27,35 @@
     </ion-header >
     <ion-content style="--ion-background-color: transparent;">
       <ion-list  style="--ion-background-color: transparent;" >
-        <ion-item style="--ion-background-color: transparent;" routerLink='/first-splash' (click)='toggleMenu()'>
-          <ion-icon slot="start" style=" zoom: 1.2;" color='white' name="cash-outline" routerLink='/first-splash'></ion-icon>
-          Get a Quote
+        <ion-item style="--ion-background-color: transparent;" routerLink='/insurance-type' (click)='toggleMenu()'>
+          <ion-icon slot="start" style=" zoom: 1.2;" color='white' name="cash-outline" ></ion-icon>
+          {{ 'sideMenu.getAQuote' | translate }}
         </ion-item>
         <ion-item style="--ion-background-color: transparent;" *ngIf='jwt' routerLink='/my-quotes' (click)='toggleMenu()'>
           <ion-icon slot="start" style=" zoom: 1.2;" color='white' name="document-outline"></ion-icon>
-          My Quotes
+          {{ 'sideMenu.myQuotes' | translate }}
         </ion-item>
         <ion-item (click)='helpCenter()'>
           <ion-icon slot="start" style=" zoom: 1.2" color='white' name="help-circle-outline" ></ion-icon>
-          Help Center
+          {{ 'sideMenu.help' | translate }}
         </ion-item>
       </ion-list>
     </ion-content>
     <ion-footer style="height: 25vh; --ion-background-color: transparent;" no-lines  lines="none">
       <!-- <ion-item lines="none"> -->
         <ion-list  style="--ion-background-color: transparent;" >
-          <ion-item  style="--ion-background-color: transparent;">
+          <ion-item  style="--ion-background-color: transparent;" (click)='shareApi()'>
             <ion-icon slot="start" style=" zoom: 1.2;" color='white' name="person-add-outline"></ion-icon>
-            Invite Friends
+            {{ 'sideMenu.invite' | translate }}
           </ion-item>
-          <ion-item >
+          <ion-item routerLink='/setting' (click)='toggleMenu()'>
             <ion-icon slot="start" style=" zoom: 1.2" color='white' name="cog-outline"></ion-icon>
-            Settings
+            {{ 'sideMenu.setting' | translate }}
           </ion-item>
         </ion-list>
       <!-- </ion-item> -->
   </ion-footer>
   </ion-menu>
+  
   <ion-router-outlet id="main"></ion-router-outlet>
 </ion-app>

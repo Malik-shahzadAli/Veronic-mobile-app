@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
 import { JsonCommanObjectService } from 'src/services/json-comman-object.service.service';
 import { ToastController } from '@ionic/angular';
 import { LoadingController } from '@ionic/angular';
+import * as moment from 'moment';
 @Component({
   selector: 'app-dob',
   templateUrl: './dob.component.html',
@@ -33,9 +34,13 @@ export class DobComponent implements OnInit {
   getUserDobNextClick() {
     const _dob = this.birth.value;
     // this.singleDriverObj.drivers[this.currentIndex].driverData.dDob = _dob;
-    const formattedDate = _dob.slice(0, 2) + '/' + _dob.slice(2, 4) + '/' + _dob.slice(4, 8);
-    console.log(formattedDate);
-    this.singleDriverObj.driverData.dDob = formattedDate;
+    // const formattedDate = _dob.slice(0, 2) + '/' + _dob.slice(2, 4) + '/' + _dob.slice(4, 8);
+    const date = moment( _dob);
+    const a=date.format('DD/MM/YYYY');
+    console.log(a)
+
+    // console.log(formattedDate);
+    this.singleDriverObj.driverData.dDob = a;
     console.log('Add another driver DOB, NEXT on button click');
     console.log(this.singleDriverObj);
   }
@@ -57,7 +62,6 @@ export class DobComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.loading2();
     if (this.singleDriverObj.driverData.dDob) {
 
       this.dateOfBirth.setValue({
@@ -87,7 +91,6 @@ export class DobComponent implements OnInit {
     }
   }
   ionViewDidEnter(){
-    this.loadingController.dismiss('loading2');
   }
   async loading2() {
     const loading = await this.loadingController.create({

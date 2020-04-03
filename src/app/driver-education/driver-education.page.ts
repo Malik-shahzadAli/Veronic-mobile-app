@@ -53,7 +53,6 @@ export class DriverEducationPage implements OnInit {
     console.log(this.finalObj);
   }
   ngOnInit() {
-    this.loading2();
     if ((this.finalObj.customer.customerData.education !== undefined) && (this.finalObj.customer.customerData.education !== '')) {
 
       this.driverEducation.patchValue({
@@ -75,7 +74,6 @@ export class DriverEducationPage implements OnInit {
     toast.present();
   }
   ionViewDidEnter(){
-    this.loadingController.dismiss('loading2');
   }
   async loading2() {
     const loading = await this.loadingController.create({

@@ -55,7 +55,6 @@ export class IsCustomerEmployeedPage implements OnInit {
       console.log(this.finalObj);
     }
   ngOnInit() {
-    this.loading2();
     if ( this.finalObj.customer.customerData.isEmployed ) {
       this.dropDownSelected = false;
 
@@ -73,7 +72,6 @@ export class IsCustomerEmployeedPage implements OnInit {
     toast.present();
   }
   ionViewDidEnter(){
-    this.loadingController.dismiss('loading2');
   }
   async loading2() {
     const loading = await this.loadingController.create({

@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title></ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content >
+  <div class="flex has-header" fullscreen="true" >
+    <ion-card class="ion-card">
+      <div class="ion-text-center">
+        <ion-progress-bar color='danger' value="0.3" style="margin-bottom: 3vh;"></ion-progress-bar>
+      </div>
+      <div style="align-self: flex-start !important; align-items: start;display: table-cell !important;">
+        <ion-back-button defaultHref='/date-of-birth' slot="start"></ion-back-button>
+      </div>
+      <div class="ion-text-center">
+        <img src="assets/icon/address.svg" />
+      </div>
+    <ion-card-header>
+      <ion-card-subtitle class="ion-text-center">Customer Info</ion-card-subtitle>
+      <ion-card-title class="ion-text-center">{{ 'Address.title' | translate }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <form [formGroup]='driverAddress'>
+        <ion-input type="number" class="roundedInput" (input)="validateZipCode($event)" placeholder="{{ 'Address.zipCode' | translate }}" formControlName='zipCode'></ion-input>
+        <ion-input *ngIf = 'validZip || scan' class="roundedInput" readonly style="background:	rgba(220,220,220,0.4); color: 	#C0C0C0" formControlName='city' placeholder="{{'Address.city' | translate}}"></ion-input>
+        <ion-input  *ngIf = 'validZip || scan' class="roundedInput" readonly style="background:	rgba(220,220,220,0.4); color: 	#C0C0C0" formControlName='state' placeholder="{{'Address.state' | translate}}"></ion-input>
+        <ion-input  *ngIf = 'validZip || scan' class="roundedInput input-lg capital" (input)="validateAddress($event)" formControlName='street' placeholder="{{ 'Address.streetAddress' | translate }}"></ion-input>
+      </form>
+    </ion-card-content>
+    <ion-card-header>
+      <ion-chip *ngIf="addressError || zipCodeError" class="disableNext" size="large" color="danger" (click)="getErrorTost()" >
+        <ion-label class="next">{{ 'PRIMARY-NAME.next' | translate }}</ion-label>
+      </ion-chip>
+      <ion-chip *ngIf="!addressError && !zipCodeError" class="enableNext" size="large"  (click)="getUserAddressNextClick()"  >
+        <ion-label class="next">{{ 'PRIMARY-NAME.next' | translate }}</ion-label>
+      </ion-chip>
+    </ion-card-header>
+    <ion-progress-bar color='danger' value="0.75"></ion-progress-bar>
+  </ion-card>
+</div>
+
+
+
+</ion-content>

@@ -10,10 +10,8 @@ export class DriverSplashPage implements OnInit {
   constructor(public loadingController: LoadingController) { }
 
   ngOnInit() {
-    this.loading2();
   }
   ionViewDidEnter(){
-    this.loadingController.dismiss('loading2');
   }
   async loading2() {
     const loading = await this.loadingController.create({

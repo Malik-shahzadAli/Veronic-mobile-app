@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { JsonCommanObjectService } from 'src/services/json-comman-object.service.service';
+import { JsonCommanObjectService } from './../../services/json-comman-object.service.service';
 import { HttpClient } from '@angular/common/http';
 import { LoadingController } from '@ionic/angular';
 import { TranslateService } from '@ngx-translate/core';
 import { AlertController } from '@ionic/angular';
-import { url } from 'src/commonurl/commonurl';
+import { url } from './../../commonurl/commonurl';
+import { Clipboard } from '@ionic-native/clipboard/ngx';
 @Component({
   selector: 'app-get-a-quote',
   templateUrl: './get-a-quote.page.html',
@@ -26,7 +27,8 @@ export class GetAQuotePage implements OnInit {
   constructor(private obj: JsonCommanObjectService, private http: HttpClient,
               public loadingController: LoadingController,
               private translate: TranslateService,
-              public alertController: AlertController ) {
+              public alertController: AlertController,
+              private clipboard: Clipboard ) {
     this.finalObjectSendToServer = this.obj.customerDetails();
     console.log('INSIDE GET QUOTE COMPONENT');
     console.log(this.finalObjectSendToServer);
@@ -47,11 +49,11 @@ export class GetAQuotePage implements OnInit {
     }
 
   ngOnInit() {
-    // this.quotes = this.obj.quotes;
+    this.quotes = this.obj.quotes;
     console.log('###### Inside get a quote compoonent ######');
     // console.log(this.quotes.quote);
-    // this.price = this.quotes.quote.offers;
-    // this.quoteId = this.quotes.quote.quoteId;
+    this.price = this.quotes.quote.offers;
+    this.quoteId = this.quotes.quote.quoteId;
   }
 
   async callAlert() {
@@ -76,6 +78,16 @@ export class GetAQuotePage implements OnInit {
       buttons: ['OK']
     });
     await alert.present();
+  }
+
+  copy(){
+    // this.clipboard.copy('Hello world');
+    // var copyText = "Hello world";
+
+    /* Select the text field */
+  //  copyText.select();
+    //copyText.setSelectionRange(0, 99999); /*For mobile devices*/
+    // document.execCommand("copy");
   }
 
 }

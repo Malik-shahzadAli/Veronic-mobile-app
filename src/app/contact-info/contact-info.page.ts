@@ -90,7 +90,10 @@ export class ContactInfoPage implements OnInit {
       // const newPhone = '+923338190934';
       const newPhone = '+1' + phone;
       console.log(newPhone);
-      this.http.post(url.baseurl + '/api/get/otp', {"phoneNo" : newPhone})
+      this.http.post(url.baseurl + '/api/get/otp', {
+        "phoneNo" : newPhone,
+        "channel":"SMS"
+      })
         .subscribe((response) => {
           this.loadingController.dismiss('login');
           console.log('Server Response, validate Phone Number and send OTP');
@@ -111,7 +114,6 @@ export class ContactInfoPage implements OnInit {
       console.log(this.finalObj);
   }
   ngOnInit() {
-    this.loading2();
   }
   formatPhoneNumber(phoneNumberString) {
     const cleaned = ('' + phoneNumberString).replace(/\D/g, '');
@@ -161,7 +163,6 @@ export class ContactInfoPage implements OnInit {
     toast.present();
   }
   ionViewDidEnter(){
-    this.loadingController.dismiss('loading2');
   }
   async loading2() {
     const loading = await this.loadingController.create({

@@ -70,7 +70,6 @@ export class ReferringPage implements OnInit {
     }
   }
   ngOnInit() {
-    this.loading2();
   }
 
   async presentAlert() {
@@ -87,7 +86,6 @@ export class ReferringPage implements OnInit {
     console.log('Loading dismissed!');
   }
   ionViewDidEnter(){
-    this.loadingController.dismiss('loading2');
   }
   async loading2() {
     const loading = await this.loadingController.create({

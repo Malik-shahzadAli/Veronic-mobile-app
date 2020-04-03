@@ -47,7 +47,7 @@ export class AddVehiclePage implements OnInit {
   }
 
   ngOnInit() {
-    this.loading();
+    // this.loading();
   }
   async getErrorTost() {
     this.translate.get('select.dropdown').
@@ -61,7 +61,6 @@ export class AddVehiclePage implements OnInit {
     toast.present();
   }
   ionViewDidEnter(){
-    this.loadingController.dismiss('loading');
   }
   async loading() {
     const loading = await this.loadingController.create({

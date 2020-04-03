@@ -57,7 +57,6 @@ export class DriverRelationshipComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.loading2();
     if (this.singleDriverObj.driverData.dRelation) {
       this.relationshipStatus.patchValue({
         relationship : this.singleDriverObj.driverData.dRelation
@@ -78,7 +77,6 @@ export class DriverRelationshipComponent implements OnInit {
     toast.present();
   }
   ionViewDidEnter(){
-    this.loadingController.dismiss('loading2');
   }
   async loading2() {
     const loading = await this.loadingController.create({

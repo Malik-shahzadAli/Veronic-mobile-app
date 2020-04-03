@@ -27,12 +27,10 @@ export class AddAnotherDriverPage implements OnInit {
     this.router.navigate(['/add-another-driver/secondry-driver-info']);
   }
   ngOnInit() {
-    this.loading2();
     this.customerFirstName = (this.finalObj.customer.customerData.firstName).toUpperCase();
 
   }
   ionViewDidEnter(){
-    this.loadingController.dismiss('loading2');
   }
   async loading2() {
     const loading = await this.loadingController.create({

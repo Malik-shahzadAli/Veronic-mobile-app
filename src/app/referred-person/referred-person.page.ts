@@ -174,10 +174,8 @@ export class ReferredPersonPage  implements OnInit{
 
 
   ngOnInit() {
-    // this.loading2();
   }
   ionViewDidEnter(){
-    this.loadingController.dismiss('loading2');
   }
   async loading2() {
     const loading = await this.loadingController.create({

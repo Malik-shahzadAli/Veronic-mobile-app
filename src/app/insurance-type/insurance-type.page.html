@@ -1,0 +1,78 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>insurance-type</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content  >
+  <div class="flex">
+  <div class="ion-card">
+    <h2 style="text-align: center;">What are you looking to insure?</h2>
+    <ion-row >
+      <ion-col size="1"></ion-col>
+      <ion-col size="5">
+        <ion-card class="card" (click)="InsuranceType('AUTO')">
+          <ion-card-content>
+            <ion-img src="assets/icon/car-card.svg" style="height: 12vh;"></ion-img>
+            <p style="text-align: center;">Auto</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col>
+        <ion-card class="card" (click)="InsuranceType('HOME')">
+          <ion-card-content>
+            <ion-img src="assets/icon/home-card.svg" style="height: 12vh;"></ion-img>
+            <p style="text-align: center;">Home</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="1"></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="1"></ion-col>
+      <ion-col size="5">
+        <ion-card class="card" (click)="InsuranceType('MOTORCYCLE')">
+          <ion-card-content>
+            <ion-img src="assets/icon/bike-card.svg" style="height: 12vh;"></ion-img>
+            <!-- <ion-title class="ion-text-center">MOTORCYCLE</ion-title> -->
+            <p style="text-align: center;">Bike</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="5">
+        <ion-card class="card" (click)="InsuranceType('BOAT')">
+          <ion-card-content>
+            <ion-img src="assets/icon/ship-card.svg" style="height: 12vh;"></ion-img>
+            <!-- <ion-title class="ion-text-center">BOAT</ion-title> -->
+            <p style="text-align: center;">Boat</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="1"></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="1"></ion-col>
+      <ion-col size="5">
+        <ion-card class="card" (click)="InsuranceType('COMMERCIAL')">
+          <ion-card-content>
+            <ion-img src="assets/icon/commercial-card.svg" style="height: 12vh;"></ion-img>
+            <!-- <ion-title class="ion-text-center">COMMERCIAL</ion-title> -->
+            <p style="text-align: center;">Commercial</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>    
+      <ion-col size="5">
+        <ion-card class="card" (click)="InsuranceType('RENTERS')">
+          <ion-card-content>
+            <ion-img src="assets/icon/rent-card.svg" style="height: 12vh;"></ion-img>
+            <!-- <ion-title class="ion-text-center">RENTERS</ion-title> -->
+            <p style="text-align: center;">Renters</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="1"></ion-col>
+    </ion-row>
+  </div>
+</div>
+</ion-content>
+<!-- commercial-card -->

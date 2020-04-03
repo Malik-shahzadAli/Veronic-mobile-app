@@ -8,6 +8,7 @@ import { GetAQuotePageRoutingModule } from './get-a-quote-routing.module';
 
 import { GetAQuotePage } from './get-a-quote.page';
 import { TranslateModule } from '@ngx-translate/core';
+import { Clipboard } from '@ionic-native/clipboard/ngx';
 
 @NgModule({
   imports: [
@@ -17,6 +18,9 @@ import { TranslateModule } from '@ngx-translate/core';
     TranslateModule,
     GetAQuotePageRoutingModule
   ],
-  declarations: [GetAQuotePage]
+  declarations: [GetAQuotePage],
+  providers: [
+    Clipboard
+  ],
 })
 export class GetAQuotePageModule {}

@@ -35,7 +35,7 @@
         "dateError":"Date of birth is required."
     },
     "Address": {
-        "title": "Where do you reside ?",
+        "title": "Where do you reside?",
         "streetAddress": "Street Address",
         "zipCode": "Zip Code",
         "next": "next",
@@ -44,7 +44,7 @@
         "error": "Invalid street address"
     },
     "ContactInfo":{
-        "title":"How we can reach you ?",
+        "title":"How we can reach you?",
         "email":"Email Address",
         "phoneNo":"Phone Number",
         "next": "next",
@@ -198,5 +198,15 @@
     "scan": {
         "title":"Do you want to scan your driving license?",
         "scan":"Scan"
+    },
+    "sideMenu": {
+        "getAQuote": "Get a Quote",
+        "myQuotes": "My Quotes",
+        "help": "Help Center",
+        "invite": "Invite Friends",
+        "setting": "Settings"
+    },
+    "otpType": {
+        "title":"How do you want to confirm your phone number?"
     }
 }

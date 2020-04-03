@@ -45,7 +45,6 @@ export class MilesPerDayPage implements OnInit {
     this.location.back(); // <-- go back to previous location on cancel
   }
   ngOnInit() {
-    this.loading2();
     this.milesInfo.setValue({
       milesPerDay : this.singleCarObj.dailyMileage.amount,
     });
@@ -63,7 +62,6 @@ export class MilesPerDayPage implements OnInit {
     toast.present();
   }
   ionViewDidEnter(){
-    this.loadingController.dismiss('loading2');
   }
   async loading2() {
     const loading = await this.loadingController.create({

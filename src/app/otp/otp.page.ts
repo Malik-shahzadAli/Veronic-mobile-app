@@ -168,7 +168,6 @@ otp: string;
   });
   }
   ngOnInit() {
-    this.loading2();
     // const url = this.http.get("src/url/config.json");
     // console.log(environment.baseUrl);
     // console.log(this.successToken.decodedTokenData.phoneNo);
@@ -259,7 +258,6 @@ otp: string;
     });
   }
   ionViewDidEnter(){
-    this.loadingController.dismiss('loading2');
   }
   async loading2() {
     const loading = await this.loadingController.create({

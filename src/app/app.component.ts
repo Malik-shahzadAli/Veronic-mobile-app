@@ -11,7 +11,7 @@ import { AlertController } from '@ionic/angular';
 import { Plugins } from '@capacitor/core';
 // import {url} from 'src/url/config.json';
 // import { Url } from 'url';
-
+import { NgNavigatorShareService } from 'ng-navigator-share';
 
 @Component({
   selector: 'app-root',
@@ -19,6 +19,7 @@ import { Plugins } from '@capacitor/core';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent implements OnInit {
+  private ngNavigatorShareService: NgNavigatorShareService;
   selectedLanguage: string;
   public jwt: boolean;
   public userNumber: string;
@@ -31,11 +32,13 @@ export class AppComponent implements OnInit {
     public translate: TranslateService,
     private router: Router,
     public alertController: AlertController,
+    ngNavigatorShareService: NgNavigatorShareService
     // private url: url
   ) {
     this.initializeApp();
     // this.presentAlertConfirm();
     this.selectedLanguage = this.translateConfigService.getDefaultLanguage();
+    this.ngNavigatorShareService = ngNavigatorShareService;
   }
 
 
@@ -82,7 +85,7 @@ export class AppComponent implements OnInit {
     if (window.localStorage && window.localStorage.getItem('isIntroDone') && window.localStorage.getItem('language'))  {
       const language = window.localStorage.getItem('language');
       this.translateConfigService.setLanguage(language);
-      this.router.navigateByUrl('/first-splash');
+      this.router.navigateByUrl('/insurance-type');
       window.localStorage.setItem('firstRunFinished', 'true');
     }
 
@@ -97,6 +100,22 @@ export class AppComponent implements OnInit {
     this.toggleMenu();
     window.location.href="https://www.tidio.com/talk/fefv4irzl5mm0eropcqgncfpiiuj32mp";
   }
+
+  async shareApi() {
+    console.log('I m calling !!!!!')
+    try{
+      const sharedResponse = await this.ngNavigatorShareService.share({
+        title:'`Web Articles and Tutorials',
+        text: 'Check out my blog — its worth looking.',
+        url: 'www.codershood.info'
+      });
+      console.log(sharedResponse);
+    } catch(error) {
+      console.log('You app is not shared, reason: ',error);
+    }
+    
+  }
+
   // async presentAlertConfirm() {
   //   const alert = await this.alertController.create({
   //     header: 'Language',

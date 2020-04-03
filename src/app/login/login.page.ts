@@ -22,7 +22,6 @@ export class LoginPage implements OnInit {
     phoneNo: new FormControl('')
   });
   ngOnInit() {
-    this.loading2();
   }
   get phoneNumber() {
     return this.loginNumber.get('phoneNo');
@@ -100,7 +99,6 @@ export class LoginPage implements OnInit {
     return null;
   }
   ionViewDidEnter(){
-    this.loadingController.dismiss('loading2');
   }
   async loading2() {
     const loading = await this.loadingController.create({

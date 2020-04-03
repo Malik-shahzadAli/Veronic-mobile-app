@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title></ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content >
+  <div class="flex">
+    <ion-card class="ion-card">
+    <div class="ion-text-center">
+      <ion-progress-bar color='danger' value="0.3" style="margin-bottom: 3vh;"></ion-progress-bar>
+    </div>
+    <div style="align-self: flex-start !important; align-items: start;display: table-cell !important;">
+      <ion-back-button defaultHref='/date-of-birth' slot="start"></ion-back-button>
+    </div>
+    <div class="ion-text-center">
+      <img src="assets/icon/contact.svg" />
+    </div>
+    <ion-card-header>
+      <ion-card-subtitle class="ion-text-center">Customer Info</ion-card-subtitle>
+      <ion-card-title class="ion-text-center">{{ 'ContactInfo.title' | translate }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <form [formGroup]='contactInfo'>
+        <ion-input type="email"   email class="roundedInput input-lg" (keyup)="validateEmail($event)" formControlName='email' placeholder="{{ 'ContactInfo.email' | translate }}"></ion-input>
+        <ion-input 
+        type="text"
+        [brmasker]="{mask:'(000) 000-0000', len:14, type:'num'}"
+        formControlName='phone'
+        (keyup) = "validatePhone($event)" class="roundedInput"  placeholder="{{ 'ContactInfo.phoneNo' | translate }}"></ion-input>
+      </form>
+    </ion-card-content>
+    <ion-card-header>
+      <ion-chip *ngIf="validPhoneEnableDisabled || enableDisabled" class="disableNext" size="large" color="danger" (click)="getErrorTost()" >
+        <ion-label class="next">{{ 'PRIMARY-NAME.next' | translate }}</ion-label>
+      </ion-chip>
+      <!-- Enable Button -->
+      <ion-chip *ngIf="!validPhoneEnableDisabled && !enableDisabled" class="enableNext" size="large"   (click)="getUserContactInfoNextClick()" >
+        <ion-label class="next">{{ 'PRIMARY-NAME.next' | translate }}</ion-label>
+      </ion-chip>
+    </ion-card-header>
+    <ion-progress-bar color='danger' value="1"></ion-progress-bar>
+  </ion-card>
+</div>
+</ion-content>

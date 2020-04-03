@@ -5,35 +5,40 @@
   </ion-toolbar>
 </ion-header>
 <ion-content class="color">
-<!-- <h5 style="text-align: center; margin-bottom: 0px;">Quote</h5> -->
 
-<!-- <ion-slides>
-  <ion-slide > -->
-    <!-- <div class="slide"> -->
-        <ion-card> 
-          <ion-card-header>
-            <ion-card-title class="ion-text-center">Quote: 15140026</ion-card-title>
-          </ion-card-header>
-        </ion-card>
-        <ion-card *ngFor="let p of prices; let i = index" style="background:linear-gradient(90deg, rgba(215,0,0,1) 0%, rgba(215,0,57,1) 35%, rgba(255,0,71,1) 100%);"> 
+<ion-card> 
+  <ion-card-content class="nopadding">
+    <ion-list>
+      <ion-item lines="none">
+        <ion-icon  slot="start" style=" zoom: 1.2;" name="document-text-outline"></ion-icon>
+        <ion-label>
+          <h2 style="font-size: 1.3rem;">Quote ID</h2>
+          <p>{{quoteId}}</p>
+      </ion-label>
+      <!-- <ion-icon name="copy-outline" slot="end" (click)='copy()'></ion-icon> -->
+      </ion-item>
+    </ion-list>
+  </ion-card-content>
+</ion-card>
+        <ion-card *ngFor="let p of price; let i = index" style="background:linear-gradient(90deg, rgba(215,0,0,1) 0%, rgba(215,0,57,1) 35%, rgba(255,0,71,1) 100%);"> 
         <ion-card-content>
           <ion-row>
-            <ion-col size="6">
-              <ion-avatar style="background: linear-gradient(360deg, rgba(215,0,0,1) 0%, rgba(215,0,57,1) 35%, rgba(255,0,71,1) 100%);;">
-                <ion-img src="assets/icon/tag2.svg" style="padding: 15px;"></ion-img>
+            <ion-col size="7">
+              <ion-avatar style="background: linear-gradient(360deg, rgba(215,0,0,1) 0%, rgba(215,0,57,1) 35%, rgba(255,0,71,1) 100%);border: 1px solid rgba(255,0,71,1) ;">
+                <ion-img src="assets/icon/tag3.svg" style="padding: 15px;"></ion-img>
                 <!-- <ion-icon  style=" zoom: 3.5;" color='danger' name="cash-outline" ></ion-icon> -->
               </ion-avatar>
             </ion-col>
             <ion-col>
               <!-- <p style="font-size: 2rem;"> -->
-                <h1 style=" font-size: 1.7rem;"><span style="font-size: 1rem;">$</span>{{p}}<span style="font-size: 1rem;">/MON</span></h1>
+                <h1 style="color:white; font-size: 1.4rem;"><span style="font-size: 0.7rem;">$</span>{{p}}<span style="font-size: 0.7rem;">/MON</span></h1>
                 <!-- ${{p}} -->
               <!-- </p> -->
             </ion-col>
           </ion-row>
           <ion-row>
             <ion-col>
-              <p style="font-size: 1.2rem;">
+              <p style=" color:white;font-size: 1rem;">
                 Details here
               </p>
             </ion-col>
@@ -73,9 +78,9 @@
       </div>
     </ion-slide>
 </ion-slides> -->
-<ion-slides >
-  <ion-slide>
-    <ion-card style="width: 92vw;box-shadow:rgba(0, 0, 0, 0.0) 0px 0px 0px;">
+<!-- <ion-slides >
+  <ion-slide> -->
+    <ion-card style="width: 92vw;box-shadow:rgba(0, 0, 0, 0.0) 0px 0px 0px; margin-top: 0;">
       <ion-row >
         <ion-col>
           <ion-chip class="enableNext" style="width: 100%; display: flex; " color="danger" (click)='sendEmail()'>
@@ -91,8 +96,8 @@
         </ion-col>
       </ion-row>
     </ion-card>
-  </ion-slide>
-</ion-slides>
+  <!-- </ion-slide>
+</ion-slides> -->
 
 
   <!-- <ion-card class="card">

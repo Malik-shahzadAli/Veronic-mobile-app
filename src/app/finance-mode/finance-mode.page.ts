@@ -75,7 +75,6 @@ export class FinanceModePage implements OnInit {
   }
 
   ngOnInit() {
-    this.loading2();
     this.dropDownSelected = true;
   }
   async getErrorTost() {
@@ -90,7 +89,6 @@ export class FinanceModePage implements OnInit {
     toast.present();
   }
   ionViewDidEnter(){
-    this.loadingController.dismiss('loading2');
   }
   async loading2() {
     const loading = await this.loadingController.create({

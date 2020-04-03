@@ -63,7 +63,6 @@ export class SecDriverEducationComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.loading2();
     console.log(this.driverName);
     if (this.singleDriverObj.driverData.dEducation) {
       this.driverEducation.patchValue({
@@ -84,7 +83,6 @@ export class SecDriverEducationComponent implements OnInit {
     toast.present();
   }
   ionViewDidEnter(){
-    this.loadingController.dismiss('loading2');
   }
   async loading2() {
     const loading = await this.loadingController.create({

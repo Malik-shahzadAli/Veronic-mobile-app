@@ -36,7 +36,6 @@ export class PrimaryNamePage implements OnInit {
   }
   ngOnInit() {
     // console.log('ion view start');
-    this.presentAlert();
     console.log(this.primaryName);
     if (((this.finalObj.customer.customerData.firstName) !== '') &&  ((this.finalObj.customer.customerData.firstName) !== '')) {
 
@@ -97,7 +96,6 @@ export class PrimaryNamePage implements OnInit {
   }
   ionViewDidEnter(){
     // console.log('loaded completely')
-    this.loadingController.dismiss('alert');
   }
   async presentAlert() {
 

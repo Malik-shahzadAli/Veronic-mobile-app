@@ -51,7 +51,6 @@ export class AccidentInfoPage implements OnInit {
     console.log(this.finalObj);
   }
   ngOnInit() {
-    this.presentAlert();
     if (this.finalObj.customer.customerIncidents.length > 0) {
       this.accidentAsk.patchValue({
         accidentStatus : this.finalObj.customer.customerIncidents[0].isCGuilty,
@@ -72,7 +71,6 @@ export class AccidentInfoPage implements OnInit {
     toast.present();
   }
   ionViewDidEnter(){
-    this.loadingController.dismiss('alert');
   }
   async presentAlert() {
 

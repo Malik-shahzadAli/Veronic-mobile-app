@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>other-quotes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="flex">
+    <div class="ionCard">
+
+    
+    <ion-card  style="background:linear-gradient(90deg, rgba(215,0,0,1) 0%, rgba(215,0,57,1) 35%, rgba(255,0,71,1) 100%);">
+      <ion-card-header>
+        <ion-title class="ion-text-center" style="color: white; font-size: 1.2rem;">Thank You!</ion-title>
+        <hr>
+      </ion-card-header>
+      <ion-card-content>
+        <p class="ion-text-center" style="color: white; font-size: 1.5rem; padding-top: 5vh;padding-bottom: 5vh;">Your Quote No <br>{{quoteId}}</p>
+        <ion-card  class="internalCard">
+          <ion-card-header>
+            <p class="ion-text-center" style="color: white; font-size: 1.1rem;">Thanks for providing all the information. Our agent will contact you shortly</p>
+          </ion-card-header>
+        </ion-card>
+      </ion-card-content>
+      <!-- <ion-card-header> -->
+        <!-- <ion-chip  class="enableNext" color="danger" size="large"  >
+          <ion-label class="next">CALL AGENT</ion-label>
+        </ion-chip> -->
+      <!-- </ion-card-header> -->
+      <!-- <ion-card-header style="background: white;"> -->
+      <!-- </ion-card-header> -->
+    </ion-card>
+    <div class="ionCard">
+        <ion-chip  class="enableNext" color="danger" style="width: 97vw;" size="large" (click)="callAlert()" >
+          <ion-label class="next"> <ion-icon name="call" style="zoom: 0.9; padding-top: 1px;"></ion-icon> CALL AGENT</ion-label>
+        </ion-chip>
+    </div>
+  </div>
+  </div>
+</ion-content>
