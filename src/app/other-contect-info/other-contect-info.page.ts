@@ -84,37 +84,31 @@ export class OtherContectInfoPage implements OnInit {
   }
 
   getUserContactInfoNextClick() {
-      // this.loading();
+      this.loading();
       const emailAddress = this.emailAddress.value;
       const phoneNumber = this.phoneNumber.value;
       const phone = this.formatPhoneNumber(phoneNumber);
-      this.finalObj.quoteData.customer.customerData.email = emailAddress;
-      this.finalObj.quoteData.customer.customerData.phone = '+1'+phone;
-      this.router.navigate(['/other-otp-type']);
-      // const newPhone = '+923338190934';
-      // const newPhone = '+1' + phone;
-      // console.log(newPhone);
-      // this.http.post(url.baseurl + '/api/get/otp', {
-      //   "phoneNo" : newPhone,
-      //   "channel":"SMS"
-      // })
-      //   .subscribe((response) => {
-      //     this.loadingController.dismiss('login');
-      //     console.log('Server Response, validate Phone Number and send OTP');
-      //     console.log(response);
-      //     this.finalObj.quoteData.customer.email = emailAddress;
-      //     this.finalObj.quoteData.customer.phone = '+1'+phone;
-      //     this.router.navigate(['/other-otp-type']);
-      //   },
-      //   (error) => {
-      //     this.loadingController.dismiss('login');
-      //     console.log(error);
-      //     if (error.error.hasError) {
-      //       this.errorMessage = error.error.message;
-      //       console.log('Error Here');
-      //       this.invalidPhone();
-      //     }
-      //   });
+
+          this.http.post(url.baseurl + '/api/validate/phone', {
+        "phoneNo" : '+1'+phone
+      })
+        .subscribe((response) => {
+          this.loadingController.dismiss('login');
+          console.log('Server Response, validate Phone Number and send OTP');
+          console.log(response);
+          this.finalObj.quoteData.customer.customerData.email = emailAddress;
+          this.finalObj.quoteData.customer.customerData.phone = '+1'+phone;
+          this.router.navigate(['/other-otp-type']);
+        },
+        (error) => {
+          this.loadingController.dismiss('login');
+          console.log(error);
+          if (error.error.hasError) {
+            this.errorMessage = error.error.message;
+            console.log('Error Here');
+            this.invalidPhone();
+          }
+        });
       console.log(this.finalObj);
   }
   ngOnInit() {

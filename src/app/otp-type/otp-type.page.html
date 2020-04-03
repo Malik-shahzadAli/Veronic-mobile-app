@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+  <div class="flex">
+    <ion-card class="ion-card">
+    <!-- <div class="ion-text-center">
+      <ion-progress-bar color='danger' value="0.5" style="margin-bottom: 3vh;"></ion-progress-bar>
+      <img src="assets/icon/home.png" />
+    </div> -->
+    <div class="ion-text-center">
+      <ion-progress-bar color='danger' value="0.66" style="margin-bottom: 3vh;"></ion-progress-bar>
+    </div>
+    <div style="align-self: flex-start !important; align-items: start;display: table-cell !important;">
+      <ion-back-button defaultHref='/date-of-birth' slot="start"></ion-back-button>
+    </div>
+    <div class="ion-text-center">
+      <img src="assets/icon/otp-type.svg" />
+    </div>
+    <ion-card-header style="margin-bottom: 0px !important; padding-bottom: 0px !important; padding-top: 0px !important;">
+      <ion-card-subtitle class="ion-text-center">Customer Info</ion-card-subtitle>
+      <ion-card-title class="ion-text-center">{{ 'otpType.title' | translate }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content style="padding-bottom:0px !important">
+      <form [formGroup]='typeOfOtp'>
+        <div class="toggle" (ionChange)="changeStatus($event)">
+          <ion-list>
+            <ion-radio-group  value="">
+              <ion-item>
+                <label >Sms</label>
+                <ion-radio slot="end" formControlName="otpType" value="SMS" color="danger"></ion-radio>
+              </ion-item>
+    
+              <ion-item>
+                <label >Call</label>
+                <ion-radio slot="end" formControlName="otpType" value='CALL' color="danger"></ion-radio>
+              </ion-item>
+            </ion-radio-group>
+          </ion-list>
+        </div>
+      </form>
+    </ion-card-content>
+    <ion-card-header style="margin-bottom: 0px !important; padding-bottom: 0px !important; padding-top: 0px !important;">
+      <ion-chip *ngIf='!select' class="disableNext" size="large" color="danger" (click)="getErrorTost()" >
+        <ion-label class="next">NEXT</ion-label>
+      </ion-chip>
+      <!-- Enable Button -->
+      <ion-chip *ngIf='select' class="enableNext" size="large"  routerLink='/other-otp' (click)="getUserHomeOwnerStatusNextClick()" >
+        <ion-label class="next">NEXT</ion-label>
+      </ion-chip>
+    </ion-card-header>
+    <ion-progress-bar color='danger' value="0.75"></ion-progress-bar>
+  </ion-card>
+</div>
+</ion-content>

@@ -102,7 +102,7 @@ export class AppComponent implements OnInit {
   }
 
   async shareApi() {
-    console.log('I m calling !!!!!')
+    console.log('I m calling !!!!! !')
     try{
       const sharedResponse = await this.ngNavigatorShareService.share({
         title:'`Web Articles and Tutorials',

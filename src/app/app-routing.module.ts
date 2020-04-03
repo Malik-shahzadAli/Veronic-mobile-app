@@ -151,6 +151,14 @@ const routes: Routes = [
     path: 'other-quotes',
     loadChildren: () => import('./other-quotes/other-quotes.module').then( m => m.OtherQuotesPageModule)
   },
+  {
+    path: 'other',
+    loadChildren: () => import('./other/other.module').then( m => m.OtherPageModule)
+  },
+  {
+    path: 'otp-type',
+    loadChildren: () => import('./otp-type/otp-type.module').then( m => m.OtpTypePageModule)
+  },
 
 
 
